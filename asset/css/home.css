@@ -4,51 +4,259 @@
 }
 body{
 	font-size: 62.5%;
+	font-family: 微软雅黑;
 }
 .top{
 	width: 100%;
-	height: 40px;
-	position: fixed;
-	margin-top: 28px;
+	height: 423px;
+}
+.t-Contentdiv{
+	width: 100%;
+	position: absolute;
+	top: 20px;
 }
 .t-Content{
-	width: 61.5%;
+	width: 829px;
 	margin: auto;
 }
-.t-Logo{
+.t-C-Logo{
+	height: 29px;
 	float: left;
 }
-.t-Menu1{
+.t-C-Menu1{
 	float: left;        z
 }
-.t-Menu1 a:link,.t-Menu1 a:visited{
-	font-size: 1.9em;
+.t-C-Menu1 a:link,.t-C-Menu1 a:visited{
+	font-size: 1.4em;
 	color: #fff;
 	text-decoration: none;
-	line-height: 40px;
-	margin-left: 37px;
+	line-height: 29px;
+	margin-left: 26px;
 }
-.t-Menu2{
+.t-C-Menu2{
 	float: right;
 }
-.t-Search{
-	width: 180px;
-	height: 29px;
+.t-C-M2-Search{
+	width: 126px;
+	height: 20px;
 	border: 1px solid #a5c1c5;
-	border-radius: 15px;
+	border-radius: 10px;
 	outline: none;
-	margin-right: 28px;
-	font-size: 1.8em;
+	float: left;
+	margin-top: 4.5px;
+	margin-right: 19px;
 	background-color: rgba(255,255,255,0.1);
 }
-.t-Menu2 a:link,.t-Menu2 a:visited{
-	font-size: 1.9em;
+.t-C-M2-Search input{
+	font-size: 1.3em;
+	background-color: rgba(255,255,255,0);
+	width: 100px;
+    height: 20px;
+    margin-left: 15px;
+    outline: none;
+    border: none;
+}
+.t-C-Menu2 a:link,.t-C-Menu2 a:visited{
+	font-size: 1.4em;
 	color: #fff;
 	text-decoration: none;
-	line-height: 40px;
+	line-height: 29px;
 }
-.t-Menu2 span{
-	margin: 0px 9px;
+.t-C-Menu2 span{
+	margin: 0px 6px;
 	color: #fff;
-	font-size: 1.9em;
+	font-size: 1.4em;
+}
+.baner li{
+	display: inline;
+}
+.baner img{
+	width: 100%;
+	height: 421px;
+}
+.body{
+	width: 100%;
+}
+.b-content{
+	width: 829px;
+	margin: auto;
+}
+.b-C-Navigation{
+	margin-top: 79px;
+}
+.b-C-Navigation ul{
+	float: left;
+	
+}
+.b-C-Navigation li{
+	display: inline;
+	margin-right: 17px;
+}
+.b-C-Navigation ul a:link,.b-C-Navigation ul a:visited{
+	font-size: 1.8em;
+	color: #5e5e5e;
+	text-decoration: none;
+}
+.b-C-N-More:link,.b-C-N-More:visited{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: none;
+	float: right;
+}
+.b-C-Details{
+	border-top: 1px solid #e6e6e6;
+	float: left;
+	margin-top: 14px;
+}
+.view-Row1,.view-Row2{
+	width: 267px;
+	float: left;
+	margin-right: 14px;
+	margin-top: 14px;
+}
+.view-Row3{
+	width: 267px;
+	float: left;
+	margin-top: 14px;
+}
+.row-Line{
+	max-width: 100%;
+	border: 1px solid #ededed;
+	position: relative;
+}
+.view-Title{
+	max-width: 15%;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.r-L-Title{
+	margin-top: 9px;
+	margin-bottom: 7px;
+	margin-left: 8px;
+}
+.r-L-Title a{
+	font-size: 1.1em;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+.r-L-Intro{
+	font-size: 0.8em;
+	margin-left: 8px;
+	margin-bottom: 6px;
+}
+.view-img{
+	max-width: 100%;
+}
+.recommendation{
+	width: 100%;
+	float: left;
+	margin-top: 70px;
+}
+.r-Title p{
+	font-size: 1.2em;
+	font-weight: bold;
+	float: left;
+}
+.r-Title a{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: none;
+	float: right;
+}
+.r-Details{
+	margin-top: 20px;
+	border-top: 1px solid #e6e6e6;
+	float: left;
+}
+.r-Details div{
+	width: 198px;
+	height: 134px;
+	float: left;
+	margin-top: 13px;
+}
+.r-Details div img{
+	max-width: 100%;
+}
+.r-D-View1,.r-D-View2,.r-D-View3{
+	margin-right: 11px;
+}
+.foot{
+	width: 100%;
+	background-color: #6fba2c;
+	margin-top: 69px;
+	float: left;
+}
+.f-Companyinformation{
+	width: 829px;
+	margin: auto;
+}
+.companyinformation1{
+	width: 100%;
+}
+.companyinformation1 ul{
+	position: relative;
+	top: 20px;
+	float: left;
+}
+.companyinformation1 li{
+	display: inline;
+	margin-right: 20px;
+}
+.companyinformation1 li a{
+	font-size: 1.2em;
+	color: #fff;
+	text-decoration: none;
+}
+.f-Logo{
+	float: right;
+	margin-top: 20px;
+}
+.companyinformation2{
+	width: 100%;
+	float: left;
+}
+.companyinformation2 img{
+	float: left;
+	margin-right: 12px;
+	margin-bottom: 12px;
+}
+.companyinformation2 p{
+	font-size: 1em;
+	color: #fff;
+	float: right;   
+	margin-top: 14px;
+}
+.f-Partner{
+	width: 100%;
+	border-top: 1px solid #a4d379;
+	background-color: #6fba2c;
+	float: left;
+}
+.f-Partnerdiv{
+	width: 829px;
+	margin: auto;
+}
+.f-Partnerdiv .f-P-Title{
+	font-size: 1.2em;
+	color: #a4d379;
+	margin-top:14px;
+	margin-bottom: 8px;
+}
+.f-P-details{
+	width: 100%;
+	float: left;
+}
+.f-P-details p{
+	width: 63px;
+	height: 19px;
+	background-color: #a4d379;
+	font-size: 1em;
+	color: #fff;
+	line-height: 19px;
+	text-align: center;
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 17px; 
 }
