@@ -1,10 +1,9 @@
 *{
-	margin: 0px;
 	padding: 0px;
+	margin: 0px;
 }
 body{
 	font-size: 62.5%;
-	font-family: 微软雅黑;
 }
 img{
 	outline: none;
@@ -12,53 +11,51 @@ img{
 }
 .top{
 	width: 100%;
-	height: 423px;
-}
-.t-Contentdiv{
-	width: 100%;
-	position: absolute;
-	top: 20px;
+	background-color: #9bcf6b;
 }
 .t-Content{
 	width: 829px;
+	height: 58px;
 	margin: auto;
 }
 .t-C-Logo{
-	height: 29px;
+	height: 28px;
+	margin: 14px 0px;
 	float: left;
 }
 .t-C-Menu1{
-	float: left;        z
+	line-height: 57px;
+	float: left;
 }
-.t-C-Menu1 a:link,.t-C-Menu1 a:visited{
+.t-C-Menu1 a{
 	font-size: 1.4em;
 	color: #fff;
+	margin-left: 27px;
 	text-decoration: none;
-	line-height: 29px;
-	margin-left: 26px;
 }
 .t-C-Menu2{
+	margin-top: 17px;
 	float: right;
 }
 .t-C-M2-Search{
 	width: 126px;
-	height: 20px;
-	border: 1px solid #a5c1c5;
-	border-radius: 10px;
+	height: 22px;
 	outline: none;
+	border: 1px solid #fff;
+	border-radius: 10px;
 	float: left;
-	margin-top: 4.5px;
 	margin-right: 19px;
-	background-color: rgba(255,255,255,0.1);
 }
 .t-C-M2-Search input{
-	font-size: 1.3em;
-	background-color: rgba(255,255,255,0);
 	width: 100px;
-    height: 22px;
-    margin-left: 15px;
-    outline: none;
-    border: none;
+	height: 20px;
+	border: none;
+	outline: none;
+	margin-left: 10px;
+	background-color: rgba(0,0,0,0);
+}
+.t-C-M2-Search{
+	background-color: rgba(255,255,255,0.1);
 }
 .t-C-M2-Search input:-moz-placeholder{
   color: #fff;
@@ -73,23 +70,17 @@ img{
 .t-C-M2-Search input::-webkit-input-placeholder{
   color: #fff;
 }
-.t-C-Menu2 a:link,.t-C-Menu2 a:visited{
+.t-C-Menu2{
+	line-height: 22px;
+}
+.t-C-Menu2 a{
 	font-size: 1.4em;
 	color: #fff;
 	text-decoration: none;
-	line-height: 29px;
 }
 .t-C-Menu2 span{
-	margin: 0px 6px;
+	margin: 0px 7px;
 	color: #fff;
-	font-size: 1.4em;
-}
-.baner li{
-	display: inline;
-}
-.baner img{
-	width: 100%;
-	height: 421px;
 }
 .body{
 	width: 100%;
@@ -111,14 +102,8 @@ img{
 }
 .b-C-Navigation ul a:link,.b-C-Navigation ul a:visited{
 	font-size: 1.8em;
-	color: #5e5e5e;
+	color: #77be38;
 	text-decoration: none;
-}
-.b-C-N-More:link,.b-C-N-More:visited{
-	font-size: 1.4em;
-	color: #5e5e5e;
-	text-decoration: none;
-	float: right;
 }
 .b-C-Details{
 	width: 100%;
@@ -126,19 +111,19 @@ img{
 	float: left;
 	margin-top: 14px;
 }
-.view-Row1,.view-Row2{
-	width: 267px;
+.view-Row1{
+	width: 407px;
 	float: left;
-	margin-right: 14px;
 	margin-top: 14px;
 }
-.view-Row3{
-	width: 267px;
-	float: left;
+.view-Row2{
+	width: 407px;
+	float: right;
 	margin-top: 14px;
 }
 .row-Line{
-	max-width: 100%;
+	max-width: 407px;
+	height: 278px;
 	border: 1px solid #ededed;
 	position: relative;
 }
@@ -149,7 +134,6 @@ img{
 	top: 0px;
 }
 .r-L-Title{
-	width: 100%;
 	margin-top: 9px;
 	margin-bottom: 7px;
 	margin-left: 8px;
@@ -167,42 +151,6 @@ img{
 }
 .view-img{
 	max-width: 100%;
-}
-.recommendation{
-	width: 100%;
-	float: left;
-	margin-top: 70px;
-}
-.r-Title{
-	width: 100%;
-}
-.r-Title p{
-	font-size: 1.2em;
-	font-weight: bold;
-	float: left;
-}
-.r-Title a{
-	font-size: 1.4em;
-	color: #5e5e5e;
-	text-decoration: none;
-	float: right;
-}
-.r-Details{
-	margin-top: 20px;
-	border-top: 1px solid #e6e6e6;
-	float: left;
-}
-.r-Details div{
-	width: 198px;
-	height: 134px;
-	float: left;
-	margin-top: 13px;
-}
-.r-Details div img{
-	max-width: 100%;
-}
-.r-D-View1,.r-D-View2,.r-D-View3{
-	margin-right: 11px;
 }
 .foot{
 	width: 100%;
@@ -246,13 +194,12 @@ img{
 	float: left;
 	margin-right: 12px;
 	margin-bottom: 12px;
-	margin-top: 
 }
 .companyinformation2 p{
 	font-size: 1em;
 	color: #fff;
-	float: right;   
-	margin-top: 12px;
+	float: right;
+	margin-top: 14px;
 }
 .f-Partner{
 	width: 100%;
