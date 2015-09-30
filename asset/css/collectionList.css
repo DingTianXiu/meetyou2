@@ -9,35 +9,35 @@ img{
 	outline: none;
 	border: none;
 }
-.top{
+.m-Header{
 	width: 100%;
 	background-color: #9bcf6b;
 }
-.t-Content{
+.h-Content{
 	width: 829px;
 	height: 58px;
 	margin: auto;
 }
-.t-C-Logo{
+.meetYouLogo{
 	height: 28px;
 	margin: 14px 0px;
 	float: left;
 }
-.t-C-Menu1{
+.nav{
 	line-height: 57px;
 	float: left;
 }
-.t-C-Menu1 a{
+.nav a{
 	font-size: 1.4em;
 	color: #fff;
 	margin-left: 27px;
 	text-decoration: none;
 }
-.t-C-Menu2{
+.loginBar{
 	margin-top: 17px;
 	float: right;
 }
-.t-C-M2-Search{
+.search{
 	width: 126px;
 	height: 22px;
 	outline: none;
@@ -46,7 +46,7 @@ img{
 	float: left;
 	margin-right: 19px;
 }
-.t-C-M2-Search input{
+.search input{
 	width: 100px;
 	height: 20px;
 	border: none;
@@ -54,53 +54,53 @@ img{
 	margin-left: 10px;
 	background-color: rgba(0,0,0,0);
 }
-.t-C-M2-Search{
+.search{
 	background-color: rgba(255,255,255,0.1);
 }
-.t-C-M2-Search input:-moz-placeholder{
-  color: #fff;
+.search input:-moz-placeholder{
+	color: #fff;
 }
-.t-C-M2-Search input::-moz-placeholder{
-  color: #fff;
-  opacity: 1;
+.search input::-moz-placeholder{
+	color: #fff;
+	opacity: 1;
 }
-.t-C-M2-Search input:-ms-input-placeholder{
-  color: #fff;
+.search input:-ms-input-placeholder{
+	color: #fff;
 }
-.t-C-M2-Search input::-webkit-input-placeholder{
-  color: #fff;
+.search input::-webkit-input-placeholder{
+	color: #fff;
 }
-.t-C-Menu2{
+.loginBar{
 	line-height: 22px;
 }
-.t-C-Menu2 a{
+.loginBar a{
 	font-size: 1.4em;
 	color: #fff;
 	text-decoration: none;
 }
-.t-C-Menu2 span{
+.loginBar span{
 	margin: 0px 7px;
 	color: #fff;
 }
-.body{
+.m-Body{
 	width: 100%;
 }
-.b-content{
+.b-Content{
 	width: 829px;
 	margin: auto;
 }
-.b-C-Navigation{
+.menu{
 	margin-top: 79px;
 }
-.b-C-Navigation ul{
+.menu ul{
 	float: left;
-	
+
 }
-.b-C-Navigation li{
+.menu li{
 	display: inline;
 	margin-right: 17px;
 }
-.b-C-Navigation ul a:link,.b-C-Navigation ul a:visited{
+.menu ul a:link,.menu ul a:visited{
 	font-size: 1.8em;
 	color: #77be38;
 	text-decoration: none;
@@ -111,133 +111,117 @@ img{
 	float: left;
 	margin-top: 14px;
 }
-.view-Row1{
+.notesList1{
 	width: 407px;
 	float: left;
 	margin-top: 14px;
 }
-.view-Row2{
+.notesList2{
 	width: 407px;
 	float: right;
 	margin-top: 14px;
 }
-.row-Line{
+.notes{
 	max-width: 407px;
 	height: 278px;
 	border: 1px solid #ededed;
 	position: relative;
 }
-.view-Title{
+.tabPicture{
 	max-width: 15%;
 	position: absolute;
 	right: 0px;
 	top: 0px;
 }
-.r-L-Title{
-	margin-top: 9px;
-	margin-bottom: 7px;
-	margin-left: 8px;
-}
-.r-L-Title a{
-	font-size: 1.1em;
-	font-weight: bold;
-	color: black;
-	text-decoration: none;
-	
-}
-.r-L-Intro{
-	font-size: 0.8em;
-	margin-left: 8px;
-	margin-bottom: 6px;
-}
-.view-img{
+.contentPicture{
 	max-width: 100%;
 }
-.btndiv{
+.loadingMore{
 	width: 829px;
 	margin: auto;
 	text-align: center;
 }
-.b-C-btn{
+.btn-LoadingMore{
 	font-size: 10px;
 	width:113px;
 	height: 27px;
-	border: 1px solid #8a8a8a; 
+	border: 1px solid #8a8a8a;
 	border-radius: 5px;
 	outline: none;
 	background-color: #fff;
 	margin: 34px auto 0px;
 }
-.foot{
+.m-Footer{
 	width: 100%;
 	background-color: #6fba2c;
 	margin-top: 69px;
 	float: left;
 }
-.f-Companyinformation{
+.footer-Service{
 	height: 83px;
 	width: 829px;
 	margin: auto;
 }
-.companyinformation1{
+.service{
 	width: 100%;
 }
-.companyinformation1 ul{
+.service ul{
 	position: relative;
 	top: 19px;
 	float: left;
 }
-.companyinformation1 li{
+.service li{
 	display: inline;
 	margin-right: 20px;
 }
-.companyinformation1 li a{
+.service li a{
 	font-size: 1.2em;
 	color: #fff;
 	text-decoration: none;
 }
-.f-Logo{
+.footer-MeetYouLogo{
 	height: 29px;
 	float: right;
 	margin-top: 20px;
 }
-.companyinformation2{
+.touch{
 	width: 100%;
 	float: left;
 }
-.companyinformation2 img{
+.touch img{
 	height: 28px;
 	float: left;
 	margin-right: 12px;
 	margin-bottom: 12px;
+	margin-top:
 }
-.companyinformation2 p{
+.touch p{
 	font-size: 1em;
 	color: #fff;
 	float: right;
-	margin-top: 14px;
+	margin-top: 12px;
 }
-.f-Partner{
+.footer-Partner{
 	width: 100%;
 	border-top: 1px solid #a4d379;
 	background-color: #6fba2c;
 	float: left;
 }
-.f-Partnerdiv{
+.partnerContent{
 	width: 829px;
 	margin: auto;
 }
-.f-Partnerdiv .f-P-Title{
+.partnerTitle{
 	font-size: 1.2em;
 	color: #a4d379;
 	margin-top:14px;
 	margin-bottom: 8px;
 }
-.f-P-details{
+.partnerList{
 	width: 100%;
 	float: left;
 }
-.f-P-details p{
+.partnerList p{
 	width: 63px;
 	height: 19px;
 	background-color: #a4d379;
@@ -247,5 +231,5 @@ img{
 	text-align: center;
 	float: left;
 	margin-right: 5px;
-	margin-bottom: 17px; 
+	margin-bottom: 17px;
 }
