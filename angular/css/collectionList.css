@@ -1,0 +1,154 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	font-size: 62.5%;
+}
+img{
+	outline: none;
+	border: none;
+}
+.m-CollectionList .m-Header{
+	width: 100%;
+	background-color: #9bcf6b;
+}
+.m-CollectionList .h-Content{
+	width: 829px;
+	height: 58px;
+	margin: auto;
+}
+.m-CollectionList .meetYouLogo{
+	height: 28px;
+	margin: 14px 0px;
+	float: left;
+}
+.m-CollectionList .nav{
+	line-height: 57px;
+	float: left;
+}
+.m-CollectionList .nav a{
+	font-size: 1.4em;
+	color: #fff;
+	margin-left: 27px;
+	text-decoration: none;
+}
+.m-CollectionList .loginBar{
+	margin-top: 17px;
+	float: right;
+}
+.m-CollectionList .search{
+	width: 126px;
+	height: 22px;
+	outline: none;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	float: left;
+	margin-right: 19px;
+}
+.m-CollectionList .search input{
+	width: 100px;
+	height: 20px;
+	border: none;
+	outline: none;
+	margin-left: 10px;
+	background-color: rgba(0,0,0,0);
+}
+.m-CollectionList .search{
+	background-color: rgba(255,255,255,0.1);
+}
+.m-CollectionList .search input:-moz-placeholder{
+	color: #fff;
+}
+.m-CollectionList .search input::-moz-placeholder{
+	color: #fff;
+	opacity: 1;
+}
+.m-CollectionList .search input:-ms-input-placeholder{
+	color: #fff;
+}
+.m-CollectionList .search input::-webkit-input-placeholder{
+	color: #fff;
+}
+.m-CollectionList .loginBar{
+	line-height: 22px;
+}
+.m-CollectionList .loginBar a{
+	font-size: 1.4em;
+	color: #fff;
+	text-decoration: none;
+}
+.m-CollectionList .loginBar span{
+	margin: 0px 7px;
+	color: #fff;
+}
+.m-CollectionList .m-Body{
+	width: 100%;
+}
+.m-CollectionList .b-Content{
+	width: 829px;
+	margin: auto;
+}
+.m-CollectionList .menu{
+	margin-top: 79px;
+}
+.m-CollectionList .menu ul{
+	float: left;
+
+}
+.m-CollectionList .menu li{
+	display: inline;
+	margin-right: 17px;
+}
+.m-CollectionList .menu ul a:link,
+.m-CollectionList .menu ul a:visited{
+	font-size: 1.8em;
+	color: #77be38;
+	text-decoration: none;
+}
+.m-CollectionList .b-C-Details{
+	width: 100%;
+	border-top: 1px solid #e6e6e6;
+	float: left;
+	margin-top: 14px;
+}
+.m-CollectionList .notesList1{
+	width: 407px;
+	float: left;
+	margin-top: 14px;
+}
+.m-CollectionList .notesList2{
+	width: 407px;
+	float: right;
+	margin-top: 14px;
+}
+.m-CollectionList .notes{
+	max-width: 407px;
+	height: 278px;
+	border: 1px solid #ededed;
+	position: relative;
+}
+.m-CollectionList .tabPicture{
+	max-width: 15%;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.m-CollectionList .contentPicture{
+	max-width: 100%;
+}
+.m-CollectionList .loadingMore{
+	width: 829px;
+	margin: auto;
+	text-align: center;
+}
+.m-CollectionList .btn-LoadingMore{
+	font-size: 10px;
+	width:113px;
+	height: 27px;
+	border: 1px solid #8a8a8a;
+	border-radius: 5px;
+	outline: none;
+	background-color: #fff;
+	margin: 34px auto 0px;
+}

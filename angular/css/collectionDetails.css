@@ -1,0 +1,89 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	font-size: 62.5%;
+font-family: Î¢ÈíÑÅºÚ;
+}
+img{
+	outline: none;
+	border: none;
+}
+.m-CollectionDetail .baner{
+	width: 100%;
+	height:218px;
+}
+.m-CollectionDetail .m-Body{
+	width: 100%;
+}
+.m-CollectionDetail .b-Content{
+	width: 829px;
+	margin: auto;
+}
+.m-CollectionDetail .main{
+	width: 100%;
+	float: left;
+	margin-top: 70px;
+}
+.m-CollectionDetail .notesList1{
+	width: 407px;
+	float: left;
+}
+.m-CollectionDetail .notesList2{
+	width: 407px;
+	float: right;
+}
+.m-CollectionDetail .notes{
+	max-width: 407px;
+	border: 1px solid #ededed;
+	position: relative;
+	text-align: center;
+}
+.m-CollectionDetail .contentPicture{
+	width: 100%;
+	height: 279px;
+}
+.m-CollectionDetail .notes-Title{
+	width: 100%;
+	margin-top: 11px;
+}
+.m-CollectionDetail .notes-Title a{
+	font-size: 1.3em;
+	color: black;
+	text-decoration: none;
+}
+.m-CollectionDetail .notes-Descript{
+	font-size: 0.9em;
+	color: #929292;
+	margin-top: 7px;
+	margin-bottom: 10px; 
+}
+.m-CollectionDetail .eyes{
+	font-size: 1.2em;
+	color: #9bcf6b;
+	position: absolute;
+	right:10px;
+	bottom: 29px; 
+}
+.m-CollectionDetail .eyes img{
+	height: 12px;
+	margin-right: 3px;
+	position: relative;
+	top: 2px;
+}
+.m-CollectionDetail .loadingMore{
+	width: 829px;
+	margin: auto;
+	text-align: center;
+}
+.m-CollectionDetail .btn-LoadingMore{
+	font-size: 10px;
+	width:113px;
+	height: 27px;
+	border: 1px solid #8a8a8a; 
+	border-radius: 5px;
+	outline: none;
+	background-color: #fff;
+	margin: 34px auto 0px;
+}

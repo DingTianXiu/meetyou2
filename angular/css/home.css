@@ -1,0 +1,165 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-size: 62.5%;
+	font-family: 微软雅黑;
+}
+img{
+	outline: none;
+	border: none;
+}
+.m-Home .baner li{
+	display: inline;
+}
+.m-Home .baner img{
+	width: 100%;
+	height: 421px;
+}
+.m-Home .m-Body{
+	width: 100%;
+}
+.m-Home .b-Content{
+	width: 829px;
+	margin: auto;
+}
+.m-Home .menu{
+	margin-top: 79px;
+}
+.m-Home .menu ul{
+	float: left;
+}
+.m-Home .menu li{
+	display: inline;
+	margin-right: 17px;
+}
+.m-Home .nav-Link:link,
+.m-Home .nav-Link:visited{
+	font-size: 1.8em;
+	color: #5e5e5e;
+	text-decoration: none;
+	font-weight: bold;
+}
+.m-Home .nav-Link:hover,
+.m-Home .nav-Link:active{
+	font-size: 1.8em;
+	color: #5e5e5e;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.m-Home .nav-Link-Choose:link,
+.m-Home .nav-Link-Choose:visited{
+	font-size: 1.8em;
+	color: #9bcf6b;
+	text-decoration: none;
+	font-weight: bold;
+}
+.m-Home .nav-Link-Choose:hover,
+.m-Home .nav-Link-Choose:active{
+	font-size: 1.8em;
+	color: #9bcf6b;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.m-Home .linkMore:link,
+.m-Home .linkMore:visited{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: none;
+	float: right;
+}
+.m-Home .main{
+	width: 100%;
+	border-top: 1px solid #e6e6e6;
+	float: left;
+	margin-top: 14px;
+}
+.m-Home .notes-List1,
+.m-Home .notes-List2{
+	width: 267px;
+	float: left;
+	margin-right: 14px;
+
+}
+.m-Home .notes-List3{
+	width: 267px;
+	float: left;
+}
+.m-Home .notes{
+	max-width: 267px;
+	border: 1px solid #ededed;
+	position: relative;
+	margin-top: 14px;
+}
+.m-Home .tabPicture{
+	max-width: 15%;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.m-Home .notes-Title{
+	width: 100%;
+	margin-top: 9px;
+	margin-bottom: 7px;
+	margin-left: 8px;
+}
+.m-Home .notes-Title a{
+	font-size: 1.1em;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+.m-Home .notes-Intro{
+	font-size: 0.8em;
+	margin-left: 8px;
+	margin-bottom: 6px;
+}
+.m-Home .contentPicture{
+	width: 267px;
+	height: 184px;
+}
+.m-Home .contentPicture img{
+	max-width: 100%;
+	width: 267px;
+	height: 184px;
+}
+.m-Home .active{
+	width: 100%;
+	float: left;
+	margin-top: 70px;
+	display:none;
+}
+.m-Home .active-Title{
+	width: 100%;
+}
+.m-Home .active-Title p{
+	font-size: 1.2em;
+	font-weight: bold;
+	float: left;
+}
+.m-Home .active-Title a{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: none;
+	float: right;
+}
+.m-Home .active-List{
+	margin-top: 20px;
+	border-top: 1px solid #e6e6e6;
+	float: left;
+}
+.m-Home .active-List div{
+	width: 198px;
+	height: 134px;
+	float: left;
+	margin-top: 13px;
+}
+.m-Home .active-List div img{
+	max-width: 100%;
+}
+.m-Home .active1,
+.m-Home .active2,
+.m-Home .active3{
+	margin-right: 11px;
+}

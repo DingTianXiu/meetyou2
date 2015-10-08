@@ -1,0 +1,59 @@
+﻿
+
+
+
+<div ng-controller="HomeCtrl" id="bodysectionid" ng-init="initIndex()" class="m-Home">
+    <div class="baner">
+        <ul>
+            <li><a href="javacript:void(0)"><img src="img/设计图/baner.jpg"></a></li>
+        </ul>
+    </div>
+    <div class="m-Body">
+        <div class="b-Content">
+            <div class="menu">
+                <ul>
+                    <li ng-repeat="category in categories"><a class="nav-Link" ng-class="{'nav-Link-Choose':$index == selectedIndex}" ng-click="changeCategory(category,$index)" ng-mouseenter="ChangeSlide($index)" ng-href="#/collections/{{rcollection.getObjectId()}}">{{category}}</a></li>
+                </ul>
+                <a class="linkMore" ng-click="loadingMore()" href="">更多 +</a>
+            </div>
+            <div class="main">
+                <div class="notes-List1">
+                    <div class="notes" ng-repeat="rarticle in currentArticles.oneCol">
+                        <img class="tabPicture" src="img/设计图/蜜月.jpg">
+                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
+                        <p class="notes-Intro">觅游旅行</p>
+                    </div>
+                </div>
+                <div class="notes-List2">
+                    <div class="notes" ng-repeat="rarticle in currentArticles.twoCol">
+                        <img class="tabPicture" src="img/设计图/蜜月.jpg">
+                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
+                        <p class="notes-Intro">觅游旅行</p>
+                    </div>
+                </div>
+                <div class="notes-List3">
+                    <div class="notes" ng-repeat="rarticle in currentArticles.threeCol">
+                        <img class="tabPicture" src="img/设计图/蜜月.jpg">
+                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
+                        <p class="notes-Intro">觅游旅行</p>
+                    </div>
+                </div>
+            </div>
+            <div class="active">
+                <div class="active-Title">
+                    <p>活动推荐</p>
+                    <a href="javascript:void(0)">更多 +</a>
+                </div>
+                <div class="active-List">
+                    <div class="active1"><img src="img/设计图/view2.jpg"></div>
+                    <div class="active2"><img src="img/设计图/view2.jpg"></div>
+                    <div class="active3"><img src="img/设计图/view2.jpg"></div>
+                    <div class="active4"><img src="img/设计图/view2.jpg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
