@@ -1,0 +1,69 @@
+
+
+
+<div class="m-ArticlesList" ng-controller="ArticlesListCtrl" ng-init="initIndex()">
+    <div class="b-Content">
+        <div class="nav">
+            <ul>
+                <li ng-repeat="category in categories"><a class="nav-Link" ng-click="changeCategory(category,$index)" ng-class="{'nav-Link-Choose':$index == selectedIndex}" href="">{{category}}</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="notes-List1">
+                <div class="notes" ng-repeat="rarticle in currentArticles.oneCol">
+                    <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
+                    <div class="view-img"><img src="{{rarticle.get('background').url()}}"></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
+                    <div class="notes-Descriptor">
+                        <ul>
+                            <li ng-show="rarticle.hasNickName" class="name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                            <li>{{rarticle.startDate}}</li>
+                            <li>{{rarticle.get('duration')}}Days</li>
+                            <li><img class="countImg" src="img/设计图/eyes.png"></li>
+                            <li class="count">888</li>
+                        </ul>
+                    </div>
+                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                </div>
+            </div>
+            <div class="notes-List2">
+                <div class="notes" ng-repeat="rarticle in currentArticles.twoCol">
+                    <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
+                    <div class="view-img"><img src="{{rarticle.get('background').url()}}"></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
+                    <div class="notes-Descriptor">
+                        <ul>
+                            <li ng-show="rarticle.hasNickName" class="name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                            <li>{{rarticle.startDate}}</li>
+                            <li>{{rarticle.get('duration')}}Days</li>
+                            <li><img class="countImg" src="img/设计图/eyes.png"></li>
+                            <li class="count">888</li>
+                        </ul>
+                    </div>
+                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                </div>
+            </div>
+            <div class="notes-List3">
+                <div class="notes" ng-repeat="rarticle in currentArticles.threeCol">
+                    <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
+                    <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
+                    <div class="notes-Descriptor">
+                        <ul>
+                            <li ng-show="rarticle.hasNickName" class="name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                            <li>{{rarticle.startDate}}</li>
+                            <li>{{rarticle.get('duration')}}Days</li>
+                            <li><img class="countImg" src="img/设计图/eyes.png"></li>
+                            <li class="count">888</li>
+                        </ul>
+                    </div>
+                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                </div>
+            </div>
+            <div class="loadingMore">
+                <button class="btn-LoadingMore" ng-show="showLoadMore" ng-click="loadMore()">加载更多</button>
+                <button class="btn-LoadingMore" ng-show="showEnd">看完了^o^</button>
+            </div>
+        </div>
+    </div>
+

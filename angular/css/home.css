@@ -80,23 +80,31 @@ img{
 	width: 267px;
 	float: left;
 	margin-right: 14px;
-
+	margin-bottom: 69px;
 }
 .m-Home .notes-List3{
 	width: 267px;
 	float: left;
+	margin-bottom: 69px;
 }
 .m-Home .notes{
 	max-width: 267px;
 	border: 1px solid #ededed;
 	position: relative;
 	margin-top: 14px;
+	padding-bottom: 3px;
 }
-.m-Home .tabPicture{
-	max-width: 15%;
+.m-Home .relation{
+	width: 40px;
+	height: 19px;
+	background-color: #6fba2c;
 	position: absolute;
 	right: 0px;
 	top: 0px;
+	font-size: 1em;
+	color: #ffffff;
+	line-height: 19px;
+	text-align: center;
 }
 .m-Home .notes-Title{
 	width: 100%;
@@ -110,18 +118,43 @@ img{
 	color: black;
 	text-decoration: none;
 }
-.m-Home .notes-Intro{
-	font-size: 0.8em;
-	margin-left: 8px;
-	margin-bottom: 6px;
+.m-Home .notes-Intro li{
+	font-size: 0.9em;
+	color: #a1a1a1;
+	display: inline;
+	margin-left: 9px;
+}
+.m-Home .notes-Intro .notes-Intro-Name{
+	color: #9bcf6b;
+	font-weight: bold;
+}
+.m-Home .notes-Intro .notes-Intro-Count{
+	color: #9bcf6b;
+	margin-left: 0px;
+}
+.m-Home .notes-Intro .notes-Intro-CountImg{
+	height: 10px;
+	position: relative;
+	top: -1px;
+}
+.m-Home .headPortrait{
+	width: 30px;
+	height: 30px;
+	border:none;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	position: absolute;
+	right: 5px;
+	bottom: 6px;
 }
 .m-Home .contentPicture{
-	width: 267px;
+	width: 265px;
 	height: 184px;
 }
 .m-Home .contentPicture img{
 	max-width: 100%;
-	width: 267px;
+	width: 265px;
 	height: 184px;
 }
 .m-Home .active{

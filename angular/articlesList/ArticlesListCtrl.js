@@ -1,12 +1,7 @@
 /**
- * Created by goodo on 2015-08-12.
+ * Created by meetyou on 2015/10/10.
  */
-
-
-
-'use strict';
-
-//Leancloudé…ç½®
+//LeancloudÅäÖÃ
 AV.initialize("xheu55juaeye1u1e412588pyz37d3luqba7hhjd30btx9mid", "8h1dv6vtcxyh1hmtesqguubhzntl73n1nbjan4dfxd8f09s0");
 var Article = AV.Object.extend('Article'),
     RecommendArticle = AV.Object.extend('RecommendArticle'),
@@ -29,7 +24,7 @@ angular.module('myApp.ArticlesList', [])
         };
         var indeterminateProgress = new Mprogress(intObj);
 
-        $scope.categories=['å…¨éƒ¨','å®¶åº­','äº²å­','èœœæœˆ','æƒ…ä¾£','åŸºå‹','é—ºèœœ','ç‹¬è¡Œ','å¶é‡'];
+        $scope.categories=['È«²¿','¼ÒÍ¥','Ç××Ó','ÃÛÔÂ','ÇéÂÂ','»ùÓÑ','¹ëÃÛ','¶ÀĞĞ','Å¼Óö'];
         $scope.selectedIndex=0;
         if($rootScope.selectedCategory)
         {
@@ -46,12 +41,9 @@ angular.module('myApp.ArticlesList', [])
 
             $location.path('/articles/'+rarticle.getObjectId());
         };
-
         $scope.initIndex = function () {
 
 
-            //å¼€å§‹è¿›åº¦æ¡
-            indeterminateProgress.start();
 
             $scope.showEnd = false;
             $scope.showLoadMore = true;
@@ -64,12 +56,13 @@ angular.module('myApp.ArticlesList', [])
 
                     $scope.count = count;
                     $scope.page = 0;
-                    $scope.limit=12;
+                    $scope.limit=15;
                     query.skip($scope.page*$scope.limit);
                     query.limit($scope.limit);
 
                     query.include('authorinformation');
-                    if($scope.categories[$scope.selectedIndex] !="å…¨éƒ¨"){
+                    query.include('relationship')
+                    if($scope.categories[$scope.selectedIndex] !="È«²¿"){
                         query.equalTo("relationshipstring",$scope.categories[$scope.selectedIndex]);
                     }
 
@@ -77,13 +70,13 @@ angular.module('myApp.ArticlesList', [])
                     query.descending("updatedAt");
                     return query.find();
                 })
+
                 .then(function (articles) {
                     var colOneArray=[];
                     var colTwoArray=[];
                     var colThreeArray=[];
                     for(var i = 0;i<articles.length;i++){
 
-//                        console.log(articles[i].get('article').get('startedAt'));
                         if(articles[i].get('startedAt'))
                         {
                             articles[i].startDate=articles[i].get('startedAt').toLocaleDateString().replace(/\//gm, ".");
@@ -102,7 +95,16 @@ angular.module('myApp.ArticlesList', [])
                             articles[i].hasAvatar=false;
                         }
 
-
+                        if(articles[i].get('authorinformation'))
+                        {
+                            if(articles[i].get('authorinformation').get('nickname')) {
+                                articles[i].hasNickName = true;
+                            }
+                        }
+                        else
+                        {
+                            articles[i].hasNickName=false;
+                        }
 
                         if(i%3==0){
 
@@ -134,16 +136,11 @@ angular.module('myApp.ArticlesList', [])
                     currentArticles.threeCol= colThreeArray;
                     $scope.currentArticles = currentArticles;
                     $scope.$apply();
-                    //endè¿›åº¦æ¡
-                    indeterminateProgress.end();
                 });
 
         };
 
         $scope.loadMore = function () {
-            //å¼€å§‹è¿›åº¦æ¡
-            indeterminateProgress.start();
-
             $scope.page ++;
             query.skip($scope.page*$scope.limit);
             query.limit($scope.limit);
@@ -190,16 +187,12 @@ angular.module('myApp.ArticlesList', [])
 
                 $scope.$apply();
 
-                //endè¿›åº¦æ¡
-                indeterminateProgress.end();
 
             });
         };
 
         $scope.changeCategory = function(category,$index){
 
-            //å¼€å§‹è¿›åº¦æ¡
-            indeterminateProgress.start();
 
             $scope.page = 0;
             $scope.selectedIndex = $index;
@@ -208,10 +201,11 @@ angular.module('myApp.ArticlesList', [])
             query.limit($scope.limit);
 
             query.include('authorinformation');
+            query.include('relationship')
 
             query.descending("createdAt");
             query.descending("updatedAt");
-            if(category !="å…¨éƒ¨"){
+            if(category !="È«²¿"){
                 query.equalTo("relationshipstring",category);
             }
 
@@ -245,7 +239,16 @@ angular.module('myApp.ArticlesList', [])
                             articles[i].hasAvatar=false;
                         }
 
-
+                        if(articles[i].get('authorinformation'))
+                        {
+                            if(articles[i].get('authorinformation').get('nickname')) {
+                                articles[i].hasNickName = true;
+                            }
+                        }
+                        else
+                        {
+                            articles[i].hasNickName=false;
+                        }
 
                         if(i%3==0){
 
@@ -265,8 +268,6 @@ angular.module('myApp.ArticlesList', [])
                     currentArticles.threeCol= colThreeArray;
                     $scope.currentArticles = currentArticles;
                     $scope.$apply();
-                    //åœæ­¢è¿›åº¦æ¡
-                    indeterminateProgress.end();
                 });
         };
 

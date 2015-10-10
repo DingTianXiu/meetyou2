@@ -29,10 +29,12 @@ img{
 .m-CollectionDetail .notesList1{
 	width: 407px;
 	float: left;
+	margin-bottom: 69px;
 }
 .m-CollectionDetail .notesList2{
 	width: 407px;
 	float: right;
+	margin-bottom: 69px;
 }
 .m-CollectionDetail .notes{
 	max-width: 407px;

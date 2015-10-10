@@ -62,11 +62,12 @@ angular.module('myApp.home', [])
 
                     $scope.count = count;
                     $scope.page = 0;
-                    $scope.limit=12;
+                    $scope.limit=9;
                     query.skip($scope.page*$scope.limit);
                     query.limit($scope.limit);
 
                     query.include('authorinformation');
+                    query.include('relationship')
                     if($scope.categories[$scope.selectedIndex] !="全部"){
                         query.equalTo("relationshipstring",$scope.categories[$scope.selectedIndex]);
                     }
@@ -100,7 +101,16 @@ angular.module('myApp.home', [])
                             articles[i].hasAvatar=false;
                         }
 
-
+                        if(articles[i].get('authorinformation'))
+                        {
+                            if(articles[i].get('authorinformation').get('nickname')) {
+                                articles[i].hasNickName = true;
+                            }
+                        }
+                        else
+                        {
+                            articles[i].hasNickName=false;
+                        }
 
                         if(i%3==0){
 
@@ -116,16 +126,6 @@ angular.module('myApp.home', [])
                     }
 
 
-                    if($scope.count<=($scope.page+1)*$scope.limit)
-                    {
-                        $scope.showLoadMore = false;
-                        $scope.showEnd = true;
-                    }
-                    else
-                    {
-                        $scope.showEnd = false;
-                        $scope.showLoadMore = true;
-                    }
 
                     currentArticles.oneCol = colOneArray;
                     currentArticles.twoCol = colTwoArray;
@@ -138,61 +138,7 @@ angular.module('myApp.home', [])
 
         };
 
-        $scope.loadMore = function () {
-            //开始进度条
-            indeterminateProgress.start();
 
-            $scope.page ++;
-            query.skip($scope.page*$scope.limit);
-            query.limit($scope.limit);
-
-            query.find(function (articles) {
-
-
-                for(var i = 0;i<articles.length;i++){
-
-//                        console.log(articles[i].get('article').get('startedAt'));
-                    if(articles[i].get('startedAt'))
-                    {
-                        articles[i].startDate=articles[i].get('startedAt').toLocaleDateString().replace(/\//gm, ".");
-                    }
-                    else{
-                        articles[i].startDate ="";
-                    }
-
-
-
-                    if(i%3==0){
-
-                        $scope.currentArticles.oneCol.push(articles[i]);
-
-                    }
-                    else if(i%3==1){
-                        $scope.currentArticles.twoCol.push(articles[i]);
-                    }
-                    else{
-                        $scope.currentArticles.threeCol.push(articles[i]);
-                    }
-                }
-
-                if($scope.count<=($scope.page+1)*$scope.limit)
-                {
-                    $scope.showLoadMore = false;
-                    $scope.showEnd = true;
-                }
-                else
-                {
-                    $scope.showEnd = false;
-                    $scope.showLoadMore = true;
-                }
-
-                $scope.$apply();
-
-                //end进度条
-                indeterminateProgress.end();
-
-            });
-        };
 
         $scope.changeCategory = function(category,$index){
 
@@ -206,6 +152,7 @@ angular.module('myApp.home', [])
             query.limit($scope.limit);
 
             query.include('authorinformation');
+            query.include('relationship')
 
             query.descending("createdAt");
             query.descending("updatedAt");
@@ -243,6 +190,16 @@ angular.module('myApp.home', [])
                             articles[i].hasAvatar=false;
                         }
 
+                        if(articles[i].get('authorinformation'))
+                        {
+                            if(articles[i].get('authorinformation').get('nickname')) {
+                                articles[i].hasNickName = true;
+                            }
+                        }
+                        else
+                        {
+                            articles[i].hasNickName=false;
+                        }
 
 
                         if(i%3==0){

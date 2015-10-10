@@ -127,7 +127,7 @@ img{
 }
 .m-Header .search{
   width: 126px;
-  height: 22px;
+  height: 18px;
   outline: none;
   border: 1px solid #fff;
   border-radius: 10px;
@@ -136,7 +136,7 @@ img{
 }
 .m-Header .search input{
   width: 100px;
-  height: 20px;
+  height: 18px;
   border: none;
   outline: none;
   margin-left: 10px;
@@ -160,7 +160,6 @@ img{
 .m-Footer{
   width: 100%;
   background-color: #6fba2c;
-  margin-top: 69px;
   float: left;
 }
 .footer-Service{

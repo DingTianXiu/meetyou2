@@ -18,14 +18,13 @@ angular.module('myApp.CollectionsList', [])
 
     .controller('CollectionsListCtrl', function($scope,$location) {
 
-
+        $scope.categories=['全部','家庭','亲子','蜜月','情侣','基友','闺蜜','独行','偶遇'];
         var query = new AV.Query(Collection);
 
         $scope.CollectionClicked = function (collection){
 
             $location.path('/collections/'+collection.getObjectId());
         };
-
         $scope.initIndex = function () {
 
             query.count()

@@ -12,33 +12,60 @@
         <div class="b-Content">
             <div class="menu">
                 <ul>
-                    <li ng-repeat="category in categories"><a class="nav-Link" ng-class="{'nav-Link-Choose':$index == selectedIndex}" ng-click="changeCategory(category,$index)" ng-mouseenter="ChangeSlide($index)" ng-href="#/collections/{{rcollection.getObjectId()}}">{{category}}</a></li>
+                    <li ng-repeat="category in categories"><a class="nav-Link" ng-class="{'nav-Link-Choose':$index == selectedIndex}" ng-click="changeCategory(category,$index)" href="">{{category}}</a></li>
                 </ul>
                 <a class="linkMore" ng-click="loadingMore()" href="">更多 +</a>
             </div>
             <div class="main">
                 <div class="notes-List1">
                     <div class="notes" ng-repeat="rarticle in currentArticles.oneCol">
-                        <img class="tabPicture" src="img/设计图/蜜月.jpg">
+                        <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
                         <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
                         <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
-                        <p class="notes-Intro">觅游旅行</p>
+                        <div class="notes-Intro">
+                            <ul>
+                                <li ng-show="hasNickName" class="notes-Intro-Name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                                <li>{{rarticle.startDate}}</li>
+                                <li>{{rarticle.get('duration')}}Days</li>
+                                <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
+                                <li class="notes-Intro-Count">888</li>
+                            </ul>
+                        </div>
+                        <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                     </div>
                 </div>
                 <div class="notes-List2">
                     <div class="notes" ng-repeat="rarticle in currentArticles.twoCol">
-                        <img class="tabPicture" src="img/设计图/蜜月.jpg">
+                        <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
                         <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
                         <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
-                        <p class="notes-Intro">觅游旅行</p>
+                        <div class="notes-Intro">
+                            <ul>
+                                <li ng-show="rarticle.hasNickName" class="notes-Intro-Name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                                <li>{{rarticle.startDate}}</li>
+                                <li>{{rarticle.get('duration')}}Days</li>
+                                <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
+                                <li class="notes-Intro-Count">888</li>
+                            </ul>
+                        </div>
+                        <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                     </div>
                 </div>
                 <div class="notes-List3">
                     <div class="notes" ng-repeat="rarticle in currentArticles.threeCol">
-                        <img class="tabPicture" src="img/设计图/蜜月.jpg">
+                        <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
                         <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
                         <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
-                        <p class="notes-Intro">觅游旅行</p>
+                        <div class="notes-Intro">
+                            <ul>
+                                <li ng-show="rarticle.hasNickName" class="notes-Intro-Name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                                <li>{{rarticle.startDate}}</li>
+                                <li>{{rarticle.get('duration')}}Days</li>
+                                <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
+                                <li class="notes-Intro-Count">888</li>
+                            </ul>
+                        </div>
+                        <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                     </div>
                 </div>
             </div>

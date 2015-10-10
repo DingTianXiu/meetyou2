@@ -1,0 +1,45 @@
+
+.m-exceptions .main{
+    position: relative;
+    margin-bottom: 60px;
+}
+.m-exceptions .exceptions{
+    width: 829px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+    top: 97px;
+}
+.m-exceptions .exceptions-Title{
+    font-size: 4.5em;
+    color: #95c66a;
+}
+.m-exceptions .exceptions-descript{
+    font-size: 1.6em;
+    line-height: 28px;
+    margin-top: 10px;
+}
+.m-exceptions .backgroundImg{
+    max-width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.m-exceptions .content{
+    margin: 172px auto 0px;
+    width: 829px;
+    padding-top: 74px;
+}
+.m-exceptions .main .content img{
+    height: 37px;
+    width: 37px;
+    margin-bottom: 10px;
+}
+.m-exceptions .title{
+    font-size: 1.5em;
+    color: #95c66a;
+}
+.m-exceptions .contentInformation{
+    font-size: 1.4em;
+    margin: 13px 0px;
+    line-height: 25px;
+}

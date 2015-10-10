@@ -1,19 +1,11 @@
 
 
 
-<div class="m-ArticlesDetail">
+<div class="m-ArticlesDetail" ng-controller="ArticleDetailCtrl">
     <div class="b-Content">
         <div class="nav">
             <ul>
-                <li><a href="javacript:void(0)">全部</a></li>
-                <li><a href="javacript:void(0)">家庭</a></li>
-                <li><a href="javacript:void(0)">亲子</a></li>
-                <li><a href="javacript:void(0)">蜜月</a></li>
-                <li><a href="javacript:void(0)">情侣</a></li>
-                <li><a href="javacript:void(0)">基友</a></li>
-                <li><a href="javacript:void(0)">闺蜜</a></li>
-                <li><a href="javacript:void(0)">独行</a></li>
-                <li><a href="javacript:void(0)">偶遇</a></li>
+                <li><a <a class="nav-Link" ng-click="changeCategory(category,$index)" ng-class="{'nav-Link-Choose':$index == selectedIndex}" href="javacript:void(0)">{{category}}</a></li>
             </ul>
         </div>
         <div class="main">

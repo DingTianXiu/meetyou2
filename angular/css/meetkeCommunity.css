@@ -132,9 +132,11 @@ img{
     top:1px;
 }
 .m-articles .loadingMore{
+    height: 27px;
     width: 829px;
-    margin: auto;
+    margin: 0px auto 69px;
     text-align: center;
+    float: left;
 }
 .m-articles .btn-LoadingMore{
     font-size: 10px;
