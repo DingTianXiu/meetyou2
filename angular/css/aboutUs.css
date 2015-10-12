@@ -49,6 +49,7 @@
     width: 100%;
     background-color: #ececea;
     padding-top: 68px;
+    display: none;
 }
 .m-aboutUs .teammateDiv{
     width: 647px;

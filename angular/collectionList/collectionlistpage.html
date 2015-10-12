@@ -3,9 +3,12 @@
         <div class="b-Content">
             <div class="menu">
                 <ul>
-                    <li ng-repeat="category in categories"><a class="nav-Link" ng-class="{'nav-Link-Choose':$index == selectedIndex}" ng-click="changeCategory(category,$index)" href="">{{category}}</a></li>
+                    <div class="nav-Link-Div" ng-class="{'nav-Link-Div-Choose':$index == selectedIndex}" ng-repeat="category in categories">
+                        <li ><a class="nav-Link" ng-click="changeCategory(category,$index)" href="">{{category}}</a></li>
+                    </div>
                 </ul>
             </div>
+            <hr>
             <div class="main">
                 <div class="notesList1">
                     <div class="notes" ng-repeat="rcollection in rcollectionsOneCol">

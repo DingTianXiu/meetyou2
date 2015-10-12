@@ -5,7 +5,7 @@
     <div class="b-Content">
         <div class="nav">
             <ul>
-                <li ng-repeat="category in categories"><a class="nav-Link" ng-click="changeCategory(category,$index)" ng-class="{'nav-Link-Choose':$index == selectedIndex}" href="">{{category}}</a></li>
+                <li ng-repeat="category in categories track by $index "><a class="nav-Link" ng-click="changeCategory(category,$index)" ng-class="{'nav-Link-Choose':$index == selectedIndex}" href="">{{category}}</a></li>
             </ul>
         </div>
         <div class="main">

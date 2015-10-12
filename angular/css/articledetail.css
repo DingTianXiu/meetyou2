@@ -1,0 +1,78 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 62.5%;
+    font-family: Î¢ÈíÑÅºÚ;
+}
+img{
+    outline: none;
+    border: none;
+}
+.main{
+    width: 829px;
+    margin: auto;
+}
+.m-ArticleDetail .surfacePlotImg{
+    width: 829px;
+    margin: auto;
+    position: relative;
+}
+.m-ArticleDetail .surfacePlotImg img{
+    height: 422px;
+    margin-left: -292px;
+}
+.m-ArticleDetail .articleTitle{
+    position: absolute;
+    bottom: 41px;
+    color: #ffffff;
+    left: -25px;
+}
+.m-ArticleDetail .title1{
+    font-size: 33px;
+    font-weight: bold;
+}
+.m-ArticleDetail .title2{
+    font-size: 27px;
+}
+.m-ArticleDetail .time{
+    font-size: 1.3em;
+}
+.m-ArticleDetail .articleContent{
+    width: 470px;
+    border-left: 1px solid #95c66a;
+    position: relative;
+    padding: 33px 0px 53px 48px;
+}
+.m-ArticleDetail .headPortrait{
+    width: 57px;
+    height: 57px;
+    border: 2px solid #ffffff;
+    -webkit-border-radius: 57px;
+    -moz-border-radius: 57px;
+    border-radius: 57px;
+    position: absolute;
+    top: -29px;
+    left: -29px;
+}
+.m-ArticleDetail .artincleIntro{
+    margin: 0px 0px 37px 125px;
+}
+.m-ArticleDetail .artincleIntro li{
+    display: inline;
+    font-size: 1.3em;
+    color: #95c66a;
+}
+.m-ArticleDetail .artincleIntro img{
+    height: 20px;
+    position: relative;
+    top: 8px;
+    margin-left: 25px;
+    margin-right: 10px;
+}
+.m-ArticleDetail .digest{
+    font-size: 1.7em;
+    line-height: 29px;
+}

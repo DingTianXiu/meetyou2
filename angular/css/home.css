@@ -150,12 +150,12 @@ img{
 }
 .m-Home .contentPicture{
 	width: 265px;
-	height: 184px;
+	height: 132.5px;
+
 }
 .m-Home .contentPicture img{
-	max-width: 100%;
 	width: 265px;
-	height: 184px;
+	height: 132.5px;
 }
 .m-Home .active{
 	width: 100%;

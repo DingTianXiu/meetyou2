@@ -16,9 +16,16 @@ angular.module('myApp.CollectionsList', [])
 
 
 
-    .controller('CollectionsListCtrl', function($scope,$location) {
+    .controller('CollectionsListCtrl', function($rootScope,$scope,$location) {
 
         $scope.categories=['全部','家庭','亲子','蜜月','情侣','基友','闺蜜','独行','偶遇'];
+        $scope.selectedIndex=0;
+        if($rootScope.selectedCategory)
+        {
+            $scope.selectedIndex = $rootScope.selectedCategory;
+        }
+        console.log()
+
         var query = new AV.Query(Collection);
 
         $scope.CollectionClicked = function (collection){
@@ -35,7 +42,65 @@ angular.module('myApp.CollectionsList', [])
                     $scope.limit= 6;
                     query.skip($scope.page*$scope.limit);
                     query.limit($scope.limit);
+                    if($scope.categories[$scope.selectedIndex] !="全部"){
+                        query.equalTo("relationshipstring",$scope.categories[$scope.selectedIndex]);
+                    }
                     query.descending("updatedAt");
+                    return query.find();
+                })
+                .then(function (results) {
+
+                    var colOneArray=[];
+                    var colTwoArray=[];
+                    for(var i = 0;i<results.length;i++){
+
+
+
+                        if(i%2==0){
+
+                            console.log(colOneArray.push(results[i]));
+
+                        }
+                        else{
+                            colTwoArray.push(results[i]);
+                        }
+                    }
+
+                    $scope.$apply(function(){
+                        if($scope.count<=($scope.page+1)*$scope.limit)
+                        {
+                            $scope.showLoadMore = false;
+                            $scope.showEnd = true;
+                        }
+                        else
+                        {
+                            $scope.showEnd = false;
+                            $scope.showLoadMore = true;
+                        }
+
+                        $scope.rcollectionsOneCol = colOneArray;
+                        $scope.rcollectionsTwoCol = colTwoArray;
+                    });
+
+                });
+        };
+
+        $scope.changeCategory = function(category,$index){
+            $scope.page = 0;
+            $scope.selectedIndex = $index;
+            query = new AV.Query(Collection);
+            query.skip($scope.page*$scope.limit);
+            query.limit($scope.limit);
+
+            query.descending("createdAt");
+            query.descending("updatedAt");
+            if(category !="全部"){
+                query.equalTo("relationshipstring",category);
+            }
+
+            query.count()
+                .then(function(count){
+                    $scope.count = count;
                     return query.find();
                 })
                 .then(function (results) {

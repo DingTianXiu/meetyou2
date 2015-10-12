@@ -19,30 +19,46 @@ img{
 .m-CollectionList .menu{
 	margin-top: 79px;
 }
-.m-CollectionList .menu ul{
-	float: left;
-
+.m-CollectionList .nav-Link-Div{
+	width: 41px;
+	height: 19px;
+	line-height: 21px;
+	text-align: center;
+	display: inline-block;
+}
+.m-CollectionList .nav-Link-Div-Choose{
+	border: 2px solid #3da100;
 }
 .m-CollectionList .menu li{
 	display: inline;
-	margin-right: 17px;
+	height: 19px;
 }
-.m-CollectionList .menu ul a:link,
-.m-CollectionList .menu ul a:visited{
-	font-size: 1.8em;
-	color: #77be38;
+.m-CollectionList .nav-Link:link,
+.m-CollectionList .nav-Link:visited{
+	font-size: 1.3em;
+	color: #95c66a;
 	text-decoration: none;
+	font-weight: bold;
+}
+.m-CollectionList .nav-Link:hover,
+.m-CollectionList .nav-Link:active{
+	font-size: 1.3em;
+	color: #95c66a;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.m-CollectionList hr{
+	margin-top: 14px;
+	margin-bottom: 0px;
 }
 .m-CollectionList .notesList1{
 	width: 407px;
 	float: left;
-	margin-top: 14px;
 	margin-bottom: 69px;
 }
 .m-CollectionList .notesList2{
 	width: 407px;
 	float: right;
-	margin-top: 14px;
 	margin-bottom: 69px;
 }
 .m-CollectionList .notes{

@@ -15,53 +15,62 @@ img{
 }
 .m-Header-Home{
   width: 100%;
-  height: 423px;
   position: absolute;
-  top: 20px;
+  background-color: rgba(255,255,255,0);
 }
 .h-Content-Home{
   width: 829px;
+  height: 58px;
   margin: auto;
 }
 .meetYouLogo-Home{
   height: 29px;
   float: left;
+  margin-top: 14px;
 }
 .nav-Home{
   float: left;
+  line-height: 57px;
 }
 .nav-Home a:link,.nav-Home a:visited{
   font-size: 1.4em;
   color: #fff;
   text-decoration: none;
-  line-height: 29px;
   margin-left: 26px;
 }
 .loginBar-Home{
   float: right;
+  line-height: 57px;
+}
+.loginBar-Home a:link,.loginBar-Home a:visited{
+  font-size: 1.4em;
+  color: #fff;
+  text-decoration: none;
+}
+.loginBar-Home span{
+  margin: 0px 6px;
+  color: #fff;
+  font-size: 1.4em;
 }
 .search-Home{
   width: 126px;
-  height: 20px;
+  height: 18px;
   border: 1px solid #a5c1c5;
   border-radius: 10px;
   outline: none;
   float: left;
-  margin-top: 4.5px;
   margin-right: 19px;
+  margin-top: 18px;
   background-color: rgba(255,255,255,0.1);
 }
 .search-Home input{
   font-size: 1.3em;
-  background-color: rgba(255,255,255,0);
   width: 100px;
-  height: 22px;
-  margin-left: 15px;
-  outline: none;
+  height: 18px;
   border: none;
-}
-.search-Home input:-moz-placeholder{
-  color: #fff;
+  outline: none;
+  margin-left: 10px;
+  background-color: rgba(255,255,255,0);
 }
 .search-Home input::-moz-placeholder{
   color: #fff;
@@ -86,19 +95,12 @@ img{
 .search input::-webkit-input-placeholder{
   color: #fff;
 }
-.loginBar-Home a:link,.loginBar-Home a:visited{
-  font-size: 1.4em;
+.search input:-moz-placeholder{
   color: #fff;
-  text-decoration: none;
-  line-height: 29px;
-}
-.loginBar-Home span{
-  margin: 0px 6px;
-  color: #fff;
-  font-size: 1.4em;
 }
 .m-Header{
   width: 100%;
+  position: relative;
   background-color: #9bcf6b;
 }
 .m-Header .h-Content{
@@ -107,25 +109,35 @@ img{
   margin: auto;
 }
 .m-Header .meetYouLogo{
-  height: 28px;
-  margin: 14px 0px;
+  height: 29px;
   float: left;
+  margin-top: 14px;
 }
 .m-Header .nav{
   line-height: 57px;
   float: left;
 }
-.m-Header .nav a{
+.m-Header .nav a:link,.m-Header .nav a:visited{
   font-size: 1.4em;
   color: #fff;
   margin-left: 27px;
   text-decoration: none;
 }
-.m-Header .loginBar{
-  margin-top: 17px;
+.loginBar{
   float: right;
+  line-height: 57px;
 }
-.m-Header .search{
+.loginBar a:link,.loginBar a:visited{
+  font-size: 1.4em;
+  color: #fff;
+  text-decoration: none;
+}
+.loginBar span{
+  margin: 0px 7px;
+  color: #fff;
+  font-size: 1.4em;
+}
+.search{
   width: 126px;
   height: 18px;
   outline: none;
@@ -133,29 +145,17 @@ img{
   border-radius: 10px;
   float: left;
   margin-right: 19px;
+  margin-top: 18px;
+  background-color: rgba(255,255,255,0.1);
 }
-.m-Header .search input{
+.search input{
+  font-size: 1.3em;
   width: 100px;
   height: 18px;
   border: none;
   outline: none;
   margin-left: 10px;
   background-color: rgba(0,0,0,0);
-}
-.m-Header .search{
-  background-color: rgba(255,255,255,0.1);
-}
-.m-Header .loginBar{
-  line-height: 22px;
-}
-.m-Header .loginBar a{
-  font-size: 1.4em;
-  color: #fff;
-  text-decoration: none;
-}
-.m-Header .loginBar span{
-  margin: 0px 7px;
-  color: #fff;
 }
 .m-Footer{
   width: 100%;

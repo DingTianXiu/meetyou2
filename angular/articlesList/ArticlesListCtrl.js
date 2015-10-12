@@ -1,7 +1,5 @@
-/**
- * Created by meetyou on 2015/10/10.
- */
-//LeancloudÅäÖÃ
+ï»¿
+//Leancloudé…ç½®
 AV.initialize("xheu55juaeye1u1e412588pyz37d3luqba7hhjd30btx9mid", "8h1dv6vtcxyh1hmtesqguubhzntl73n1nbjan4dfxd8f09s0");
 var Article = AV.Object.extend('Article'),
     RecommendArticle = AV.Object.extend('RecommendArticle'),
@@ -24,7 +22,7 @@ angular.module('myApp.ArticlesList', [])
         };
         var indeterminateProgress = new Mprogress(intObj);
 
-        $scope.categories=['È«²¿','¼ÒÍ¥','Ç××Ó','ÃÛÔÂ','ÇéÂÂ','»ùÓÑ','¹ëÃÛ','¶ÀĞĞ','Å¼Óö'];
+        $scope.categories=['å…¨éƒ¨','å®¶åº­','äº²å­','èœœæœˆ','æƒ…ä¾£','åŸºå‹','é—ºèœœ','ç‹¬è¡Œ','å¶é‡'];
         $scope.selectedIndex=0;
         if($rootScope.selectedCategory)
         {
@@ -44,7 +42,6 @@ angular.module('myApp.ArticlesList', [])
         $scope.initIndex = function () {
 
 
-
             $scope.showEnd = false;
             $scope.showLoadMore = true;
 
@@ -62,7 +59,7 @@ angular.module('myApp.ArticlesList', [])
 
                     query.include('authorinformation');
                     query.include('relationship')
-                    if($scope.categories[$scope.selectedIndex] !="È«²¿"){
+                    if($scope.categories[$scope.selectedIndex] !="å…¨éƒ¨"){
                         query.equalTo("relationshipstring",$scope.categories[$scope.selectedIndex]);
                     }
 
@@ -205,7 +202,7 @@ angular.module('myApp.ArticlesList', [])
 
             query.descending("createdAt");
             query.descending("updatedAt");
-            if(category !="È«²¿"){
+            if(category !="å…¨éƒ¨"){
                 query.equalTo("relationshipstring",category);
             }
 

@@ -6,6 +6,7 @@
 
 <html ng-app="myApp" data-wf-site="55b83475434a20b930933e60" data-wf-page="55b83475434a20b930933e61">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=urt-8">
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title ng-bind="$root.title">觅游旅行</title>
@@ -63,17 +64,17 @@
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-<div ng-controller="headCtrl" ng-class="{'m-Header-Home':home==1,'m-Header':home==0}">
+<div ng-controller="headCtrl" class="m-Header-Home" ng-class="{'m-Header':home==0}">
 
-    <div ng-class="{'h-Content-Home':home==1,'h-Content':home==0}">
-        <a ng-click="homePage()" href=""><img ng-class="{'meetYouLogo-Home':home==1,'meetYouLogo':home==0}" src="img/logo/觅游logo.png" alt="觅游logo"></a>
-        <div ng-class="{'nav-Home':home==1,'nav':home==0}">
+    <div ng-class="{'h-Content':home==0}" class="h-Content-Home">
+        <a ng-click="homePage()" href=""><img class="meetYouLogo-Home" ng-class="{'meetYouLogo':home==0}" src="img/logo/觅游logo.png" alt="觅游logo"></a>
+        <div class="nav-Home" ng-class="{'nav':home==0}">
             <a ng-click="collectionList()" href="">精选专题</a>
             <a ng-click="meetkeCommunity()" href="">觅客社区</a>
             <a href="javascript:void(0)">客户端下载</a>
         </div>
-        <div ng-class="{'loginBar-Home':home==1,'loginBar':home==0}">
-            <div ng-class="{'search-Home':home==1,'search':home==0}">
+        <div class="loginBar-Home" ng-class="{'loginBar':home==0}">
+            <div class="search-Home" ng-class="{'search':home==0}">
                 <input type="text" name="search" placeholder="搜索游记/攻略">
             </div>
             <a href="javacript:void(0)">注册</a>
