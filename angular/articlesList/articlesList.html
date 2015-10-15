@@ -5,7 +5,9 @@
     <div class="b-Content">
         <div class="nav">
             <ul>
-                <li ng-repeat="category in categories track by $index "><a class="nav-Link" ng-click="changeCategory(category,$index)" ng-class="{'nav-Link-Choose':$index == selectedIndex}" href="">{{category}}</a></li>
+                <div class="nav-Link-Div" ng-class="{'nav-Link-Div-Choose':$index == selectedIndex}" ng-repeat="category in categories">
+                    <li ><a class="nav-Link" ng-click="changeCategory(category,$index)" href="">{{category}}</a></li>
+                </div>
             </ul>
         </div>
         <div class="main">
@@ -16,7 +18,7 @@
                     <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
                     <div class="notes-Descriptor">
                         <ul>
-                            <li ng-show="rarticle.hasNickName" class="name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                            <li class="name">{{rarticle.get('destination')}}</li>
                             <li>{{rarticle.startDate}}</li>
                             <li>{{rarticle.get('duration')}}Days</li>
                             <li><img class="countImg" src="img/设计图/eyes.png"></li>
@@ -33,7 +35,7 @@
                     <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
                     <div class="notes-Descriptor">
                         <ul>
-                            <li ng-show="rarticle.hasNickName" class="name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                            <li class="name">{{rarticle.get('destination')}}</li>
                             <li>{{rarticle.startDate}}</li>
                             <li>{{rarticle.get('duration')}}Days</li>
                             <li><img class="countImg" src="img/设计图/eyes.png"></li>
@@ -50,7 +52,7 @@
                     <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
                     <div class="notes-Descriptor">
                         <ul>
-                            <li ng-show="rarticle.hasNickName" class="name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                            <li class="name">{{rarticle.get('destination')}}</li>
                             <li>{{rarticle.startDate}}</li>
                             <li>{{rarticle.get('duration')}}Days</li>
                             <li><img class="countImg" src="img/设计图/eyes.png"></li>

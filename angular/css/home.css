@@ -10,12 +10,36 @@ img{
 	outline: none;
 	border: none;
 }
-.m-Home .baner li{
-	display: inline;
+.m-Home .baner{
+	position: relative;
+	overflow: hidden;
 }
-.m-Home .baner img{
-	width: 100%;
+.m-Home .banerDiv{
 	height: 421px;
+	width: 829px;
+	margin: auto;
+}
+.m-Home .banerDiv img{
+	max-height: 421px;
+	margin-left: -545px;
+}
+.m-Home .pointDiv{
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+}
+.m-Home .point{
+	width: 100px;
+	margin: auto;
+	text-align: center;
+}
+.m-Home .point p{
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background-color: #ffffff;
+	float: left;
+	margin-right: 10px;
 }
 .m-Home .m-Body{
 	width: 100%;
@@ -36,30 +60,27 @@ img{
 }
 .m-Home .nav-Link:link,
 .m-Home .nav-Link:visited{
-	font-size: 1.8em;
+	font-size: 1.4em;
 	color: #5e5e5e;
 	text-decoration: none;
-	font-weight: bold;
 }
 .m-Home .nav-Link:hover,
 .m-Home .nav-Link:active{
-	font-size: 1.8em;
+	font-size: 1.4em;
 	color: #5e5e5e;
-	font-weight: bold;
 	text-decoration: underline;
 }
 .m-Home .nav-Link-Choose:link,
 .m-Home .nav-Link-Choose:visited{
-	font-size: 1.8em;
+	font-size: 1.4em;
 	color: #9bcf6b;
 	text-decoration: none;
 	font-weight: bold;
 }
 .m-Home .nav-Link-Choose:hover,
 .m-Home .nav-Link-Choose:active{
-	font-size: 1.8em;
+	font-size: 1.4em;
 	color: #9bcf6b;
-	font-weight: bold;
 	text-decoration: underline;
 }
 .m-Home .linkMore:link,
@@ -119,7 +140,7 @@ img{
 	text-decoration: none;
 }
 .m-Home .notes-Intro li{
-	font-size: 0.9em;
+	font-size: 0.8em;
 	color: #a1a1a1;
 	display: inline;
 	margin-left: 9px;
@@ -131,11 +152,13 @@ img{
 .m-Home .notes-Intro .notes-Intro-Count{
 	color: #9bcf6b;
 	margin-left: 0px;
+	display: none;
 }
 .m-Home .notes-Intro .notes-Intro-CountImg{
 	height: 10px;
 	position: relative;
 	top: -1px;
+	display: none;
 }
 .m-Home .headPortrait{
 	width: 30px;

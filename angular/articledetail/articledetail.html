@@ -1,34 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>觅游旅行-精品旅游游记攻略分享网站</title>
-    <link rel="stylesheet" type="text/css" href="../css/articledetail.css">
-</head>
-<body>
-<div class="m-ArticleDetail">
+
+<div class="m-ArticleDetail" ng-controller="ArticleDetailCtrl" ng-init="initIndex()">
     <div class="m-Body">
+        <img class="surfacePlotImg" ng-src="{{article.get('background').url()}}">
         <div class="main">
-            <div class="surfacePlotImg">
-                <img src="../img/设计图/baner.jpg">
+            <div class="surfacePlotText">
                 <div class="articleTitle">
-                    <p class="title1">title1</p>
-                    <p class="title2">title2</p>
-                    <p class="time">time</p>
+                    <p class="title">{{article.get("title")}}</p>
+                    <p class="subTitle">{{article.get("subtitle")}}</p>
+                    <p class="date">{{article.startDate}}</p>
                 </div>
             </div>
             <div class="articleContent">
-                <img class="headPortrait" src="../img/设计图/view.jpg">
+                <img class="headPortrait" ng-show="article.hasAvatar" ng-src='{{article.get("authorinformation").get("headImage").thumbnailURL(100,100)}}'>
                 <ul class="artincleIntro">
-                    <li><img src="../img/设计图/图像/元素_75.png">place</li>
-                    <li><img src="../img/设计图/图像/元素_78.png">relationShip</li>
-                    <li><img src="../img/设计图/图像/元素_81.png">timeDays</li>
+                    <li><img src="../img/设计图/图像/元素_75.png">{{article.get("destination")}}</li>
+                    <li><img src="../img/设计图/图像/元素_78.png">{{article.get("relationshipstring")}}</li>
+                    <li><img src="../img/设计图/图像/元素_81.png">{{article.get("duration")}}  Days</li>
                 </ul>
-                <p class="digest">觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游觅游</p>
-                <p class="whichDay"><img</p>
+                <p class="digest">{{article.get("intro")|to_trusted}}</p>
+                <div class="articleMain" ng-repeat="day in article.get('days')">
+                    <div class="title">
+                        <img class="greenPoint" src="../img/设计图/小绿.png"><p>{{day["title"]}}</p>
+                    </div>
+                    <div ng-repeat="item in day['items']">
+                        <div class="place"><img src="../img/设计图/图像/元素_71.png"><p>{{item["title"]}}</p></div>
+                        <div class="textPart">
+                            <img src="../img/设计图/view.jpg" ng-repeat="pic in item['pics']" ng-src='{{pic}}'>
+                            <p ng-bind-html='item["description"]|to_trusted'></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="articleEnd">
+                    <img class="greenPoint" src="../img/设计图/小绿.png">
+                    <img class="end" src="../img/设计图/End.png">
+                </div>
             </div>
         </div>
     </div>
 </div>
-</body>
-</html>

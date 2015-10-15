@@ -25,10 +25,15 @@ angular.module('myApp.home', [])
 
         $scope.categories=['全部','家庭','亲子','蜜月','情侣','基友','闺蜜','独行','偶遇'];
         $scope.selectedIndex=0;
+        $scope.slide = 1;
+        $scope.points = ['','',''];
         if($rootScope.selectedCategory)
         {
             $scope.selectedIndex = $rootScope.selectedCategory;
         }
+        $scope.ChangeSlide = function($index) {
+            $scope.slide = $index+1;
+        };
         var currentArticles={};
         currentArticles.oneCol =[];
         currentArticles.twoCol=[];
@@ -40,7 +45,9 @@ angular.module('myApp.home', [])
 
             $location.path('/articles/'+rarticle.getObjectId());
         };
-
+        $scope.mekeClicked = function(mekepage){
+            $location.path('/personalPage/'+mekepage.getobjectId());
+        }
         $scope.loadingMore = function(){
             $location.path('/articles/')
         }

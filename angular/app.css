@@ -7,7 +7,7 @@
 }
 body{
   font-size: 62.5%;
-  font-family: Î¢ÈíÑÅºÚ;
+  font-family: "Microsoft YaHei";
 }
 img{
   outline: none;
@@ -17,6 +17,7 @@ img{
   width: 100%;
   position: absolute;
   background-color: rgba(255,255,255,0);
+  z-index: 100;
 }
 .h-Content-Home{
   width: 829px;
@@ -64,9 +65,9 @@ img{
   background-color: rgba(255,255,255,0.1);
 }
 .search-Home input{
-  font-size: 1.3em;
+  font-size: 1em;
   width: 100px;
-  height: 18px;
+  height: 16px;
   border: none;
   outline: none;
   margin-left: 10px;
@@ -149,9 +150,9 @@ img{
   background-color: rgba(255,255,255,0.1);
 }
 .search input{
-  font-size: 1.3em;
+  font-size: 1em;
   width: 100px;
-  height: 18px;
+  height: 16px;
   border: none;
   outline: none;
   margin-left: 10px;

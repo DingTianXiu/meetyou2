@@ -1,18 +1,9 @@
-*{
-	padding: 0px;
-	margin: 0px;
-}
-body{
-	font-size: 62.5%;
-font-family: Î¢ÈíÑÅºÚ;
-}
-img{
-	outline: none;
-	border: none;
-}
+
 .m-CollectionDetail .baner{
 	width: 100%;
-	height:218px;
+}
+.m-CollectionDetail .baner img{
+	width: 100%;
 }
 .m-CollectionDetail .m-Body{
 	width: 100%;
@@ -24,27 +15,28 @@ img{
 .m-CollectionDetail .main{
 	width: 100%;
 	float: left;
-	margin-top: 70px;
+	margin-top: 50px;
 }
 .m-CollectionDetail .notesList1{
 	width: 407px;
 	float: left;
-	margin-bottom: 69px;
 }
 .m-CollectionDetail .notesList2{
 	width: 407px;
 	float: right;
-	margin-bottom: 69px;
 }
 .m-CollectionDetail .notes{
 	max-width: 407px;
 	border: 1px solid #ededed;
 	position: relative;
 	text-align: center;
+	margin-top: 20px;
 }
 .m-CollectionDetail .contentPicture{
 	width: 100%;
-	height: 279px;
+}
+.m-CollectionDetail .contentPicture img{
+	max-width: 100%;
 }
 .m-CollectionDetail .notes-Title{
 	width: 100%;
@@ -66,7 +58,8 @@ img{
 	color: #9bcf6b;
 	position: absolute;
 	right:10px;
-	bottom: 29px; 
+	bottom: 29px;
+	display: none;
 }
 .m-CollectionDetail .eyes img{
 	height: 12px;
@@ -78,6 +71,7 @@ img{
 	width: 829px;
 	margin: auto;
 	text-align: center;
+	margin-bottom: 69px;
 }
 .m-CollectionDetail .btn-LoadingMore{
 	font-size: 10px;

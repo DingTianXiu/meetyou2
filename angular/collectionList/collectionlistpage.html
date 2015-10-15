@@ -12,12 +12,12 @@
             <div class="main">
                 <div class="notesList1">
                     <div class="notes" ng-repeat="rcollection in rcollectionsOneCol">
-                        <img ng-click="CollectionClicked()" class="contentPicture" src="{{rcollection.get('background').url()}}">
+                        <img ng-click="CollectionClicked(rcollection)" class="contentPicture" src="{{rcollection.get('background').url()}}">
                     </div>
                 </div>
                 <div class="notesList2">
                     <div class="notes" ng-repeat="rcollection in rcollectionsTwoCol">
-                        <img ng-click="CollectionClicked()" class="contentPicture" src="{{rcollection.get('background').url()}}">
+                        <img ng-click="CollectionClicked(rcollection)" class="contentPicture" src="{{rcollection.get('background').url()}}">
                     </div>
                 </div>
             </div>

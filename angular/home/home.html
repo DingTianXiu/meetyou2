@@ -3,10 +3,16 @@
 
 
 <div ng-controller="HomeCtrl" id="bodysectionid" ng-init="initIndex()" class="m-Home">
-    <div class="baner">
-        <ul>
-            <li><a href="javacript:void(0)"><img src="img/设计图/baner.jpg"></a></li>
-        </ul>
+    <div class="baner" ng-switch="" on="slide">
+        <div class="banerDiv" ng-switch-when="3"></div>
+        <div class="banerDiv" ng-switch-when="1"><img src="img/设计图/baner2.jpg"></div>
+        <div class="banerDiv" ng-switch-when="2"><img src="img/设计图/baner3.jpg"></div>
+        <div class="pointDiv">
+            <div class="point" ng-repeat="point in points track by $index">
+                <p ng-click="ChangeSlide($index)">{{point}}</p>
+            </div>
+        </div>
+
     </div>
     <div class="m-Body">
         <div class="b-Content">
@@ -24,14 +30,14 @@
                         <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
                         <div class="notes-Intro">
                             <ul>
-                                <li ng-show="hasNickName" class="notes-Intro-Name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                                <li class="notes-Intro-Name">{{rarticle.get('destination')}}</li>
                                 <li>{{rarticle.startDate}}</li>
                                 <li>{{rarticle.get('duration')}}Days</li>
                                 <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
                                 <li class="notes-Intro-Count">888</li>
                             </ul>
                         </div>
-                        <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                        <img class="headPortrait" ng-click="mekeClicked()" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                     </div>
                 </div>
                 <div class="notes-List2">
@@ -41,14 +47,14 @@
                         <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
                         <div class="notes-Intro">
                             <ul>
-                                <li ng-show="rarticle.hasNickName" class="notes-Intro-Name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                                <li class="notes-Intro-Name">{{rarticle.get('destination')}}</li>
                                 <li>{{rarticle.startDate}}</li>
                                 <li>{{rarticle.get('duration')}}Days</li>
                                 <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
                                 <li class="notes-Intro-Count">888</li>
                             </ul>
                         </div>
-                        <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                        <img class="headPortrait" ng-click="mekeClicked()" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                     </div>
                 </div>
                 <div class="notes-List3">
@@ -58,14 +64,14 @@
                         <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
                         <div class="notes-Intro">
                             <ul>
-                                <li ng-show="rarticle.hasNickName" class="notes-Intro-Name">{{rarticle.get('authorinformation').get('nickname')}}</li>
+                                <li class="notes-Intro-Name">{{rarticle.get('destination')}}</li>
                                 <li>{{rarticle.startDate}}</li>
                                 <li>{{rarticle.get('duration')}}Days</li>
                                 <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
                                 <li class="notes-Intro-Count">888</li>
                             </ul>
                         </div>
-                        <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                        <img class="headPortrait" ng-click="mekeClicked()" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                     </div>
                 </div>
             </div>

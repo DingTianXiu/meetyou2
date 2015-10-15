@@ -1,166 +1,102 @@
-*{
-    padding: 0px;
-    margin: 0px;
-}
-body{
-    font-size: 62.5%;
-}
-img{
-    outline: none;
-    border: none;
-}
-.m-Header{
-    width: 100%;
-    background-color: #9bcf6b;
-}
-.h-Content{
-    width: 829px;
-    height: 58px;
-    margin: auto;
-}
-.meetYouLogo{
-    height: 28px;
-    margin: 14px 0px;
-    float: left;
-}
-.nav{
-    line-height: 57px;
-    float: left;
-}
-.nav a{
-    font-size: 1.4em;
-    color: #fff;
-    margin-left: 27px;
-    text-decoration: none;
-}
-.loginBar{
-    margin-top: 17px;
-    float: right;
-}
-.search{
-    width: 126px;
-    height: 22px;
-    outline: none;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    float: left;
-    margin-right: 19px;
-}
-.search input{
-    width: 100px;
-    height: 20px;
-    border: none;
-    outline: none;
-    margin-left: 10px;
-    background-color: rgba(0,0,0,0);
-}
-.search{
-    background-color: rgba(255,255,255,0.1);
-}
-.search input:-moz-placeholder{
-    color: #fff;
-}
-.search input::-moz-placeholder{
-    color: #fff;
-    opacity: 1;
-}
-.search input:-ms-input-placeholder{
-    color: #fff;
-}
-.search input::-webkit-input-placeholder{
-    color: #fff;
-}
-.loginBar{
-    line-height: 22px;
-}
-.loginBar a{
-    font-size: 1.4em;
-    color: #fff;
-    text-decoration: none;
-}
-.loginBar span{
-    margin: 0px 7px;
-    color: #fff;
-}
 
-.m-Footer{
-    width: 100%;
-    background-color: #6fba2c;
-    margin-top: 69px;
-    float: left;
-}
-.footer-Service{
-    height: 83px;
-    width: 829px;
-    margin: auto;
-}
-.service{
-    width: 100%;
-}
-.service ul{
+
+.m-JoinUs .main{
     position: relative;
-    top: 19px;
-    float: left;
+    margin-bottom: 60px;
 }
-.service li{
-    display: inline;
-    margin-right: 20px;
-}
-.service li a{
-    font-size: 1.2em;
-    color: #fff;
-    text-decoration: none;
-}
-.footer-MeetYouLogo{
-    height: 29px;
-    float: right;
-    margin-top: 20px;
-}
-.touch{
+.m-JoinUs .joinMeetyouDiv{
     width: 100%;
-    float: left;
+    height: 293px;
 }
-.touch img{
-    height: 28px;
-    float: left;
-    margin-right: 12px;
-    margin-bottom: 12px;
-}
-.touch p{
-    font-size: 1em;
-    color: #fff;
-    float: right;
-    margin-top: 12px;
-}
-.footer-Partner{
-    width: 100%;
-    border-top: 1px solid #a4d379;
-    background-color: #6fba2c;
-    float: left;
-}
-.partnerContent{
+.m-JoinUs .joinMeetyou{
     width: 829px;
+    height: 294px;
     margin: auto;
+    position: relative;
+    z-index: 2;
+    top: 97px;
 }
-.partnerTitle{
+.m-JoinUs .joinMeetyou-Title{
+    font-size: 4.5em;
+    color: #95c66a;
+}
+.m-JoinUs .joinMeetyou-descript{
+    font-size: 1.6em;
+    line-height: 28px;
+    margin-top: 10px;
+    width: 560px;
+    float: left;
+}
+.m-JoinUs .backgroundImg{
+    max-width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.m-JoinUs .meetYouLogo{
+    width: 142px;
+    height: 60px;
+    margin-left: 70px;
+    margin-top: -20px;
+}
+.m-JoinUs .jobVacancyContent{
+    width: 829px;
+    margin: 68px auto 0px;
+}
+.m-JoinUs .jobVacancy-Title{
+    font-size: 4.5em;
+}
+.m-JoinUs .jobVacancy{
+    border-bottom: 1px solid #d6d4d3;
+    margin-top: 60px;
+    padding-left: 54px;
+}
+.m-JoinUs .jobVacancy .jobName{
+    display: inline-block;
     font-size: 1.2em;
-    color: #a4d379;
-    margin-top:14px;
-    margin-bottom: 8px;
+    line-height: 22px;
+    margin-right: 113px;
 }
-.partnerList{
-    width: 100%;
-    float: left;
+.m-JoinUs .jobVacancy .jobChoose{
+    color: #95c66a;
+ }
+.m-JoinUs .technologyChoose,.m-JoinUs .designChoose{
+    color: #95c66a;
 }
-.partnerList p{
-    width: 63px;
-    height: 19px;
-    background-color: #a4d379;
-    font-size: 1em;
-    color: #fff;
-    line-height: 19px;
-    text-align: center;
-    float: left;
-    margin-right: 5px;
-    margin-bottom: 17px;
+.m-JoinUs .jobChooseImg1,
+.m-JoinUs .jobChooseImg2,
+.m-JoinUs .jobChooseImg3,
+.m-JoinUs .jobChooseImg4{
+    width: 74px;
+    position: relative;
+    top: -5px;
+}
+.m-JoinUs .jobChooseImg1{
+    margin-left: 28px;
+}
+.m-JoinUs .jobChooseImg2{
+    margin-left: 164px;
+}
+.m-JoinUs .jobChooseImg3{
+    margin-left: 300px;
+}
+.m-JoinUs .jobChooseImg4{
+    margin-left: 436px;
+}
+.m-JoinUs .job{
+    border-bottom: 1px solid #d6d4d3;
+    padding: 35px 0;
+}
+.m-JoinUs .jobTitle{
+    font-size: 1.6em;
+    color: #a1cd7c;
+    margin-bottom: 34px;
+}
+.m-JoinUs .obligationTitle,.m-JoinUs .requirementsTitle{
+    font-size: 1.1em;
+    line-height: 25px;
+}
+.m-JoinUs .obligationDescript,.m-JoinUs .requirementsDescript{
+    font-size: 1.1em;
+    line-height: 25px;
+    color: #a59f9d;
 }

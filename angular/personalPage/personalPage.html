@@ -1,0 +1,45 @@
+<div class="m-personalPage" ng-controller="PersonalPageCtrl" ng-init="initIndex()">
+    <div class="m-Body">
+        <div class="content">
+            <div class="personalInformation">
+                <div class="headPortrait">
+                    <img ng-src="{{articles.get('authorinformation').get('MyTourArticle').get('headImage').url()}}">
+                </div>
+                <p class="name">{{articles.get('nickname')}}</p>
+                <p class="sign">{{articles.get('userDesc')}}</p>
+                <hr>
+                <button class="foucs" name="foucs">关注</button>
+                <p class="fans">喜欢<span class="fans-Count">888</span></p>
+            </div>
+            <div class="main">
+                <div class="nav">
+                    <a class="notesLink" href="javascript:void(0)">游记</a>
+                    <a class="collectionLink" href="javascript:void(0)">收藏</a>
+                </div>
+                <div class="notes" ng-repeat="mekepage in articles">
+                    <div class="surfacePlotDiv">
+                        <img class="surfacePlot" src="{{mekepage.get('MyTourArticle').get('background').url()}}">
+                    </div>
+                    <div class="intro">
+                        <div class="relationShip">mekepage.get('MyTourArticle').get('relationship').get('name')</div>
+                        <ul>
+                            <li class="place">{{mekepage.get('MyTourArticle').get('destination')}}</li>
+                            <li>{{mekepage.get('MyTourArticle').startDate}}</li>
+                            <li>{{mekepage.get('MyTourArticle').get('duration')}}Days</li>
+                            <li class="eyes"><img src="../../asset/设计图/eyes.png"> </li>
+                            <li class="viewCount">count</li>
+                        </ul>
+                    </div>
+                    <div class="textPart">
+                        <p class="title"><a href="javascript:void(0)">{{mekepage.get('MyTourArticle').get('title')}}</a> </p>
+                        <p class="descript">mekepage.get('MyTourArticle').get('intro')}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="loadingMore">
+                <button class="btn-LoadingMore" ng-show="showLoadMore" ng-click="loadMore()">加载更多</button>
+                <button class="btn-LoadingMore" ng-show="showEnd">看完了^o^</button>
+            </div>
+        </div>
+    </div>
+</div>

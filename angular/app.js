@@ -16,9 +16,12 @@ angular
   'myApp.version',
   'myApp.home',
   'myApp.ArticleDetail',
-        'myApp.CollectionDetail',
-        'myApp.CollectionsList',
-        'myApp.ArticlesList'
+  'myApp.CollectionDetail',
+  'myApp.CollectionsList',
+  'myApp.ArticlesList',
+  'myApp.SearchResult',
+  'myApp.PersonalPage',
+        'myApp.JoinUs'
 ])
     .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider,$location) {
 //  $routeProvider.otherwise({redirectTo: '/view1'});
@@ -54,6 +57,14 @@ angular
                 keywords:'自由行攻略 旅游攻略网 自助游攻略',
                 description:'旅游达人分享最新的自助游旅行攻略行程路线等详细旅行信息,带您体验不一样的世界.觅游旅行,与对的人去对的地方.'
             })
+            .when('/search', {
+                controller: 'SearchResultCtrl',
+                templateUrl: 'search/searchResult.html',
+                publicAccess: true,
+                title:'觅客推荐-觅游旅行',
+                keywords:'自由行攻略 旅游攻略网 自助游攻略',
+                description:'旅游达人分享最新的自助游旅行攻略行程路线等详细旅行信息,带您体验不一样的世界.觅游旅行,与对的人去对的地方.'
+            })
             .when('/collections', {
                 controller: 'CollectionsListCtrl',
                 templateUrl: 'collectionList/collectionlistpage.html',
@@ -68,6 +79,10 @@ angular
                 keywords:'自由行攻略 旅游攻略网 自助游攻略',
                 description:'觅客最新精彩自助游旅游记游攻略行程路程等详细信息分享,觅游旅行,与对的人去对的地方.'
             })
+            .when('/personalPage/:id',{
+                controller: 'PersonalPageCtrl',
+                templateUrl: 'personalPage/personalPage.html'
+            })
             .when('/about', {
                 templateUrl: 'about/aboutUs.html'
             })
@@ -80,6 +95,10 @@ angular
             .when('/view1', {
                 templateUrl: 'view1/view1.html',
                 controller: 'View1Ctrl'
+            })
+            .when('/joinUs',{
+                templateUrl:'joinUs/joinUs.html',
+                controller: 'JoinUsCtrl'
             })
 
             .otherwise({redirectTo: '/'});
@@ -154,6 +173,72 @@ angular
         }
         $scope.homePage = function(){
             $location.path('/')
+        }
+        $scope.enter = function($event){
+            $location.path('/search');
+            if($event.keyCode == 13){
+                AV.Cloud.run('search', {'query':$scope.searchName}, {
+                    success: function (result) {
+
+                        console.log(result[1].createdAt);
+                        var articles = result;
+                        articles.shift();
+                        console.log(articles);
+                        console.log(articles[1].createdAt)
+                        var colOneArray=[];
+                        var colTwoArray=[];
+                        var colThreeArray=[];
+                        for(var i = 0;i<articles.length;i++){
+
+                            if(articles[i].createdAt)
+                            {
+                                articles[i].startDate=articles[i].startedAt.toLocaleDateString().replace(/\//gm, ".");
+                                console.log(articles[i].startedAt);
+                            }
+                            else{
+                                articles[i].startDate ="";
+                            }
+                            if(articles[i].authorinformation)
+                            {
+                                if(articles[i].authorHead) {
+                                    articles[i].hasAvatar = true;
+                                }
+                            }
+                            else
+                            {
+                                articles[i].hasAvatar=false;
+                            }
+
+                            if(articles[i].authorinformation)
+                            {
+                                if(articles[i].authorinformation.nickname) {
+                                    articles[i].hasNickName = true;
+                                }
+                            }
+                            else
+                            {
+                                articles[i].hasNickName=false;
+                            }
+
+                            if(i%3==0){
+
+                                colOneArray.push(articles[i]);
+                                console.log(colOneArray)
+                            }
+                            else if(i%3==1){
+                                colTwoArray.push(articles[i]);
+                            }
+                            else{
+                                colThreeArray.push(articles[i]);
+                            }
+                            $scope.rcolOneArray = colOneArray;
+                            $scope.rcolTwoArray = colTwoArray;
+                            $scope.rcolThreeArray = colThreeArray;
+                            $scope.$apply();
+                        }
+                    }
+                })
+            }
         }
 })
 

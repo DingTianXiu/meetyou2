@@ -1,0 +1,73 @@
+﻿
+<div class="m-searchResult" ng-controller="SearchResultCtrl" ng-init="initIndex()">
+    <div class="body">
+        <div class="articleSearch">
+            <input type="text" name="articleSearch" ng-model="searchName" ng-keypress="enter($event)">
+            <img ng-click="goSearch()" src="../img/设计图/搜索.png">
+        </div>
+        <div class="nav">
+            <ul>
+                <div class="nav-Link-Div" ng-class="{'nav-Link-Div-Choose':$index == selectedIndex}" ng-repeat="category in categories track by $index">
+                    <li><a class="nav-Link" ng-click="changeCategory(category,$index)" href="">{{category}}</a></li>
+                </div>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="notes-List1">
+                <div class="notes" ng-repeat="rarticle in rcolOneArray track by $index">
+                    <div class="relation">{{rarticle.relationshipname}}</div>
+                    <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.background.url()}}"></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.title}}</a></p></div>
+                    <div class="notes-Descriptor">
+                        <ul>
+                            <li class="name">{{rarticle.destination}}</li>
+                            <li>{{rarticle.startDate}}</li>
+                            <li>{{rarticle.duration}}Days</li>
+                            <li><img class="countImg" src="img/设计图/eyes.png"></li>
+                            <li class="count">888</li>
+                        </ul>
+                    </div>
+                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
+                </div>
+            </div>
+            <div class="notes-List2">
+                <div class="notes" ng-repeat="rarticle in rcolTwoArray track by $index">
+                    <div class="relation">{{rarticle.relationshipname}}</div>
+                    <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.background.url()}}"></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.title}}</a></p></div>
+                    <div class="notes-Descriptor">
+                        <ul>
+                            <li class="name">{{rarticle.destination}}</li>
+                            <li>{{rarticle.startDate}}</li>
+                            <li>{{rarticle.duration}}Days</li>
+                            <li><img class="countImg" src="img/设计图/eyes.png"></li>
+                            <li class="count">888</li>
+                        </ul>
+                    </div>
+                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
+                </div>
+            </div>
+            <div class="notes-List3">
+                <div class="notes" ng-repeat="rarticle in rcolThreeArray track by $index">
+                    <div class="relation">{{rarticle.relationshipname}}</div>
+                    <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.background.url()}}"></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.title}}</a></p></div>
+                    <div class="notes-Descriptor">
+                        <ul>
+                            <li class="name">{{rarticle.destination}}</li>
+                            <li>{{rarticle.startDate}}</li>
+                            <li>{{rarticle.duration}}Days</li>
+                            <li><img class="countImg" src="img/设计图/eyes.png"></li>
+                            <li class="count">888</li>
+                        </ul>
+                    </div>
+                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
+                </div>
+            </div>
+            <div class="loadingMore">
+                <button class="btn-LoadingMore" ng-show="showLoadMore" ng-click="loadMore()">加载更多</button>
+                <button class="btn-LoadingMore" ng-show="showEnd">看完了^o^</button>
+            </div>
+        </div>
+    </div>
+</div>

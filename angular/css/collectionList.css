@@ -1,14 +1,4 @@
-*{
-	padding: 0px;
-	margin: 0px;
-}
-body{
-	font-size: 62.5%;
-}
-img{
-	outline: none;
-	border: none;
-}
+
 .m-CollectionList .m-Body{
 	width: 100%;
 }
@@ -28,6 +18,7 @@ img{
 }
 .m-CollectionList .nav-Link-Div-Choose{
 	border: 2px solid #3da100;
+	font-weight: bold;
 }
 .m-CollectionList .menu li{
 	display: inline;
@@ -38,14 +29,6 @@ img{
 	font-size: 1.3em;
 	color: #95c66a;
 	text-decoration: none;
-	font-weight: bold;
-}
-.m-CollectionList .nav-Link:hover,
-.m-CollectionList .nav-Link:active{
-	font-size: 1.3em;
-	color: #95c66a;
-	font-weight: bold;
-	text-decoration: underline;
 }
 .m-CollectionList hr{
 	margin-top: 14px;
@@ -62,16 +45,14 @@ img{
 	margin-bottom: 69px;
 }
 .m-CollectionList .notes{
-	max-width: 407px;
-	height: 278px;
+	max-width: 405px;
 	border: 1px solid #ededed;
 	position: relative;
 	float: left;
 	margin-top: 14px;
 }
 .m-CollectionList .contentPicture{
-	width: 407px;
-	height: 278px;
+	max-width: 405px;
 }
 .m-CollectionList .loadingMore{
 	width: 829px;
