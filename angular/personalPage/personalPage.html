@@ -1,9 +1,9 @@
 <div class="m-personalPage" ng-controller="PersonalPageCtrl" ng-init="initIndex()">
-    <div class="m-Body">
+    <div class="ody">
         <div class="content">
             <div class="personalInformation">
                 <div class="headPortrait">
-                    <img ng-src="{{articles.get('authorinformation').get('MyTourArticle').get('headImage').url()}}">
+                    <img ng-src="{{userInformation.get('headImage').url()}}">
                 </div>
                 <p class="name">{{articles.get('nickname')}}</p>
                 <p class="sign">{{articles.get('userDesc')}}</p>
@@ -16,23 +16,23 @@
                     <a class="notesLink" href="javascript:void(0)">游记</a>
                     <a class="collectionLink" href="javascript:void(0)">收藏</a>
                 </div>
-                <div class="notes" ng-repeat="mekepage in articles">
+                <div class="notes" ng-repeat="rarticle in articles">
                     <div class="surfacePlotDiv">
-                        <img class="surfacePlot" src="{{mekepage.get('MyTourArticle').get('background').url()}}">
+                        <img class="surfacePlot" ng-src="{{rarticle.get('background').url()}}">
                     </div>
                     <div class="intro">
-                        <div class="relationShip">mekepage.get('MyTourArticle').get('relationship').get('name')</div>
+                        <div class="relationShip">{{rarticle.get('relationship').get('name')}}</div>
                         <ul>
-                            <li class="place">{{mekepage.get('MyTourArticle').get('destination')}}</li>
-                            <li>{{mekepage.get('MyTourArticle').startDate}}</li>
-                            <li>{{mekepage.get('MyTourArticle').get('duration')}}Days</li>
+                            <li class="place">{{rarticle.get('destination')}}</li>
+                            <li>{{rarticle.startDate}}</li>
+                            <li>{{rarticle.get('duration')}}Days</li>
                             <li class="eyes"><img src="../../asset/设计图/eyes.png"> </li>
                             <li class="viewCount">count</li>
                         </ul>
                     </div>
                     <div class="textPart">
-                        <p class="title"><a href="javascript:void(0)">{{mekepage.get('MyTourArticle').get('title')}}</a> </p>
-                        <p class="descript">mekepage.get('MyTourArticle').get('intro')}}</p>
+                        <p class="title"><a href="javascript:void(0)">{{rarticle.get('title')}}</a> </p>
+                        <p class="descript">{{rarticle.get('intro')}}</p>
                     </div>
                 </div>
             </div>

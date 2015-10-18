@@ -28,6 +28,71 @@ angular.module('myApp.SearchResult', [])
             $scope.selectedIndex = $rootScope.selectedCategory;
         }
 
+        $scope.$on('homeEnter',function(e,newSearchName){
+            $scope.newSearchName = newSearchName;
+            console.log($scope.name);
+            AV.Cloud.run('search', {'query':$scope.newSearchName}, {
+                success: function (result) {
+
+                    console.log(result);
+                    var articles = result;
+                    articles.shift();
+                    console.log(articles);
+                    console.log(articles[1].createdAt)
+                    var colOneArray=[];
+                    var colTwoArray=[];
+                    var colThreeArray=[];
+                    for(var i = 0;i<articles.length;i++){
+
+                        if(articles[i].createdAt)
+                        {
+                            articles[i].startDate=articles[i].startedAt.toLocaleDateString().replace(/\//gm, ".");
+                            console.log(articles[i].startedAt);
+                        }
+                        else{
+                            articles[i].startDate ="";
+                        }
+                        if(articles[i].authorinformation)
+                        {
+                            if(articles[i].authorHead) {
+                                articles[i].hasAvatar = true;
+                            }
+                        }
+                        else
+                        {
+                            articles[i].hasAvatar=false;
+                        }
+
+                        if(articles[i].authorinformation)
+                        {
+                            if(articles[i].authorinformation.nickname) {
+                                articles[i].hasNickName = true;
+                            }
+                        }
+                        else
+                        {
+                            articles[i].hasNickName=false;
+                        }
+
+                        if(i%3==0){
+
+                            colOneArray.push(articles[i]);
+                            console.log(colOneArray)
+                        }
+                        else if(i%3==1){
+                            colTwoArray.push(articles[i]);
+                        }
+                        else{
+                            colThreeArray.push(articles[i]);
+                        }
+                        $scope.rcolOneArray = colOneArray;
+                        $scope.rcolTwoArray = colTwoArray;
+                        $scope.rcolThreeArray = colThreeArray;
+                        $scope.$apply();
+                    }
+                }
+            })
+            });
         $scope.goSearch = function(){
             AV.Cloud.run('search', {'query':$scope.searchName}, {
                 success: function (result) {
@@ -97,6 +162,9 @@ angular.module('myApp.SearchResult', [])
                 AV.Cloud.run('search', {'query':$scope.searchName}, {
                     success: function (result) {
 
+
+                        $scope.page = 1;
+                        $scope.count = 15;
                         console.log(result[1].createdAt);
                         var articles = result;
                         articles.shift();

@@ -174,9 +174,13 @@ angular
         $scope.homePage = function(){
             $location.path('/')
         }
-        $scope.enter = function($event){
-            $location.path('/search');
+
+
+        $scope.$broadcast('homeEnter',$scope.searchName);
+        console.log($scope.searchName);
+        $scope.homeEnter = function($event){
             if($event.keyCode == 13){
+                $location.path('/search');
                 AV.Cloud.run('search', {'query':$scope.searchName}, {
                     success: function (result) {
 
@@ -193,7 +197,6 @@ angular
                             if(articles[i].createdAt)
                             {
                                 articles[i].startDate=articles[i].startedAt.toLocaleDateString().replace(/\//gm, ".");
-                                console.log(articles[i].startedAt);
                             }
                             else{
                                 articles[i].startDate ="";
@@ -223,7 +226,6 @@ angular
                             if(i%3==0){
 
                                 colOneArray.push(articles[i]);
-                                console.log(colOneArray)
                             }
                             else if(i%3==1){
                                 colTwoArray.push(articles[i]);

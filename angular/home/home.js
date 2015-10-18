@@ -45,8 +45,8 @@ angular.module('myApp.home', [])
 
             $location.path('/articles/'+rarticle.getObjectId());
         };
-        $scope.mekeClicked = function(mekepage){
-            $location.path('/personalPage/'+mekepage.getobjectId());
+        $scope.mekeClicked = function(rarticle){
+            $location.path('/personalPage/'+rarticle.get('authorinformation').getObjectId());
         }
         $scope.loadingMore = function(){
             $location.path('/articles/')
