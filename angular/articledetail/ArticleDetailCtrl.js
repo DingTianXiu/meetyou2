@@ -18,13 +18,32 @@ angular.module('myApp.ArticleDetail', [])
 
 
 
-    .controller('ArticleDetailCtrl', function($scope, $routeParams) {
+    .controller('ArticleDetailCtrl', function($scope, $routeParams,$location) {
+
+        var intObj = {
+            template: 3,
+            parent: '#articleDetailId' // this option will insert bar HTML into this parent Element
+        };
+        var indeterminateProgress = new Mprogress(intObj);
+
+
         $scope.initIndex = function () {
+
+            indeterminateProgress.start();
 
             var query = new AV.Query(Article);
             query.include("relationship");
             query.include("authorinformation");
 
+            $scope.mekeClicked = function(article){
+                $location.path('/personalPage/'+article.get('authorinformation').getObjectId());
+            }
+            $scope.sourceMekeClicked =function(rarticle){
+                $location.path('/personalPage/'+rarticle.authorinformation.id);
+            }
+            $scope.ArticleClicked = function (rarticle){
+                $location.path('/articles/'+rarticle.objectId);
+            };
 
             var id = $routeParams.id;
             query.get(id, {
@@ -46,14 +65,35 @@ angular.module('myApp.ArticleDetail', [])
                         result.hasAvatar=false;
                     }
 
-
                     var days = result.get("days");
-
-
-
                     $scope.article = result;
 
+
+                    $scope.relation = $scope.article.get("relationshipstring");
+                    AV.Cloud.run('search', {'query':$scope.relation}, {
+                        success: function (result) {
+
+                            var articlesSource = []
+                            for(var i=1;i<=5;i++){
+                                articlesSource.push(result[i]);
+                            }
+                            for(var i=0;i<=4;i++){
+                                if(articlesSource[i].authorHead){
+                                    articlesSource[i].hasAvatar = true;
+                                }
+                                else{
+                                    articlesSource[i].hasAvatar = false;
+                                }
+                            }
+                            $scope.rArticlesSource = articlesSource;
+                            console.log($scope.rArticlesSource);
+                            $scope.$apply();
+                        }
+                    })
+
                     $scope.$apply();
+
+                    indeterminateProgress.end();
                 },
                 error: function (error) {
                     alert("Error: " + error.code + " " + error.message);

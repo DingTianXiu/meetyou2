@@ -12,13 +12,13 @@ angular.module('myApp.ArticlesList', [])
 
 
 
-    .controller('ArticlesListCtrl', function($scope,$rootScope,$location) {
+    .controller('ArticlesListCtrl', function($scope,$rootScope,$location,$routeParams) {
 
 
 
         var intObj = {
             template: 3,
-            parent: '#bodysectionid' // this option will insert bar HTML into this parent Element
+            parent: '#articlesListId' // this option will insert bar HTML into this parent Element
         };
         var indeterminateProgress = new Mprogress(intObj);
 
@@ -39,8 +39,13 @@ angular.module('myApp.ArticlesList', [])
 
             $location.path('/articles/'+rarticle.getObjectId());
         };
+        $scope.mekeClicked = function(rarticle){
+            $location.path('/personalPage/'+rarticle.get('authorinformation').getObjectId());
+        }
         $scope.initIndex = function () {
 
+
+            indeterminateProgress.start();
 
             $scope.showEnd = false;
             $scope.showLoadMore = true;
@@ -133,11 +138,15 @@ angular.module('myApp.ArticlesList', [])
                     currentArticles.threeCol= colThreeArray;
                     $scope.currentArticles = currentArticles;
                     $scope.$apply();
-                });
+                    indeterminateProgress.end();
 
+                });
         };
 
         $scope.loadMore = function () {
+
+            indeterminateProgress.start();
+
             $scope.page ++;
             query.skip($scope.page*$scope.limit);
             query.limit($scope.limit);
@@ -183,6 +192,8 @@ angular.module('myApp.ArticlesList', [])
                 }
 
                 $scope.$apply();
+
+                indeterminateProgress.end();
 
 
             });

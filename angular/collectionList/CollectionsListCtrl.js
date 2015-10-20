@@ -18,6 +18,12 @@ angular.module('myApp.CollectionsList', [])
 
     .controller('CollectionsListCtrl', function($rootScope,$scope,$location) {
 
+        var intObj = {
+            template: 3,
+            parent: '#collectionListPageId' // this option will insert bar HTML into this parent Element
+        };
+        var indeterminateProgress = new Mprogress(intObj);
+
         $scope.categories=['全部','家庭','亲子','蜜月','情侣','基友','闺蜜','独行','偶遇'];
         $scope.selectedIndex=0;
         if($rootScope.selectedCategory)
@@ -33,6 +39,8 @@ angular.module('myApp.CollectionsList', [])
             $location.path('/collections/'+collection.getObjectId());
         };
         $scope.initIndex = function () {
+
+            indeterminateProgress.start();
 
             query.count()
                 .then(function(count){
@@ -80,6 +88,8 @@ angular.module('myApp.CollectionsList', [])
 
                         $scope.rcollectionsOneCol = colOneArray;
                         $scope.rcollectionsTwoCol = colTwoArray;
+
+                        indeterminateProgress.end();
                     });
 
                 });

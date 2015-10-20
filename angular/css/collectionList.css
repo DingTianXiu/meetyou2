@@ -45,14 +45,15 @@
 	margin-bottom: 69px;
 }
 .m-CollectionList .notes{
-	max-width: 405px;
+	width: 405px;
 	border: 1px solid #ededed;
 	position: relative;
 	float: left;
 	margin-top: 14px;
 }
 .m-CollectionList .contentPicture{
-	max-width: 405px;
+	width: 405px;
+	height: 168px;
 }
 .m-CollectionList .loadingMore{
 	width: 829px;

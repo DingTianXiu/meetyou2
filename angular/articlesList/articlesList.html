@@ -1,7 +1,7 @@
 
 
 
-<div class="m-ArticlesList" ng-controller="ArticlesListCtrl" ng-init="initIndex()">
+<div class="m-ArticlesList" id="articlesListId" ng-controller="ArticlesListCtrl" ng-init="initIndex()">
     <div class="b-Content">
         <div class="nav">
             <ul>
@@ -25,7 +25,7 @@
                             <li class="count">888</li>
                         </ul>
                     </div>
-                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                    <img class="headPortrait" ng-click="mekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                 </div>
             </div>
             <div class="notes-List2">
@@ -42,7 +42,7 @@
                             <li class="count">888</li>
                         </ul>
                     </div>
-                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                    <img class="headPortrait" ng-click="mekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                 </div>
             </div>
             <div class="notes-List3">
@@ -59,7 +59,7 @@
                             <li class="count">888</li>
                         </ul>
                     </div>
-                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                    <img class="headPortrait" ng-click="mekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
                 </div>
             </div>
             <div class="loadingMore">

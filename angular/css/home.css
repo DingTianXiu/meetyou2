@@ -16,9 +16,11 @@ img{
 }
 .m-Home .banerDiv{
 	width: 100%;
+	height: 329px;
 }
 .m-Home .banerDiv img{
 	max-width: 100%;
+	height: 329px;
 }
 .m-Home .pointDiv{
 	width: 100%;

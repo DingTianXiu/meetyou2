@@ -1,5 +1,5 @@
 
-<div class="m-ArticleDetail" ng-controller="ArticleDetailCtrl" ng-init="initIndex()">
+<div class="m-ArticleDetail" id="articleDetailId" ng-controller="ArticleDetailCtrl" ng-init="initIndex()">
     <div class="m-Body">
         <img class="surfacePlotImg" ng-src="{{article.get('background').url()}}">
         <div class="main">
@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="articleContent">
-                <img class="headPortrait" ng-show="article.hasAvatar" ng-src='{{article.get("authorinformation").get("headImage").thumbnailURL(100,100)}}'>
+                <img class="headPortrait" ng-click="mekeClicked(article)" ng-show="article.hasAvatar" ng-src='{{article.get("authorinformation").get("headImage").thumbnailURL(100,100)}}'>
                 <ul class="artincleIntro">
                     <li><img src="../img/设计图/图像/元素_75.png">{{article.get("destination")}}</li>
                     <li><img src="../img/设计图/图像/元素_78.png">{{article.get("relationshipstring")}}</li>
@@ -33,6 +33,22 @@
                 <div class="articleEnd">
                     <img class="greenPoint" src="../img/设计图/小绿.png">
                     <img class="end" src="../img/设计图/End.png">
+                </div>
+            </div>
+            <div class="articlesSourceDiv">
+                <div class="downLoad">
+                    <p>扫描下载觅游APP</p>
+                    <img src="../img/设计图/APP下载二维码.png">
+                </div>
+                <p class="sourceTitle">觅客推荐</p>
+                <div class="articleSource" ng-repeat="rarticle in rArticlesSource">
+                    <div class="articleCover">
+                        <img ng-src="{{rarticle.background.url()}}" ng-click="ArticleClicked(rarticle)">
+                    </div>
+                    <div class="articleSourceTitle">
+                        <img ng-show="rarticle.hasAvatar" ng-click="sourceMekeClicked(rarticle)" ng-src="{{rarticle.authorHead.url()}}">
+                        <P ng-click="ArticleClicked(rarticle)">{{rarticle.title}}</P>
+                    </div>
                 </div>
             </div>
         </div>

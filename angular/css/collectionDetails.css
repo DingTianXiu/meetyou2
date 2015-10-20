@@ -1,6 +1,7 @@
 
 .m-CollectionDetail .baner{
 	width: 100%;
+	display: none;
 }
 .m-CollectionDetail .baner img{
 	width: 100%;

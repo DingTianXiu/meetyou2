@@ -16,8 +16,16 @@ angular.module('myApp.PersonalPage', [])
 
     .controller('PersonalPageCtrl', function($scope,$rootScope,$routeParams) {
 
+        var intObj = {
+            template: 3,
+            parent: '#personalPageId' // this option will insert bar HTML into this parent Element
+        };
+        var indeterminateProgress = new Mprogress(intObj);
+
 
         $scope.initIndex = function (){
+
+            indeterminateProgress.start();
 
             var query = new AV.Query(userInfomation);
             query.include("relationship");
@@ -47,6 +55,8 @@ angular.module('myApp.PersonalPage', [])
                         console.log(articlesList);
                     $scope.articles = articlesList;
                     $scope.$apply();
+
+                    indeterminateProgress.end();
                 })
 
         }

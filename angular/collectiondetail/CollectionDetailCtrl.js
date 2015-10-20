@@ -12,12 +12,13 @@ var Article = AV.Object.extend('Article'),
     RecommendedTour = AV.Object.extend('RecommendTour');
 
 angular.module('myApp.CollectionDetail', [])
-
-
-
     .controller('CollectionDetailCtrl', function($scope,$routeParams,$location) {
 
-
+        var intObj = {
+            template: 3,
+            parent: 'collectionArticlesPageId' // this option will insert bar HTML into this parent Element
+        };
+        var indeterminateProgress = new Mprogress(intObj);
 
         $scope.ArticleClicked = function (rarticle){
 
@@ -26,6 +27,9 @@ angular.module('myApp.CollectionDetail', [])
 
 
         $scope.initIndex = function () {
+
+            indeterminateProgress.start();
+
             var query = new AV.Query(Collection);
             var id = $routeParams.id;
             query.get(id)
@@ -50,6 +54,7 @@ angular.module('myApp.CollectionDetail', [])
 
                                 if(i%2==0){
 
+                                    colOneArray.push(articles[i]);
                                     console.log(colOneArray.push(articles[i]));
 
                                 }
@@ -61,6 +66,8 @@ angular.module('myApp.CollectionDetail', [])
                             $scope.rarticlesOneCol = colOneArray;
                             $scope.rarticlesTwoCol = colTwoArray;
                             $scope.$apply();
+
+                            indeterminateProgress.end();
                         }
                     });
 

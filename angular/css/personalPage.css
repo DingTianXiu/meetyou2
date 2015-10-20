@@ -67,7 +67,7 @@
 }
 .m-personalPage .nav a{
     font-size: 1.2em;
-    color: black;
+    color: #6fba2c;
     text-decoration: none;
     margin-right: 16px;
     padding-bottom: 6px;
@@ -82,7 +82,6 @@
 }
 .m-personalPage .surfacePlotDiv{
     width: 267px;
-    height: 183px;
     float: left;
     margin-right: 14px;
 }
@@ -93,8 +92,16 @@
 .m-personalPage .intro li{
     display: inline;
     font-size: 1em;
-    margin-left: 14px;
+    margin-right: 14px;
     color: #8b8b8b;
+}
+.m-personalPage .intro .relationShip{
+    width: 39px;
+    height: 18px;
+    background-color: #65b51f;
+    color: #ffffff;
+    padding: 2px 8px 4px;
+    line-height: 19px;
 }
 .m-personalPage .intro .d-T-Place{
     color: #9bcf6b;
@@ -116,6 +123,9 @@
 }
 .m-personalPage .textPart{
     margin-top: 20px;
+    width: 336px;
+    height: 90px;
+    overflow: hidden;
 }
 .m-personalPage .textPart a{
     font-size: 1.3em;
@@ -126,7 +136,8 @@
 .m-personalPage .descript{
     font-size: 0.9em;
     color: #8b8b8b;
-    margin-top: 20px;
+    margin-top: 15px;
+    line-height: 20px;
 }
 .m-personalPage .loadingMore{
     width: 829px;

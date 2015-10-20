@@ -106,41 +106,18 @@ angular
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
 }])
-    .run(function($rootScope,$route,$location){
+    .run(function($rootScope,$route){
         $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
             //Change page title, based on Route information
             $rootScope.title = $route.current.title;
             $rootScope.keywords = $route.current.keywords;
             $rootScope.description = $route.current.description;
         });
+        $rootScope.searchName ="";
     })
 
-    .controller("SearchController", function ($scope) {
 
-        $scope.initIndex = function () {
-            var query = new AV.Query(RecommendArticle);
-            query.include('article')
-            query.find()
-                .then(function (articles) {
-                    $scope.rarticles = articles;
-                    var query = new AV.Query(RecommendedTour);
-                    query.include('tour');
-                    return query.find()
-                }).then(function (tours) {
-                    $scope.rtours = tours;
 
-                    var query = new AV.Query(Article);
-                    query.include('article');
-                    query.descending('createdAt');
-                    return query.find();
-                }).then(function (articles) {
-                    $scope.$apply(function () {
-                        $scope.articles = articles;
-                    })
-                })
-
-        }
-    })
     .directive('originalHtml', function() {
         return {
             restrict : 'EA',
@@ -155,7 +132,7 @@ angular
             }
         }
     })
-    .controller('headCtrl',function($scope,$location){
+    .controller('headCtrl',function($scope,$location,$rootScope){
         $scope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
             $scope.url = $location.url();
             if($scope.url == '/'){
@@ -176,72 +153,13 @@ angular
         }
 
 
-        $scope.$broadcast('homeEnter',$scope.searchName);
-        console.log($scope.searchName);
         $scope.homeEnter = function($event){
             if($event.keyCode == 13){
+                $rootScope.searchName=$scope.searchName;
                 $location.path('/search');
-                AV.Cloud.run('search', {'query':$scope.searchName}, {
-                    success: function (result) {
-
-                        console.log(result[1].createdAt);
-                        var articles = result;
-                        articles.shift();
-                        console.log(articles);
-                        console.log(articles[1].createdAt)
-                        var colOneArray=[];
-                        var colTwoArray=[];
-                        var colThreeArray=[];
-                        for(var i = 0;i<articles.length;i++){
-
-                            if(articles[i].createdAt)
-                            {
-                                articles[i].startDate=articles[i].startedAt.toLocaleDateString().replace(/\//gm, ".");
-                            }
-                            else{
-                                articles[i].startDate ="";
-                            }
-                            if(articles[i].authorinformation)
-                            {
-                                if(articles[i].authorHead) {
-                                    articles[i].hasAvatar = true;
-                                }
-                            }
-                            else
-                            {
-                                articles[i].hasAvatar=false;
-                            }
-
-                            if(articles[i].authorinformation)
-                            {
-                                if(articles[i].authorinformation.nickname) {
-                                    articles[i].hasNickName = true;
-                                }
-                            }
-                            else
-                            {
-                                articles[i].hasNickName=false;
-                            }
-
-                            if(i%3==0){
-
-                                colOneArray.push(articles[i]);
-                            }
-                            else if(i%3==1){
-                                colTwoArray.push(articles[i]);
-                            }
-                            else{
-                                colThreeArray.push(articles[i]);
-                            }
-                            $scope.rcolOneArray = colOneArray;
-                            $scope.rcolTwoArray = colTwoArray;
-                            $scope.rcolThreeArray = colThreeArray;
-                            $scope.$apply();
-                        }
-                    }
-                })
             }
         }
+        $rootScope.searchArticle = $scope.searchName;
 })
 
 
