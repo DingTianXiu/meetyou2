@@ -17,10 +17,12 @@
 	width: 100%;
 	float: left;
 	margin-top: 50px;
+	margin-bottom: 69px;
 }
 .m-CollectionDetail .notesList1{
 	width: 407px;
 	float: left;
+	margin-right: 10px;
 }
 .m-CollectionDetail .notesList2{
 	width: 407px;
@@ -37,7 +39,8 @@
 	width: 100%;
 }
 .m-CollectionDetail .contentPicture img{
-	max-width: 100%;
+	width: 405px;
+	height: 203px;
 }
 .m-CollectionDetail .notes-Title{
 	width: 100%;
@@ -73,6 +76,7 @@
 	margin: auto;
 	text-align: center;
 	margin-bottom: 69px;
+	display: none;
 }
 .m-CollectionDetail .btn-LoadingMore{
 	font-size: 10px;

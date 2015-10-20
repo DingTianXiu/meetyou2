@@ -16,7 +16,7 @@ angular.module('myApp.CollectionDetail', [])
 
         var intObj = {
             template: 3,
-            parent: 'collectionArticlesPageId' // this option will insert bar HTML into this parent Element
+            parent: '#collectionArticlesPageId' // this option will insert bar HTML into this parent Element
         };
         var indeterminateProgress = new Mprogress(intObj);
 
@@ -55,7 +55,7 @@ angular.module('myApp.CollectionDetail', [])
                                 if(i%2==0){
 
                                     colOneArray.push(articles[i]);
-                                    console.log(colOneArray.push(articles[i]));
+                                    //console.log(colOneArray.push(articles[i]));
 
                                 }
                                 else{

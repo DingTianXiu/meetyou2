@@ -33,14 +33,14 @@ angular
                 keywords:'自由行攻略 旅游攻略网 自助游攻略',
                 description:'觅游旅行,旅游达人分享的最新亲子,家庭,蜜月,情侣,闺蜜,基友,独行,偶遇等自助旅自由行游攻略路线行程,给您带来前所未有的旅行体验.觅游旅行,与对的人去对的地方.'
             })
-            .when('/meke', {
-                controller: 'MekeArticlesListctrl',
-                templateUrl: 'mekeArticlesList/mekearticleslistpage.html',
-                publicAccess: true,
-                title:'觅客推荐-觅游旅行',
-                keywords:'自由行攻略 旅游攻略网 自助游攻略',
-                description:'旅游达人分享最新的自助游旅行攻略行程路线等详细旅行信息,带您体验不一样的世界.觅游旅行,与对的人去对的地方.'
-            })
+            //.when('/meke', {
+            //    controller: 'MekeArticlesListctrl',
+            //    templateUrl: 'mekeArticlesList/mekearticleslistpage.html',
+            //    publicAccess: true,
+            //    title:'觅客推荐-觅游旅行',
+            //    keywords:'自由行攻略 旅游攻略网 自助游攻略',
+            //    description:'旅游达人分享最新的自助游旅行攻略行程路线等详细旅行信息,带您体验不一样的世界.觅游旅行,与对的人去对的地方.'
+            //})
             .when('/articles', {
                 controller: 'ArticlesListCtrl',
                 templateUrl: 'articlesList/articlesList.html',
@@ -114,6 +114,7 @@ angular
             $rootScope.description = $route.current.description;
         });
         $rootScope.searchName ="";
+        $rootScope.slide = "";
     })
 
 
@@ -159,7 +160,20 @@ angular
                 $location.path('/search');
             }
         }
-        $rootScope.searchArticle = $scope.searchName;
+
+        $scope.changeSlide = function(){
+            $rootScope.slide = 3;
+        }
+
 })
+    .controller('footCtrl',function($scope){
+        $scope.hasWeixin = false;
+        $scope.weixinShow = function(){
+            $scope.hasWeixin = true;
+        }
+        $scope.weixinHid = function(){
+            $scope.hasWeixin = false;
+        }
+    })
 
 

@@ -1,15 +1,4 @@
-*{
-	margin: 0px;
-	padding: 0px;
-}
-body{
-	font-size: 62.5%;
-	font-family: 微软雅黑;
-}
-img{
-	outline: none;
-	border: none;
-}
+
 .m-Home .baner{
 	position: relative;
 	overflow: hidden;
@@ -17,10 +6,45 @@ img{
 .m-Home .banerDiv{
 	width: 100%;
 	height: 329px;
+	position: relative;
 }
 .m-Home .banerDiv img{
 	max-width: 100%;
 	height: 329px;
+}
+.m-Home .app,.m-Home .android{
+	width: 111px;
+	height: 32px;
+	background-color: rgba(255,255,255,0.3);
+	position: absolute;
+	left: 405px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.m-Home .app{
+	bottom: 80px;
+}
+.m-Home .android{
+	bottom: 40px;
+}
+.m-Home .banerDiv .app .downLoadLogo,
+.m-Home .banerDiv .android .downLoadLogo{
+	height: 17px;
+	margin-top: 8px;
+	margin-left: 8px;
+	float: left;
+}
+.m-Home .banerDiv .app .downLoadText,
+.m-Home .banerDiv .android .downLoadText{
+	height: 9px;
+	margin-top: 12px;
+	margin-left: 8px;
+}
+.m-Home .banerDiv .app p,.m-Home .banerDiv .android p{
+	font-size: 7px;
+	line-height: 34px;
+	color: #ffffff;
 }
 .m-Home .pointDiv{
 	width: 100%;
@@ -28,7 +52,7 @@ img{
 	bottom: 20px;
 }
 .m-Home .point{
-	width: 100px;
+	width: 80px;
 	margin: auto;
 	text-align: center;
 }

@@ -73,7 +73,7 @@
         <div class="nav-Home" ng-class="{'nav':home==0}">
             <a ng-click="collectionList()" href="">精选专题</a>
             <a ng-click="meetkeCommunity()" href="">觅客社区</a>
-            <a href="javascript:void(0)">客户端下载</a>
+            <a href="" ng-click="changeSlide()">客户端下载</a>
         </div>
         <div class="loginBar-Home" ng-class="{'loginBar':home==0}">
             <div class="search-Home" ng-class="{'search':home==0}">
@@ -88,7 +88,7 @@
 
 <div ng-view></div>
 
-<div class="m-Footer">
+<div class="m-Footer" ng-controller="footCtrl">
     <div class="footer-Service">
         <div class="service">
             <ul>
@@ -100,29 +100,19 @@
             <img class="footer-MeetYouLogo" src="img/logo/觅游logo.png">
         </div>
         <div class="touch">
-            <img src="img/logo/微信.png" alt="微信">
-            <img src="img/logo/微博.png" alt="微博">
+            <img ng-mouseover="weixinShow()" ng-mouseleave="weixinHid()" src="img/logo/微信.png" alt="微信">
+            <img class="weixin" ng-show="hasWeixin" src="img/设计图/微信二维码.jpg">
+            <a href="http://weibo.com/meetyoutrip"><img src="img/logo/微博.png" alt="微博"></a>
             <img src="img/logo/QQ.png" alt="QQ">
             <img src="img/logo/豆瓣.png" alt="豆瓣">
-            <p>©2015 MeetYou.cn  京ICP证备 12051592号-1</p>
+            <p>©2015 MeetYou.cn  京ICP证备 15047601号-1</p>
         </div>
     </div>
     <div class="footer-Partner">
         <div class="partnerContent">
             <p class="partnerTitle">合作伙伴</p>
             <div class="partnerList">
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
-                <p>合作伙伴</p>
+                <p><a href="http://www.dachengnet.com">北京大成律师事务所</a></p>
             </div>
         </div>
     </div>
