@@ -17,7 +17,7 @@
                 <div class="notes" ng-repeat="rarticle in rcolOneArray track by $index">
                     <div class="relation">{{rarticle.relationshipname}}</div>
                     <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.background.url()}}"></div>
-                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.title}}</a></p></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.objectId}}">{{rarticle.title}}</a></p></div>
                     <div class="notes-Descriptor">
                         <ul>
                             <li class="name">{{rarticle.destination}}</li>
@@ -27,14 +27,14 @@
                             <li class="count">888</li>
                         </ul>
                     </div>
-                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
+                    <img class="headPortrait" ng-click="sourceMekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
                 </div>
             </div>
             <div class="notes-List2">
                 <div class="notes" ng-repeat="rarticle in rcolTwoArray track by $index">
                     <div class="relation">{{rarticle.relationshipname}}</div>
                     <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.background.url()}}"></div>
-                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.title}}</a></p></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.objectId}}">{{rarticle.title}}</a></p></div>
                     <div class="notes-Descriptor">
                         <ul>
                             <li class="name">{{rarticle.destination}}</li>
@@ -44,14 +44,14 @@
                             <li class="count">888</li>
                         </ul>
                     </div>
-                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
+                    <img class="headPortrait" ng-click="sourceMekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
                 </div>
             </div>
             <div class="notes-List3">
                 <div class="notes" ng-repeat="rarticle in rcolThreeArray track by $index">
                     <div class="relation">{{rarticle.relationshipname}}</div>
                     <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.background.url()}}"></div>
-                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.title}}</a></p></div>
+                    <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.objectId}}">{{rarticle.title}}</a></p></div>
                     <div class="notes-Descriptor">
                         <ul>
                             <li class="name">{{rarticle.destination}}</li>
@@ -61,7 +61,7 @@
                             <li class="count">888</li>
                         </ul>
                     </div>
-                    <img class="headPortrait" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
+                    <img class="headPortrait" ng-click="sourceMekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.authorHead.url()}}">
                 </div>
             </div>
             <div class="loadingMore">

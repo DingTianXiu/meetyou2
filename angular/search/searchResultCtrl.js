@@ -13,7 +13,7 @@ angular.module('myApp.SearchResult', [])
 
 
 
-    .controller('SearchResultCtrl', function($scope,$rootScope,$filter) {
+    .controller('SearchResultCtrl', function($scope,$rootScope,$filter,$location) {
 
 
         var intObj = {
@@ -28,6 +28,12 @@ angular.module('myApp.SearchResult', [])
         if ($rootScope.selectedCategory) {
             $scope.selectedIndex = $rootScope.selectedCategory;
         }
+        $scope.sourceMekeClicked =function(rarticle){
+            $location.path('/personalPage/'+rarticle.id);
+        }
+        $scope.ArticleClicked = function (rarticle){
+            $location.path('/articles/'+rarticle.objectId);
+        };
 
 
         //页面初始化
@@ -69,8 +75,6 @@ angular.module('myApp.SearchResult', [])
                 success: function (result) {
 
                     $scope.changeArticles = result;
-                    //$scope.page = 1;
-                    //$scope.count = 15;
                     //console.log(result[1].createdAt);
                     var articles = result;
                     articles.shift();
@@ -79,53 +83,60 @@ angular.module('myApp.SearchResult', [])
                     var colOneArray = [];
                     var colTwoArray = [];
                     var colThreeArray = [];
-                    for (var i = 0; i < articles.length; i++) {
 
-                        if (articles[i].startedAt) {
-                            articles[i].startDate = articles[i].startedAt.toLocaleDateString().replace(/\//gm, ".");
-                            //console.log(articles[i].startedAt);
-                        }
-                        else {
-                            articles[i].startDate = "";
-                        }
-                        if (articles[i].authorinformation) {
-                            if (articles[i].authorHead) {
-                                articles[i].hasAvatar = true;
+                    if(articles.length!=0){
+                        for (var i = 0; i < articles.length; i++) {
+
+                            if (articles[i].startedAt) {
+                                articles[i].startDate = articles[i].startedAt.toLocaleDateString().replace(/\//gm, ".");
+                                //console.log(articles[i].startedAt);
                             }
-                        }
-                        else {
-                            articles[i].hasAvatar = false;
-                        }
-
-                        if (articles[i].authorinformation) {
-                            if (articles[i].authorinformation.nickname) {
-                                articles[i].hasNickName = true;
+                            else {
+                                articles[i].startDate = "";
                             }
-                        }
-                        else {
-                            articles[i].hasNickName = false;
-                        }
+                            if (articles[i].authorinformation) {
+                                if (articles[i].authorHead) {
+                                    articles[i].hasAvatar = true;
+                                }
+                            }
+                            else {
+                                articles[i].hasAvatar = false;
+                            }
 
-                        if (i % 3 == 0) {
+                            if (articles[i].authorinformation) {
+                                if (articles[i].authorinformation.nickname) {
+                                    articles[i].hasNickName = true;
+                                }
+                            }
+                            else {
+                                articles[i].hasNickName = false;
+                            }
 
-                            colOneArray.push(articles[i]);
-                            //console.log(colOneArray)
-                        }
-                        else if (i % 3 == 1) {
-                            colTwoArray.push(articles[i]);
-                        }
-                        else {
-                            colThreeArray.push(articles[i]);
-                        }
-                        $scope.rcolOneArray = colOneArray;
-                        $scope.rcolTwoArray = colTwoArray;
-                        $scope.rcolThreeArray = colThreeArray;
-                        $scope.$apply();
+                            if (i % 3 == 0) {
 
+                                colOneArray.push(articles[i]);
+                                //console.log(colOneArray)
+                            }
+                            else if (i % 3 == 1) {
+                                colTwoArray.push(articles[i]);
+                            }
+                            else {
+                                colThreeArray.push(articles[i]);
+                            }
+                            $scope.rcolOneArray = colOneArray;
+                            $scope.rcolTwoArray = colTwoArray;
+                            $scope.rcolThreeArray = colThreeArray;
+                            indeterminateProgress.end();
+
+
+                        }
+                    }else{
+                        $scope.rcolOneArray = [];
+                        $scope.rcolTwoArray = [];
+                        $scope.rcolThreeArray = [];
                         indeterminateProgress.end();
-
-
                     }
+                    $scope.$apply();
                 }
             })
         }
@@ -133,7 +144,7 @@ angular.module('myApp.SearchResult', [])
 
         //分类显示
         $scope.changeCategory = function(category,$index) {
-
+            indeterminateProgress.start();
             $scope.selectedIndex = $index;
             if(category!='全部'){
                 AV.Cloud.run('search', {'query': $scope.searchName}, {
@@ -154,7 +165,7 @@ angular.module('myApp.SearchResult', [])
                             }
                         }
                         console.log($scope.repeatArticles);
-                        if($scope.repeatArticles!=[]){
+                        if($scope.repeatArticles.length!=0){
                             for(var i=0;i<=$scope.repeatArticles.length;i++){
                                 //if ($scope.repeatArticles[i].startedAt) {
                                 //    $scope.repeatArticles[i].startDate = $scope.repeatArticles[i].startedAt.toLocaleDateString().replace(/\//gm, ".");
@@ -187,15 +198,16 @@ angular.module('myApp.SearchResult', [])
                                 $scope.rcolOneArray = colOneArray;
                                 $scope.rcolTwoArray = colTwoArray;
                                 $scope.rcolThreeArray = colThreeArray;
-                                $scope.$apply();
+                                indeterminateProgress.end();
                             }
                         }
                         else{
                             $scope.rcolOneArray = [];
                             $scope.rcolTwoArray = [];
                             $scope.rcolThreeArray = [];
-                            $scope.$apply();
+                            indeterminateProgress.end();
                         }
+                        $scope.$apply();
 
                     }
 
@@ -204,10 +216,5 @@ angular.module('myApp.SearchResult', [])
             else{
                 avsearch($scope.searchName);
             }
-
-
         }
-
-
-
     })
