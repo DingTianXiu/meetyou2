@@ -94,9 +94,10 @@
 .m-JoinUs .obligationTitle,.m-JoinUs .requirementsTitle{
     font-size: 1.1em;
     line-height: 25px;
+    font-weight: bold;
 }
 .m-JoinUs .obligationDescript,.m-JoinUs .requirementsDescript{
     font-size: 1.1em;
     line-height: 25px;
-    color: #a59f9d;
+    color: #858484;
 }

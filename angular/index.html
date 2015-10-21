@@ -9,7 +9,9 @@
     <meta http-equiv="content-type" content="text/html; charset=urt-8">
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title ng-bind="$root.title">觅游旅行</title>
+    <base href="/">
+
+    <title ng-bind="$root.title">觅游旅行</title>
     <!--angularseed部分-->
     <meta name="description"  content="{{$root.description}}">
     <meta name="keywords" content = "{{$root.keywords}}">
@@ -26,7 +28,6 @@
     <!--local-->
     <!--<base href="/app/">-->
     <!--deploy-->
-    <base href="/">
 
     <!--<base href="/app/">-->
     <script src="https://leancloud.cn/scripts/lib/av-0.5.1.min.js"></script>
@@ -72,7 +73,7 @@
         <a ng-click="homePage()" href=""><img class="meetYouLogo-Home" ng-class="{'meetYouLogo':home==0}" src="img/logo/觅游logo.png" alt="觅游logo"></a>
         <div class="nav-Home" ng-class="{'nav':home==0}">
             <a ng-click="collectionList()" href="">精选专题</a>
-            <a ng-click="meetkeCommunity()" href="">觅客社区</a>
+            <a href="javacript:void(0)">觅客社区</a>
             <a href="" ng-click="changeSlide()">客户端下载</a>
         </div>
         <div class="loginBar-Home" ng-class="{'loginBar':home==0}">
@@ -102,7 +103,7 @@
         <div class="touch">
             <img ng-mouseover="weixinShow()" ng-mouseleave="weixinHid()" src="img/logo/微信.png" alt="微信">
             <img class="weixin" ng-show="hasWeixin" src="img/设计图/微信二维码.jpg">
-            <a href="http://weibo.com/meetyoutrip"><img src="img/logo/微博.png" alt="微博"></a>
+            <a href="http://weibo.com/meetyoutrip" target="view_window"><img src="img/logo/微博.png" alt="微博"></a>
             <img src="img/logo/QQ.png" alt="QQ">
             <img src="img/logo/豆瓣.png" alt="豆瓣">
             <p>©2015 MeetYou.cn  京ICP证备 15047601号-1</p>
@@ -112,7 +113,7 @@
         <div class="partnerContent">
             <p class="partnerTitle">合作伙伴</p>
             <div class="partnerList">
-                <p><a href="http://www.dachengnet.com">北京大成律师事务所</a></p>
+                <p><a href="http://www.dachengnet.com" target="view_window">北京大成律师事务所</a></p>
             </div>
         </div>
     </div>
