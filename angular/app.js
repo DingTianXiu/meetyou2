@@ -84,7 +84,8 @@ angular
                 templateUrl: 'personalPage/personalPage.html'
             })
             .when('/about', {
-                templateUrl: 'about/aboutUs.html'
+                templateUrl: 'about/aboutUs.html',
+                publicAccess: true
             })
             .when('/contact',{
                 templateUrl: 'contact/contactUs.html'

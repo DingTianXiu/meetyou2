@@ -25,6 +25,7 @@
     float: right;
     margin-right: 1px;
     margin-top: 1px;
+    cursor:pointer
 }
 .m-searchResult .main{
     width: 100%;
@@ -97,6 +98,7 @@
 .m-searchResult .view-img img{
     width: 267px;
     height: 133.5px;
+    cursor:pointer
 }
 .m-searchResult .notes-Title{
     font-size: 1.1em;
@@ -140,6 +142,7 @@
     position: absolute;
     right: 5px;
     bottom: 6px;
+    cursor:pointer
 }
 .m-searchResult .loadingMore{
     width: 829px;

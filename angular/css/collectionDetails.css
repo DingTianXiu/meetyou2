@@ -41,6 +41,7 @@
 .m-CollectionDetail .contentPicture img{
 	width: 405px;
 	height: 203px;
+	cursor:pointer
 }
 .m-CollectionDetail .notes-Title{
 	width: 100%;

@@ -78,6 +78,7 @@
 .m-ArticlesList .view-img img{
     width: 267px;
     height: 133.5px;
+    cursor:pointer
 }
 .m-ArticlesList .notes-Title{
     font-size: 1.1em;
@@ -121,6 +122,7 @@
     position: absolute;
     right: 5px;
     bottom: 6px;
+    cursor:pointer
 }
 .m-ArticlesList .loadingMore{
     width: 829px;

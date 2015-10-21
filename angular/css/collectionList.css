@@ -54,6 +54,7 @@
 .m-CollectionList .contentPicture{
 	width: 405px;
 	height: 168px;
+	cursor:pointer
 }
 .m-CollectionList .loadingMore{
 	width: 829px;

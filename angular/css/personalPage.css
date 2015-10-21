@@ -23,6 +23,7 @@
 .m-personalPage .headPortrait img{
     max-width: 100%;
     margin: auto;
+    cursor:pointer
 }
 .m-personalPage .name{
     font-size: 1.2em;
@@ -88,6 +89,7 @@
 .m-personalPage .surfacePlot{
     max-width: 100%;
     margin: auto;
+    cursor:pointer
 }
 .m-personalPage .intro li{
     display: inline;

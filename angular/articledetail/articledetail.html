@@ -25,7 +25,7 @@
                     <div ng-repeat="item in day['items']">
                         <div class="place"><img src="../img/设计图/图像/元素_71.png"><p>{{item["title"]}}</p></div>
                         <div class="textPart">
-                            <img src="../img/设计图/view.jpg" ng-repeat="pic in item['pics']" ng-src='{{pic}}'>
+                            <img ng-repeat="pic in item['pics']" ng-src='{{pic}}'>
                             <p ng-bind-html='item["description"]|to_trusted'></p>
                         </div>
                     </div>

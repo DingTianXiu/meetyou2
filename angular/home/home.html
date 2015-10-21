@@ -30,7 +30,7 @@
                 <div class="notes-List1">
                     <div class="notes" ng-repeat="rarticle in currentArticles.oneCol">
                         <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
-                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <div class="contentPicture"><a><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></a></div>
                         <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
                         <div class="notes-Intro">
                             <ul>
