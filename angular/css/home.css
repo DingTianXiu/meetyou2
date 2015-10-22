@@ -63,10 +63,13 @@
 	width: 10px;
 	height: 10px;
 	border-radius: 10px;
-	background-color: #ffffff;
+	background-color: rgba(255,255,255,0.5);
 	float: left;
 	margin-right: 10px;
 	cursor:pointer
+}
+.m-Home .pointChoose p{
+	background-color: rgba(255,255,255,1);
 }
 .m-Home .m-Body{
 	width: 100%;
@@ -206,11 +209,11 @@
 }
 .m-Home .contentPicture{
 	width: 265px;
-	height: 132.5px;
+	height: 134px;
 }
 .m-Home .contentPicture img{
 	width: 265px;
-	height: 132.5px;
+	height: 134px;
 	cursor:pointer
 }
 .m-Home .active{

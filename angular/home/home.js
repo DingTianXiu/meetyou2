@@ -13,7 +13,7 @@ angular.module('myApp.home', [])
 
 
 
-    .controller('HomeCtrl', function($scope,$rootScope,$location) {
+    .controller('HomeCtrl', function($scope,$rootScope,$location,$interval) {
 
 
 
@@ -26,14 +26,25 @@ angular.module('myApp.home', [])
         $scope.categories=['全部','家庭','亲子','蜜月','情侣','基友','闺蜜','独行','偶遇'];
         $scope.selectedIndex=0;
         $scope.slide = 1;
+        $scope.pointShow = 0;
         $scope.points = ['','',''];
         if($rootScope.selectedCategory)
         {
             $scope.selectedIndex = $rootScope.selectedCategory;
         }
         $scope.ChangeSlide = function($index) {
-            $scope.slide = $index+1;
+                $scope.slide = $index+1;
+                $scope.pointShow = $index;
         };
+        $scope.ChangeSlideOn = function(){
+            if($scope.slide<=2){
+                $scope.slide++;
+            }
+            else{
+                $scope.slide = 1;
+            }
+        }
+        $interval($scope.ChangeSlideOn,4000);
         var currentArticles={};
         currentArticles.oneCol =[];
         currentArticles.twoCol=[];

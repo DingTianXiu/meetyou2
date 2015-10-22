@@ -162,9 +162,7 @@ angular
             }
         }
 
-        $scope.changeSlide = function(){
-            $rootScope.slide = 3;
-        }
+
 
 })
     .controller('footCtrl',function($scope){

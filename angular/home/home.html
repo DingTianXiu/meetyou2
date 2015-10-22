@@ -12,7 +12,7 @@
             <div class="android"><img class="downLoadLogo" src="../img/设计图/觅游_14.png"><a href="http://android.myapp.com/myapp/detail.htm?apkName=cn.miyou">ANDROID 版下载</a></div>
         </div>
         <div class="pointDiv">
-            <div class="point" ng-repeat="point in points track by $index">
+            <div class="point" ng-class="{'pointChoose':$index == pointShow}" ng-repeat="point in points track by $index">
                 <p ng-click="ChangeSlide($index)">{{point}}</p>
             </div>
         </div>
