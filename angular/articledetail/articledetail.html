@@ -17,7 +17,7 @@
                     <li><img src="../img/设计图/图像/元素_78.png">{{article.get("relationshipstring")}}</li>
                     <li><img src="../img/设计图/图像/元素_81.png">{{article.get("duration")}}  Days</li>
                 </ul>
-                <p class="digest">{{article.get("intro")|to_trusted}}</p>
+                <p class="digest" ng-bind-html='article.get("intro")|to_trusted'></p>
                 <div class="articleMain" ng-repeat="day in article.get('days')">
                     <div class="title">
                         <img class="greenPoint" src="../img/设计图/小绿.png"><p>{{day["title"]}}</p>

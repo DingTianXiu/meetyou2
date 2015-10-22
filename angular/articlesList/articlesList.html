@@ -14,7 +14,7 @@
             <div class="notes-List1">
                 <div class="notes" ng-repeat="rarticle in currentArticles.oneCol">
                     <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
-                    <div class="view-img"><img src="{{rarticle.get('background').url()}}"></div>
+                    <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
                     <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
                     <div class="notes-Descriptor">
                         <ul>
@@ -31,7 +31,7 @@
             <div class="notes-List2">
                 <div class="notes" ng-repeat="rarticle in currentArticles.twoCol">
                     <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
-                    <div class="view-img"><img src="{{rarticle.get('background').url()}}"></div>
+                    <div class="view-img"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
                     <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
                     <div class="notes-Descriptor">
                         <ul>

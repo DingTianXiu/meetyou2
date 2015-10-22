@@ -85,6 +85,7 @@ angular.module('myApp.ArticleDetail', [])
                                     articlesSource[i].hasAvatar = false;
                                 }
                             }
+
                             $scope.rArticlesSource = articlesSource;
                             console.log($scope.rArticlesSource);
                             $scope.$apply();
