@@ -44,7 +44,7 @@ angular.module('myApp.home', [])
                 $scope.slide = 1;
             }
         }
-        $interval($scope.ChangeSlideOn,4000);
+        $interval($scope.ChangeSlideOn,8000);
         var currentArticles={};
         currentArticles.oneCol =[];
         currentArticles.twoCol=[];

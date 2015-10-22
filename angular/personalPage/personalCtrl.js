@@ -14,13 +14,18 @@ angular.module('myApp.PersonalPage', [])
 
 
 
-    .controller('PersonalPageCtrl', function($scope,$rootScope,$routeParams) {
+    .controller('PersonalPageCtrl', function($scope,$rootScope,$routeParams,$location) {
 
         var intObj = {
             template: 3,
             parent: '#personalPageId' // this option will insert bar HTML into this parent Element
         };
         var indeterminateProgress = new Mprogress(intObj);
+
+        $scope.ArticleClicked = function (rarticle){
+
+            $location.path('/articles/'+rarticle.getObjectId());
+        };
 
 
         $scope.initIndex = function (){

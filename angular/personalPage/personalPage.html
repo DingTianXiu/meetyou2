@@ -5,8 +5,8 @@
                 <div class="headPortrait">
                     <img ng-src="{{userInformation.get('headImage').url()}}">
                 </div>
-                <p class="name">{{articles.get('nickname')}}</p>
-                <p class="sign">{{articles.get('userDesc')}}</p>
+                <p class="name">{{userInformation.get('nickname')}}</p>
+                <p class="sign">{{userInformation.get('userDesc')}}</p>
                 <hr>
                 <button class="foucs" name="foucs">关注</button>
                 <p class="fans">喜欢<span class="fans-Count">888</span></p>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="notes" ng-repeat="rarticle in articles">
                     <div class="surfacePlotDiv">
-                        <img class="surfacePlot" ng-src="{{rarticle.get('background').url()}}">
+                        <img class="surfacePlot" ng-click="ArticleClicked(rarticle)" ng-src="{{rarticle.get('background').url()}}">
                     </div>
                     <div class="intro">
                         <ul>
@@ -28,7 +28,7 @@
                         </ul>
                     </div>
                     <div class="textPart">
-                        <p class="title"><a href="javascript:void(0)">{{rarticle.get('title')}}</a> </p>
+                        <p class="title"><a ng-href="articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a> </p>
                         <p class="descript">{{rarticle.get('intro')}}</p>
                     </div>
                 </div>
