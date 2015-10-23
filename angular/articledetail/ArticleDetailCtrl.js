@@ -18,7 +18,7 @@ angular.module('myApp.ArticleDetail', [])
 
 
 
-    .controller('ArticleDetailCtrl', function($scope, $routeParams,$location) {
+    .controller('ArticleDetailCtrl', function($scope, $routeParams,$location,$anchorScroll) {
 
         var intObj = {
             template: 3,
@@ -30,6 +30,7 @@ angular.module('myApp.ArticleDetail', [])
         $scope.initIndex = function () {
 
             indeterminateProgress.start();
+            $anchorScroll();
 
             var query = new AV.Query(Article);
             query.include("relationship");

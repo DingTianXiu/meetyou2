@@ -3,8 +3,14 @@
     width: 829px;
     margin: auto;
 }
+.m-ArticleDetail .surfacePlotDiv{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
 .m-ArticleDetail .surfacePlotImg{
     width: 100%;
+    margin-top: -150px;
 }
 .m-ArticleDetail .surfacePlotText{
     width: 829px;

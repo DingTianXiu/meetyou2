@@ -21,7 +21,9 @@ angular
   'myApp.ArticlesList',
   'myApp.SearchResult',
   'myApp.PersonalPage',
-        'myApp.JoinUs'
+        'myApp.JoinUs',
+        'myApp.Exceptions',
+        'myApp.ContactUs'
 ])
     .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider,$location) {
 //  $routeProvider.otherwise({redirectTo: '/view1'});
@@ -88,10 +90,12 @@ angular
                 publicAccess: true
             })
             .when('/contact',{
-                templateUrl: 'contact/contactUs.html'
+                templateUrl: 'contact/contactUs.html',
+                controller: 'ContactUsCtrl'
             })
             .when('/exceptions',{
-                templateUrl: 'exceptions/exceptions.html'
+                templateUrl: 'exceptions/exceptions.html',
+                controller: 'ExceptionsCtrl'
             })
             .when('/view1', {
                 templateUrl: 'view1/view1.html',
@@ -134,16 +138,21 @@ angular
             }
         }
     })
-    .controller('headCtrl',function($scope,$location,$rootScope){
-        $scope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){
-            $scope.url = $location.url();
+    .controller('headCtrl',function($scope,$location,$rootScope,$filter){
+        $scope.$on("$routeChangeSuccess", function(){
+            $scope.url = $filter('limitTo')($location.url(),'12');
             if($scope.url == '/'){
                 $scope.home = 1;
             }else{
                 $scope.home = 0;
             }
-        });
+            if($scope.url == '/collections'){
+                $scope.collectionChoose = 1;
+            } else{
+                $scope.collectionChoose = 0;
+            }
 
+        });
         $scope.collectionList = function(){
             $location.path('/collections/')
         }
@@ -161,18 +170,26 @@ angular
                 $location.path('/search');
             }
         }
+        $scope.goSearch = function(){
+            $rootScope.searchName=$scope.searchName;
+            $location.path('/search');
+        }
 
-
-
+        $scope.hasApp = false;
+        $scope.appShow = function(){
+            $scope.hasApp = true;
+        }
+        $scope.appHid = function(){
+            $scope.hasApp = false;
+        }
 })
-    .controller('footCtrl',function($scope){
+    .controller('footCtrl',function($scope,$location,$anchorScroll) {
         $scope.hasWeixin = false;
-        $scope.weixinShow = function(){
+        $scope.weixinShow = function () {
             $scope.hasWeixin = true;
         }
-        $scope.weixinHid = function(){
+        $scope.weixinHid = function () {
             $scope.hasWeixin = false;
         }
+
     })
-
-

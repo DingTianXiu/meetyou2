@@ -7,7 +7,7 @@
 	margin: auto;
 }
 .m-CollectionList .menu{
-	margin-top: 79px;
+	margin-top: 128px;
 }
 .m-CollectionList .nav-Link-Div{
 	width: 41px;
@@ -17,18 +17,38 @@
 	display: inline-block;
 }
 .m-CollectionList .nav-Link-Div-Choose{
-	border: 2px solid #3da100;
+	color: #95c66a;
 	font-weight: bold;
 }
 .m-CollectionList .menu li{
 	display: inline;
 	height: 19px;
+	margin-right: 17px;
 }
 .m-CollectionList .nav-Link:link,
 .m-CollectionList .nav-Link:visited{
-	font-size: 1.3em;
-	color: #95c66a;
+	font-size: 1.4em;
+	color: #5e5e5e;
 	text-decoration: none;
+}
+.m-CollectionList .nav-Link:hover,
+.m-CollectionList .nav-Link:active{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: underline;
+}
+.m-CollectionList .nav-Link-Choose:link,
+.m-CollectionList .nav-Link-Choose:visited{
+	font-size: 1.4em;
+	color: #9bcf6b;
+	text-decoration: none;
+	font-weight: bold;
+}
+.m-CollectionList .nav-Link-Choose:hover,
+.m-CollectionList .nav-Link-Choose:active{
+	font-size: 1.4em;
+	color: #9bcf6b;
+	text-decoration: underline;
 }
 .m-CollectionList hr{
 	margin-top: 14px;

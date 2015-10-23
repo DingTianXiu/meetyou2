@@ -14,7 +14,7 @@ angular.module('myApp.PersonalPage', [])
 
 
 
-    .controller('PersonalPageCtrl', function($scope,$rootScope,$routeParams,$location) {
+    .controller('PersonalPageCtrl', function($scope,$rootScope,$routeParams,$location,$anchorScroll) {
 
         var intObj = {
             template: 3,
@@ -31,6 +31,7 @@ angular.module('myApp.PersonalPage', [])
         $scope.initIndex = function (){
 
             indeterminateProgress.start();
+            $anchorScroll();
 
             var query = new AV.Query(userInfomation);
             query.include("relationship");

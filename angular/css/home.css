@@ -68,6 +68,11 @@
 	margin-right: 10px;
 	cursor:pointer
 }
+.m-Home .point .point1,
+.m-Home .point .point2,
+.m-Home .point .point3{
+	background-color: #ffffff;
+}
 .m-Home .pointChoose p{
 	background-color: rgba(255,255,255,1);
 }
@@ -79,7 +84,7 @@
 	margin: auto;
 }
 .m-Home .menu{
-	margin-top: 79px;
+	margin-top: 50px;
 }
 .m-Home .menu ul{
 	float: left;

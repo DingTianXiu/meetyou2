@@ -1,7 +1,9 @@
 
 <div class="m-ArticleDetail" id="articleDetailId" ng-controller="ArticleDetailCtrl" ng-init="initIndex()">
     <div class="m-Body">
-        <img class="surfacePlotImg" ng-src="{{article.get('background').url()}}">
+        <div class="surfacePlotDiv">
+            <img class="surfacePlotImg" ng-src="{{article.get('background').url()}}">
+        </div>
         <div class="main">
             <div class="surfacePlotText">
                 <div class="articleTitle">

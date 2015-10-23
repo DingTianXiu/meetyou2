@@ -35,12 +35,25 @@ img{
 .nav-Home{
   float: left;
   line-height: 57px;
+  position: relative;
+}
+.nav-Home img{
+  width: 100px;
+  position: absolute;
+  right: -120px;
+  top: 20px;
+}
+.nav-Home .collection:visited{
+  color: rgb(55,156,43);
 }
 .nav-Home a:link,.nav-Home a:visited{
   font-size: 1.4em;
   color: #fff;
   text-decoration: none;
   margin-left: 26px;
+}
+.nav-Home a:hover{
+  color: rgb(55, 156, 43);
 }
 .loginBar-Home{
   float: right;
@@ -70,12 +83,18 @@ img{
 .search-Home input{
   font-size: 1em;
   color: #ffffff;
-  width: 100px;
+  width: 90px;
   height: 16px;
   border: none;
   outline: none;
   margin-left: 10px;
   background-color: rgba(255,255,255,0);
+}
+.search-Home img{
+  width: 16px;
+  float: right;
+  margin-right: 1px;
+  margin-top: 1px;
 }
 .search-Home input::-moz-placeholder{
   color: #fff;
@@ -105,7 +124,8 @@ img{
 }
 .m-Header{
   width: 100%;
-  position: relative;
+  position: fixed;
+  top: 0;
   background-color: #9bcf6b;
 }
 .m-Header .h-Content{
@@ -121,12 +141,25 @@ img{
 .m-Header .nav{
   line-height: 57px;
   float: left;
+  position: relative;
 }
-.m-Header .nav a:link,.m-Header .nav a:visited{
+.m-Header .nav img{
+  width: 100px;
+  position: absolute;
+  right: -120px;
+  top: 20px;
+}
+.m-Header .nav .collection{
+  color: rgb(55,156,43);
+}
+.m-Header .nav a:link{
   font-size: 1.4em;
   color: #fff;
   margin-left: 27px;
   text-decoration: none;
+}
+.m-Header .nav a:hover{
+  color: rgb(55,156,43);
 }
 .loginBar{
   float: right;
@@ -156,12 +189,18 @@ img{
 .search input{
   font-size: 1em;
   color: #ffffff;
-  width: 100px;
+  width: 90px;
   height: 16px;
   border: none;
   outline: none;
   margin-left: 10px;
   background-color: rgba(0,0,0,0);
+}
+.search img{
+  width: 16px;
+  float: right;
+  margin-right: 1px;
+  margin-top: 1px;
 }
 .m-Footer{
   width: 100%;
@@ -185,10 +224,13 @@ img{
   display: inline;
   margin-right: 20px;
 }
-.service li a{
+.service li a:link,.service li a:visited{
   font-size: 1.2em;
   color: #fff;
   text-decoration: none;
+}
+.service li a:hover{
+  color: rgb(55,156,43);
 }
 .footer-MeetYouLogo{
   height: 29px;

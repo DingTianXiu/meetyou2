@@ -26,16 +26,19 @@ angular.module('myApp.home', [])
         $scope.categories=['全部','家庭','亲子','蜜月','情侣','基友','闺蜜','独行','偶遇'];
         $scope.selectedIndex=0;
         $scope.slide = 1;
-        $scope.pointShow = 0;
-        $scope.points = ['','',''];
         if($rootScope.selectedCategory)
         {
             $scope.selectedIndex = $rootScope.selectedCategory;
         }
-        $scope.ChangeSlide = function($index) {
-                $scope.slide = $index+1;
-                $scope.pointShow = $index;
-        };
+        $scope.ChangeSlide1 = function(){
+            $scope.slide = 1;
+        }
+        $scope.ChangeSlide2 = function(){
+            $scope.slide = 2;
+        }
+        $scope.ChangeSlide3 = function(){
+            $scope.slide = 3;
+        }
         $scope.ChangeSlideOn = function(){
             if($scope.slide<=2){
                 $scope.slide++;
@@ -44,7 +47,7 @@ angular.module('myApp.home', [])
                 $scope.slide = 1;
             }
         }
-        $interval($scope.ChangeSlideOn,8000);
+        $interval($scope.ChangeSlideOn,6000);
         var currentArticles={};
         currentArticles.oneCol =[];
         currentArticles.twoCol=[];

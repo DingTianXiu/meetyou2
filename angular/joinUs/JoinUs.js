@@ -4,7 +4,7 @@
 
 angular.module('myApp.JoinUs',[])
 
-    .controller('JoinUsCtrl',function($rootScope,$scope){
+    .controller('JoinUsCtrl',function($rootScope,$scope,$anchorScroll){
         $scope.jobs = ['技术','设计','运营','职能'];
         $scope.selectedIndex = 0;
         $scope.slide =1;
@@ -15,5 +15,9 @@ angular.module('myApp.JoinUs',[])
         if($rootScope.selectedjob)
         {
             $scope.selectedIndex = $rootScope.selectedjob;
+        }
+        $scope.initIndex = function(){
+
+                $anchorScroll();
         }
     })

@@ -19,10 +19,8 @@
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
     <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
     <link rel="stylesheet" href="css/mprogress.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/ngDialog/ngDialog.css">
     <link rel="stylesheet" href="app.css">
     <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="bower_components/ngDialog/ngDialog.js"></script>
 
     <script src="js/mprogress.min.js"></script>
     <script src="js/w-slider-controller.js"></script>
@@ -74,13 +72,15 @@
     <div ng-class="{'h-Content':home==0}" class="h-Content-Home">
         <a ng-click="homePage()" href=""><img class="meetYouLogo-Home" ng-class="{'meetYouLogo':home==0}" src="img/logo/觅游logo.png" alt="觅游logo"></a>
         <div class="nav-Home" ng-class="{'nav':home==0}">
-            <a ng-click="collectionList()" href="">精选专题</a>
+            <a id="top" ng-click="collectionList()" ng-class="{'collection':collectionChoose == 1}" href="">精选专题</a>
             <a href="javacript:void(0)">觅客社区</a>
-            <a href="" ng-click="changeSlide()">客户端下载</a>
+            <a href="javacript:void(0)" ng-mouseover="appShow()" ng-mouseleave="appHid()">客户端下载</a>
+            <img ng-show="hasApp" src="img/设计图/APP下载二维码.png">
         </div>
         <div class="loginBar-Home" ng-class="{'loginBar':home==0}">
             <div class="search-Home" ng-class="{'search':home==0}">
                 <input type="text" name="search" placeholder="搜索游记/攻略" ng-model="searchName" ng-keypress="homeEnter($event)">
+                <img ng-click="goSearch()" src="img/设计图/搜索.png">
             </div>
             <a href="javacript:void(0)">注册</a>
             <span>|</span>
@@ -95,7 +95,7 @@
     <div class="footer-Service">
         <div class="service">
             <ul>
-                <li><a href="/about">关于我们</a></li>
+                <li><a href="about">关于我们</a></li>
                 <li><a href="exceptions">免责条款</a></li>
                 <li><a href="joinUs">加入我们</a></li>
                 <li><a href="contact">联系我们</a></li>
@@ -140,6 +140,8 @@
 <script src="collectionList/CollectionsListCtrl.js"></script>
 <script src="search/searchResultCtrl.js"></script>
 <script src="joinUs/joinUs.js"></script>
+<script src="exceptions/ExceptionsCtrl.js"></script>
+<script src="contact/contactUs.js"></script>
 <script src="personalPage/personalCtrl.js"></script>
 
   <script src="view1/view1.js"></script>

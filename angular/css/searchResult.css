@@ -5,7 +5,7 @@
     margin: auto;
 }
 .m-searchResult .articleSearch{
-    margin-top: 70px;
+    margin-top: 128px;
     margin-bottom: 75px;
     width: 396px;
     height: 32px;
@@ -38,27 +38,35 @@
 }
 .m-searchResult .nav ul{
     float: left;
-
 }
 .m-searchResult .nav li{
     display: inline;
-}
-.m-searchResult .nav-Link-Div{
-    width: 41px;
-    height: 19px;
-    line-height: 19px;
-    text-align: center;
-    display: inline-block;
-}
-.m-searchResult .nav-Link-Div-Choose{
-    border: 2px solid #3da100;
-    font-weight: bold;
+    margin-right: 17px;
 }
 .m-searchResult .nav-Link:link,
 .m-searchResult .nav-Link:visited{
-    font-size: 1.2em;
+    font-size: 1.4em;
+    color: #5e5e5e;
+    text-decoration: none;
+}
+.m-searchResult .nav-Link:hover,
+.m-searchResult .nav-Link:active{
+    font-size: 1.4em;
+    color: #5e5e5e;
+    text-decoration: underline;
+}
+.m-searchResult .nav-Link-Choose:link,
+.m-searchResult .nav-Link-Choose:visited{
+    font-size: 1.4em;
     color: #9bcf6b;
     text-decoration: none;
+    font-weight: bold;
+}
+.m-searchResult .nav-Link-Choose:hover,
+.m-searchResult .nav-Link-Choose:active{
+    font-size: 1.4em;
+    color: #9bcf6b;
+    text-decoration: underline;
 }
 .m-searchResult .notes-List1,
 .m-searchResult .notes-List2{

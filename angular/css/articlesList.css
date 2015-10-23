@@ -7,7 +7,7 @@
     margin: auto;
 }
 .m-ArticlesList .nav{
-    margin-top: 70px;
+    margin-top: 128px;
     float: left;
 }
 .m-ArticlesList .nav ul{
@@ -16,23 +16,32 @@
 }
 .m-ArticlesList .nav li{
     display: inline;
-}
-.m-ArticlesList .nav-Link-Div{
-    width: 41px;
-    height: 19px;
-    line-height: 19px;
-    text-align: center;
-    display: inline-block;
-}
-.m-ArticlesList .nav-Link-Div-Choose{
-    border: 2px solid #3da100;
-    font-weight: bold;
+    margin-right: 17px;
 }
 .m-ArticlesList .nav-Link:link,
 .m-ArticlesList .nav-Link:visited{
-    font-size: 1.2em;
+    font-size: 1.4em;
+    color: #5e5e5e;
+    text-decoration: none;
+}
+.m-ArticlesList .nav-Link:hover,
+.m-ArticlesList .nav-Link:active{
+    font-size: 1.4em;
+    color: #5e5e5e;
+    text-decoration: underline;
+}
+.m-ArticlesList .nav-Link-Choose:link,
+.m-ArticlesList .nav-Link-Choose:visited{
+    font-size: 1.4em;
     color: #9bcf6b;
     text-decoration: none;
+    font-weight: bold;
+}
+.m-ArticlesList .nav-Link-Choose:hover,
+.m-ArticlesList .nav-Link-Choose:active{
+    font-size: 1.4em;
+    color: #9bcf6b;
+    text-decoration: underline;
 }
 .m-ArticlesList .main{
     width: 100%;
