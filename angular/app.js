@@ -23,7 +23,8 @@ angular
   'myApp.PersonalPage',
         'myApp.JoinUs',
         'myApp.Exceptions',
-        'myApp.ContactUs'
+        'myApp.ContactUs',
+        'myApp.AboutUs'
 ])
     .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider,$location) {
 //  $routeProvider.otherwise({redirectTo: '/view1'});
@@ -87,7 +88,7 @@ angular
             })
             .when('/about', {
                 templateUrl: 'about/aboutUs.html',
-                publicAccess: true
+                controller: 'AboutUsCtrl'
             })
             .when('/contact',{
                 templateUrl: 'contact/contactUs.html',
