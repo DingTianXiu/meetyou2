@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>觅游下载</title>
+    <link type="text/css" rel="stylesheet" href="download.css">
+    <link rel="stylesheet" href="bower_components/normalize.css/normalize.css"/>
+    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
+</head>
+<body>
+    <div id="pages">
+        <div class="page" id="page1">
+            <img class="text" src="切图3/觅寻分享精彩记忆的原生社区.png">
+            <img class="up" src="切图3/向上.png">
+        </div>
+        <div class="page" id="page2">
+            <img src="切图3/一段旅途，不同的旅伴.png">
+            <div id="btn" class="downLoading"></div>
+        </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="pageSwitch.js"></script>
+    <script src="bower_components/slip.binnng.js/dist/min.slip.js?v=2"></script>
+    <script type="text/javascript">
+
+        window.addEventListener('DOMContentLoaded', function(){
+            var pw = new pageSwitch('pages',{
+                duration:600,           //int 页面过渡时间
+                direction:1,            //int 页面切换方向，0横向，1纵向
+                start:0,                //int 默认显示页面
+                loop:false,             //bool 是否循环切换
+                ease:'ease',            //string|function 过渡曲线动画，详见下方说明
+                transition:'scroll',     //string|function转场方式，详见下方说明
+                freeze:false,           //bool 是否冻结页面（冻结后不可响应用户操作，可以通过 `.freeze(false)` 方法来解冻）
+                mouse:true,             //bool 是否启用鼠标拖拽
+                mousewheel:true,       //bool 是否启用鼠标滚轮切换
+                arrowkey:false,         //bool 是否启用键盘方向切换
+                autoplay:false         //bool 是否自动播放幻灯 新增
+            });
+            var btn = document.getElementById('btn');
+            btn.onclick = function(){
+            var u = navigator.userAgent,
+                app = navigator.appVersion;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if(isiOS==true){
+                window.location.href = "http://android.myapp.com/myapp/detail.htm?apkName=cn.miyou";
+            }else if(isAndroid==true){
+                window.location.href = "https://appsto.re/cn/aKTX7.i";
+            }else{
+                alert('请于移动设备中打开');
+            }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -26,7 +26,7 @@ angular
         'myApp.ContactUs',
         'myApp.AboutUs'
 ])
-    .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider,$location) {
+    .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider,$location,prerender) {
 //  $routeProvider.otherwise({redirectTo: '/view1'});
         $routeProvider
             .when('/', {
@@ -90,6 +90,10 @@ angular
                 templateUrl: 'about/aboutUs.html',
                 controller: 'AboutUsCtrl'
             })
+            .when('/about/', {
+                templateUrl: 'about/aboutUs.html',
+                controller: 'AboutUsCtrl'
+            })
             .when('/contact',{
                 templateUrl: 'contact/contactUs.html',
                 controller: 'ContactUsCtrl'
@@ -111,6 +115,7 @@ angular
 
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
+        $locationProvider.hashPrefix('!');
 }])
     .run(function($rootScope,$route){
         $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute){

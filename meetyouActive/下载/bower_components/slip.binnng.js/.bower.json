@@ -1,0 +1,32 @@
+{
+  "name": "binnng/slip.js",
+  "main": "dist/min.slip.js",
+  "homepage": "https://github.com/binnng/slip.js",
+  "authors": [
+    "binnng <imbinnng@gmail.com>"
+  ],
+  "description": "移动端手指滑动组件，零依赖。",
+  "keywords": [
+    "slip",
+    "swipe",
+    "slider",
+    "webapp"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "demo",
+    "docs",
+    "Makefile",
+    "package.json"
+  ],
+  "_release": "421c753ed9",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "421c753ed987ea4e792402ad897b3e5bbba547d6"
+  },
+  "_source": "git://github.com/binnng/slip.js.git",
+  "_target": "*",
+  "_originalSource": "slip.binnng.js",
+  "_direct": true
+}

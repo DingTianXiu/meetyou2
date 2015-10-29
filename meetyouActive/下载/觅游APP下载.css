@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    overflow: auto; overflow-y:hidden
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+#pages {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+}
+#page1{
+    background: url("切图3/h--1.png") no-repeat center top;
+    background-size: 100%;
+}
+#page1 .text{
+    width: 55.3%;
+    margin-top: 120%;
+    margin-left: 20%;
+}
+#page1 .up{
+    width: 9.2%;
+    display: block;
+    margin: 10% auto 0;
+    animation-iteration-count: infinite;
+    animation-duration: 2.55s;
+    animation-name: flash;
+    animation-fill-mode: both;
+}
+#page2{
+    background: url("切图3/h--2.png") no-repeat center top;
+    background-size: 100%;
+}
+#page2 img{
+    width: 51.87%;
+    margin-top: 55%;
+    margin-left: 24%;
+}
+.downLoading{
+    width: 50%;
+    background: url("切图3/下载觅游正常.png") no-repeat top center;
+    background-size: 100%;
+    padding: 4.5% 0;
+    margin: 20% auto 0;
+}
+.downLoading:active{
+    width: 50%;
+    background: url("切图3/下载觅游按下.png") no-repeat top center;
+    background-size: 100%;
+    padding: 4.5% 0;
+    margin: 20% auto 0;
+}
