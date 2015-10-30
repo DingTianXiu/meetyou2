@@ -5,17 +5,18 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>觅游抽奖活动</title>
     <link type="text/css" rel="stylesheet" href="抽奖.css">
+    <script src="bower_components/angular/angular.js"></script>
 </head>
 <body>
-    <div class="content">
+    <div class="content" ng-app="myApp" ng-controller="myCtrl">
         <!--<img class="backgroundImg" src="img/背景.jpg">-->
         <div class="main">
             <div class="formDiv">
                 <div class="phoneNumberInputDiv">
-                    <input type="text" name="phoneNumber" placeholder="请输入手机号">
+                    <input ng-model="phoneNumber" type="text" ng-pattern="/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/" name="phoneNumber" placeholder="请输入手机号">
                     <img src="img/矩形-24.png">
                 </div>
-                <div class="drawBtnDiv"></div>
+                <div class="drawBtnDiv" ng-click="draw()"></div>
             </div>
             <div class="award">
                 <img src="img/活动奖品.png">
@@ -43,22 +44,19 @@
             </div>
         </div>
         <!--登录提示框-->
-        <div class="loginWarningBody">
+        <div class="loginWarningBody" ng-show="loginShow">
             <div class="loginWarning">
-                <div class="loginMakeSure"></div>
-                <div class="loginCancel"></div>
+                <div class="loginMakeSure" ng-click="Login()"></div>
+                <div class="loginCancel" ng-click="cancelLogin()"></div>
             </div>
         </div>
         <!--抽奖成功提示框-->
-        <div class="drawSuccessBody">
+        <div class="drawSuccessBody" ng-show="drawSuccess">
             <div class="drawSuccess">
-                <div class="drawSuccessBtn"></div>
+                <div class="drawSuccessBtn" ng-click="success()"></div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        window.onload = function(){
-        }
-    </script>
+    <script src="抽奖.js"></script>
 </body>
 </html>

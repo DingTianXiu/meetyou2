@@ -13,6 +13,7 @@ body{
     width: 100%;
     height: 100%;
     position: absolute;
+
 }
 .page {
     width: 100%;
@@ -23,22 +24,35 @@ body{
     color: white;
 }
 #page1{
-    background: url("切图3/h--1.png") no-repeat center top;
-    background-size: 100%;
+    text-align: center;
 }
 #page1 .text{
     width: 55.3%;
-    margin-top: 120%;
-    margin-left: 20%;
+    position: absolute;
+    top: 70%;
+    left: 22%;
 }
 #page1 .up{
     width: 9.2%;
     display: block;
-    margin: 10% auto 0;
     animation-iteration-count: infinite;
     animation-duration: 2.55s;
     animation-name: flash;
     animation-fill-mode: both;
+    position: absolute;
+    bottom: 5%;
+    left: 45%;
+}
+.people{
+    position: absolute;
+    top: 9%;
+    left: 13%;
+    width: 73.87%;
+}
+.shivering{
+    width: 91.2%;
+    position: relative;
+    z-index: 3;
 }
 #page2{
     background: url("切图3/h--2.png") no-repeat center top;
@@ -46,15 +60,18 @@ body{
 }
 #page2 img{
     width: 51.87%;
-    margin-top: 55%;
-    margin-left: 24%;
+    position: absolute;
+    left: 25%;
+    top: 30%;
 }
 .downLoading{
     width: 50%;
     background: url("切图3/下载觅游正常.png") no-repeat top center;
     background-size: 100%;
     padding: 4.5% 0;
-    margin: 20% auto 0;
+    position: absolute;
+    bottom: 10%;
+    left: 25%;
 }
 .downLoading:active{
     width: 50%;
