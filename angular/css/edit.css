@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.m-edit{
+    width: 100%;
+}
+.m-edit .nav{
+    width: 100%;
+    background-size: 100%;
+}
+.m-edit .nav .navBackgroundImage{
+    width: 100%;
+    position: relative;
+}
+.m-edit .navPosition{
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+.m-edit .navContent{
+    margin: auto;
+    height: 100%;
+    width: 51%;
+}
+.m-edit .navContent div{
+    float: left;
+    margin-top: 15px;
+    margin-right: 40px;
+}
+.m-edit .navContent a:link{
+    line-height: 43px;
+    margin-left: 13px;
+    text-decoration: none;
+    color: black;
+}
+.m-edit .createNote{
+    line-height: 43px;
+
+}
+.m-edit .createNote img{
+    width: 40px;
+    float: left;
+}
+.m-edit .basicInformation img{
+    width: 40px;
+    float: left;
+}
+.m-edit .editNote img{
+    width: 40px;
+    float: left;
+}
+.m-edit .saveAndCancel img{
+    width: 60px;
+    margin-top: 7px;
+}
+.m-edit .makesure{
+    margin-right: 13px;
+}
