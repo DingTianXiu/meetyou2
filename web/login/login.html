@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+</head>
+<body>
+    <div class="m-Login" ng-controller="loginCtrl">
+        <div class="main">
+            <div class="close"><img src="../img/设计图/关闭.png"></div>
+            <div class="meetyouLogo"><img src="../img/设计图/logo.png"></div>
+            <form class="loginForm">
+                <input ng-model="userName" class="userName" type="text" name="userName" placeholder="手机号/邮箱">
+                <input ng-model="password" class="password" type="password" name="password" placeholder="密码">
+                <button>登录</button>
+                <input class="rememberpassword" type="checkbox" name="rememberpassword"><label>记住密码</label>
+            </form>
+            <a class="forgetPassword" href="">忘记密码</a>
+            <div class="hrDiv"><hr></div>
+            <div class="thirdpartLogin">第三方登录</div>
+            <div class="thirdLogo">
+                <img class="weixin" src="../img/设计图/微信.png">
+                <img class="qq" src="../img/设计图/qq.png">
+                <img class="weibo" src="../img/设计图/图层-12.png">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

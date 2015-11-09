@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: "Microsoft YaHei";
+    font-size: 62.5%;
+    height: 100%;
+    width: 100%;
+}
+body{
+
+    width: 100%;
+    height: 100%;
+}
+.m-Register{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.1);
+    padding-top: 10rem;
+}
+.m-Register .main{
+    width: 375px;
+    height: 415px;
+    margin: auto;
+    padding-top: 12px;
+    background-color: #ffffff;
+}
+.m-Register .close{
+    width: 100%;
+    height: 21px;
+}
+.m-Register .close img{
+    width: 21px;
+    float: right;
+    margin-right: 10px;
+}
+.m-Register .meetyouLogo{
+    text-align: center;
+}
+.m-Register .meetyouLogo img{
+    height: 33px;
+}
+.m-Register .registerWays{
+    margin: 19px auto 0;
+    text-align: center;
+}
+.m-Register .phoneRegister{
+    width: 140px;
+    height: 26px;
+    font-size: 1.6rem;
+    color: #5fb113;
+    line-height: 26px;
+    display: inline-block;
+    border-bottom: 1px solid #5fb113;
+}
+.m-Register .emailRegister{
+    width: 140px;
+    height: 26px;
+    font-size: 1.6rem;
+    line-height: 26px;
+    display: inline-block;
+    border-bottom: 1px solid #dadadb;
+}
+.m-Register .registerForm{
+    margin: 24px auto 0;
+    width: 280px;
+}
+.m-Register .registerForm input{
+    display: block;
+    border: 1px solid #dadadb;
+    padding-left: 13px;
+    outline: none;
+}
+.m-Register .phoneNumber{
+    width: 265px;
+    height: 38px;
+    margin-bottom: 11px;
+}
+.m-Register .authCode{
+    width: 119px;
+    height: 38px;
+    float: left;
+    margin-bottom: 11px;
+}
+.m-Register .GetAuthCode{
+    width: 133px;
+    height: 40px;
+    margin-left: 13px;
+    float: right;
+    line-height: 38px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #dadadb;
+}
+.m-Register .userName{
+    width: 265px;
+    height: 38px;
+    margin-bottom: 11px;
+}
+.m-Register .password{
+    width: 265px;
+    height: 38px;
+    margin-bottom: 25px;
+}
+.m-Register .registerForm .submit{
+    width: 280px;
+    height: 38px;
+    background-color: #5fb113;
+    outline: none;
+    padding: 0;
+    font-size: 1.5rem;
+    color: #ffffff;
+    letter-spacing: 10px;
+}
+.m-Register .hasAccount{
+    text-align: center;
+    margin-top: 10px;
+}
+.m-Register .login{
+    color: #4a97d3;
+    margin-left: 5px;
+    text-decoration: none;
+}
