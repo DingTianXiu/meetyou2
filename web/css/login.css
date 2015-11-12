@@ -1,22 +1,16 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-html{
-    font-family: "Microsoft YaHei";
-    height: 100%;
-    width: 100%;
-    font-size: 62.5%;
-}
-body{
-    width: 100%;
-    height: 100%;
-}
+
 .m-Login{
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
     padding-top: 10rem;
+    display: none;
+}
+.m-GoLogin{
+    display: block;
 }
 .m-Login .main{
     width: 375px;

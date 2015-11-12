@@ -8,8 +8,11 @@
 html{
   -webkit-text-size-adjust: none;
   height: 100%;
+  width: 100%;
 }
 body{
+  height: 100%;
+  width: 100%;
   font-size: 62.5%;
   font-family: "Microsoft YaHei";
 }
@@ -202,6 +205,22 @@ img{
   float: right;
   margin-right: 1px;
   margin-top: 1px;
+}
+.loginNav{
+  float: left;
+  margin-top: 20px;
+  display: block;
+}
+.loginNavHidden{
+  display: none;
+}
+.personNav{
+  float: left;
+  margin-top: 20px;
+  display: none;
+}
+.personNavShow{
+  display: block;
 }
 .m-Footer{
   width: 100%;

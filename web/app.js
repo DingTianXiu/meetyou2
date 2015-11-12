@@ -6,7 +6,8 @@ AV.initialize("xheu55juaeye1u1e412588pyz37d3luqba7hhjd30btx9mid", "8h1dv6vtcxyh1
 var Article = AV.Object.extend('Article'),
     RecommendArticle = AV.Object.extend('RecommendArticle'),
     RecommendCollection = AV.Object.extend('RecommendCollection'),
-    Collection = AV.Object.extend('Collection');
+    Collection = AV.Object.extend('Collection'),
+    UserInfomation = AV.Object.extend('userInfomation');
 // Declare app level module which depends on views, and components
 angular
     .module('myApp', [
@@ -24,8 +25,7 @@ angular
         'myApp.JoinUs',
         'myApp.Exceptions',
         'myApp.ContactUs',
-        'myApp.AboutUs',
-        'myAoo.Login'
+        'myApp.AboutUs'
 ])
     .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider,$location,prerender) {
 //  $routeProvider.otherwise({redirectTo: '/view1'});
@@ -111,10 +111,10 @@ angular
                 templateUrl:'joinUs/joinUs.html',
                 controller: 'JoinUsCtrl'
             })
-            .when('/login',{
-                templateUrl:login/login.html,
-                controller:'loginCtrl'
-            })
+            //.when('/login',{
+            //    templateUrl:'login/login.html',
+            //    controller: 'LoginCtrl'
+            //})
 
             .otherwise({redirectTo: '/'});
 
@@ -129,6 +129,15 @@ angular
             $rootScope.keywords = $route.current.keywords;
             $rootScope.description = $route.current.description;
         });
+        var currentUser = AV.User.current();
+        console.log(currentUser);
+        if(currentUser){
+            var query = new AV.Query(UserInfomation);
+            query.equalTo("userObject",currentUser);
+            query.find(function(result){
+                $rootScope.userInformation = result;
+            })
+        }
         $rootScope.searchName ="";
         $rootScope.slide = "";
     })
@@ -150,6 +159,14 @@ angular
         }
     })
     .controller('headCtrl',function($scope,$location,$rootScope,$filter){
+
+        //加载条
+        var intObj = {
+            template: 3,
+            parent: '#headIndexId' // this option will insert bar HTML into this parent Element
+        };
+        var indeterminateProgress = new Mprogress(intObj);
+
         $scope.$on("$routeChangeSuccess", function(){
             $scope.url = $filter('limitTo')($location.url(),'12');
             if($scope.url == '/'){
@@ -192,6 +209,112 @@ angular
         }
         $scope.appHid = function(){
             $scope.hasApp = false;
+        }
+        //打开登录框
+        $scope.hasLogin = false;
+        $scope.LoginOpen = function(){
+            $scope.hasLogin = true;
+        }
+
+        //关闭登录框
+        $scope.LoginClose = function(){
+            $scope.hasLogin = false;
+        }
+
+        //登录
+        $scope.goLogin = function(){
+
+            indeterminateProgress.start();
+
+            AV.User.logIn($scope.userName,$scope.password,{
+
+                //登录成功，关闭登录框
+                success:function(user){
+                    $scope.hasLogin = false;
+                    $scope.noLogin = true;
+                    $scope.isLogin = true;
+                    var query = new AV.Query(UserInfomation);
+                    query.equalTo("userObject",user);
+                    query.find(function(result){
+                      $scope.userInformation = result;
+                    })
+                },
+                //登录失败，提示输入正确用户名和密码
+                error:function(){
+                  alert("请输入正确的用户名和密码。")
+                }
+            })
+            indeterminateProgress.end();
+
+        }
+
+        //退出登录，返回首页
+        $scope.logOut = function(){
+            AV.User.logOut()
+            $location.path('/');
+            $scope.noLogin = false;
+            $scope.isLogin = false;
+        }
+
+        //打开注册页面
+        $scope.hasRegister = false;
+        $scope.RegisterOpen = function(){
+            $scope.hasRegister =true;
+        }
+
+        //关闭注册页面
+        $scope.RegisterClose = function(){
+            $scope.hasRegister = false;
+        }
+
+        var user = new AV.User();
+        user.set("username",$scope.registerUserName);
+        user.set("password",$scope.registerPassword);
+        user.set("phone",$scope.registerPhoneNumber);
+        //获取验证码
+        $scope.getCode = function(){
+            user.setMobilePhoneNumber($scope.registerPhoneNumber);
+        }
+        //重新获取验证码
+        $scope.reGetCode = function(){
+            AV.User.requestMobilePhoneVerify($scope.registerPhoneNumber).then(function(){
+                //发送成功
+            }, function(err){
+                //发送失败
+            });
+        }
+
+        //手机注册
+        $scope.GoRegister = function(){
+            AV.User.verifyMobilePhone($scope.authCode).then(function(){
+                //验证成功,注册账号
+                user.signUp(null,{
+                    success:function(user){
+                        //创建userInfomation数据
+                        var userInfomation = new userInfomation();
+                        post.save({
+                            nickname: $scope.registerUserName,
+                            mobilePhoneNumber: $scope.registerPhoneNumber
+                    },{
+                            success:function(userInfomation){
+                                
+                            },
+                            error:function(userInfomation,error){
+
+                            }
+                        })
+
+                        //即将跳转到登录界面
+
+                    },
+                    error:function(user,error){
+
+                    }
+                }, function(err){
+                    //验证失败
+                    alert("请输入正确验证码");
+                    });
+            })
         }
 })
     .controller('footCtrl',function($scope,$location,$anchorScroll) {
