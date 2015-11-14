@@ -1,0 +1,30 @@
+<div class="m-CollectionDetail" id="collectionArticlesPageId" ng-controller="CollectionDetailCtrl" ng-init="initIndex()">
+    <div class="baner">
+        <img ng-src={{collection.get('background').url()}}>
+    </div>
+    <div class="m-Body">
+        <div class="b-Content">
+            <div class="main">
+                <div class="notesList1">
+                    <div class="notes" ng-repeat='rarticle in rarticlesOneCol'>
+                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
+                        <div class="notes-Descript"><p>{{rarticle.get('subtitle')}}</p></div>
+                        <div class="eyes"><img src="../../asset/设计图/eyes.png"><span>888</span></div>
+                    </div>
+                </div>
+                <div class="notesList2">
+                    <div class="notes" ng-repeat='rarticle in rarticlesTwoCol'>
+                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <div class="notes-Title"><p><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p></div>
+                        <div class="notes-Descript"><p>{{rarticle.get('subtitle')}}</p></div>
+                        <div class="eyes"><img src="../../asset/设计图/eyes.png"><span>888</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loadingMore">
+                <button class="btn-LoadingMore">加载更多</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,272 @@
+
+    <div class="m-JoinUs" ng-controller="JoinUsCtrl">
+        <div class="main">
+            <div class="joinMeetyouDiv">
+                <img class="backgroundImg" src="../img/设计图/1.jpg">
+                <div class="joinMeetyou">
+                    <p class="joinMeetyou-Title">觅游招聘</p>
+                    <p class="joinMeetyou-descript">觅游是一个年轻的团队，这里有思维活跃的同事，扁平化的管理，以及轻松愉快的工作氛围。我们的办公地址在国贸CBD地区，如果有兴趣加入，请发送职位意向与简历至hr@meetyoutrip.com</p>
+                    <img class="meetYouLogo" src="../img/logo/觅游logo1111.png">
+                </div>
+            </div>
+            <div class="jobVacancyContent">
+                <p class="jobVacancy-Title">招聘职位</p>
+                <div class="jobVacancy">
+                    <p class="jobName" ng-repeat="rjob in jobs" ng-click="ChangeSlide(job,$index)" ng-class="{'jobChoose':$index == selectedIndex}">{{rjob}}</p>
+                </div>
+                <div class="jobImgDiv" ng-switch="" on="slide">
+                    <img class="jobChooseImg1" ng-switch-when="1" src="../img/设计图/图像/元素_52.png">
+                    <img class="jobChooseImg2" ng-switch-when="2" src="../img/设计图/图像/元素_52.png">
+                    <img class="jobChooseImg3" ng-switch-when="3" src="../img/设计图/图像/元素_52.png">
+                    <img class="jobChooseImg4" ng-switch-when="4" src="../img/设计图/图像/元素_52.png">
+                </div>
+                <div class="jbDiv" ng-switch="" on="slide">
+                    <div class="technologyDiv" ng-switch-when="1">
+                        <div class="job">
+                            <p class="jobTitle"> Android开发工程师</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．负责基于Android的移动互联网/互联网的应用软件和客户端的架构设计、开发和维护；<br>
+                                2．独立完成移动终端产品应用的功能模块开发；<br>
+                                3．产品文档编写的知识沉淀与分享；<br>
+                                4．单元测试用例编写和代码重构；<br>
+                                5．带领和指导初级Android工程师实现业务目标和自我成长；<br>
+                                6．协调产品、测试、设计等外部资源按时按质完成项目开发。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．3年及以上Android实际项目开发经验；<br>
+                                2．精通Android开发平台及框架原理，精通Java语言；<br>
+                                3．熟练掌握数据结构、基本算法，具备基本的算法设计能力；<br>
+                                4．具有规范的编程习惯与文档编写能力，积极配合公司各项规范化建设工作；<br>
+                                5．能够主动总结和分享自己的开发经验；<br>
+                                6．具有优良的分析问题和解决问题的能力，对解决具有挑战性问题充满信心；<br>
+                                7．为人诚实、正直、有责任心，具备良好的团队合作精神，较强的沟通协调能力；<br>
+                                8．个人拥有应用在安卓市场者优先考虑；能尽快入职者优先。<br>
+                            </p>
+                        </div>
+                        <div class="job">
+                            <p class="jobTitle"> Ios开发工程师</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．开发iOS手机产品，参与项目需求分析、产品模块的概要和详细设计；<br>
+                                2．按计划完成产品模块的代码编写，产品模块测试，保证代码质量；<br>
+                                3．参与项目实施和维护过程中的相关支持工作；<br>
+                                4．负责产品模块开发文档的编写，协助制定相关系统的测试文档。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．1年以上iOS开发经验；<br>
+                                2．熟悉常用的设计模式，有模块设计和开发经验<br>
+                                3．熟悉自定义UI、了解事件处理流程和多线程并发；<br>
+                                4、熟悉TCP/IP, HTTP协议，熟悉数据库开发；<br>
+                                5、具有创业精神，对技术和质量有较高的追求。<br>
+                            </p>
+                        </div>
+                        <div class="job">
+                            <p class="jobTitle"> Web开发工程师</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．负责产品的的前端页面系统设计、开发与实现（web app）；<br>
+                                2．负责Web与移动互联网前沿技术研究与新技术创新。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．具备前端页面与脚本开发经验；<br>
+                                2．有独立完成复杂前端模块的设计与实现的经验；<br>
+                                3．精通Javaseript/CSS等相关技术；<br>
+                                4．能运用或了解angularjs/restful/bootstrap；<br>
+                                5．善于沟通和逻辑表达，良好的团队合作精神和积极主动的沟通意识；<br>
+                                6．本科以上学历，两年以上相关工作经验。<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="designDiv" ng-switch-when="2">
+                        <div class="job">
+                            <p class="jobTitle"> UI设计师</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．负责公司软件产品的UE/UI设计；<br>
+                                2．参与产品整体设计，规划产品的UI/UE设计方案；<br>
+                                3．与产品用户及产品开发人员沟通协作，完善产品视觉化内容的设计，并提升用户体验；<br>
+                                4．帮助项产品经理进行各种产品的易用性和功能分析，进行用户研究；<br>
+                                5．优化现有产品的用户体验；<br>
+                                6．关注产品的同类型设计方向，进行分析和研究。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．精通Photoshop、illustrator、Dream weaver、Flash、Icon workshop、Fireworks等技术；<br>
+                                2．熟悉应用软件界面人机交互设计；<br>
+                                3．一年及以上互联网行业工作经验，有Android UI/IOS UI设计经验者优先；<br>
+                                4．对用户体验和易用性有敏锐的把握能力,<br>
+                                5．具有良好的沟通能能力，团队合作和吃苦耐劳的精神。<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="operationDiv" ng-switch-when="3">
+                        <div class="job">
+                            <p class="jobTitle"> 内容运营</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．负责现有渠道推广维护，提升粉丝关注度、活跃度和数量；<br>
+                                2．负责开辟新的推广渠道；策划站外推广活动；<br>
+                                3．根据市场战略及产品特点，制定推广计划和推广方案；<br>
+                                4．负责分析各个渠道推广效果，引入高质量的外部链接；<br>
+                                5．收集并分析竞品，了解同行业微信的运营情况及最新活动信息；<br>
+                                6．挖掘和分析用户使用习惯、情感及体验感受，即时掌握新闻热点，能够配合策划团队完成专题策划、编辑制作。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．本科及以上学历，新闻、广告、中文、市场营销等相关专业，熟悉网络推广渠道；<br>
+                                2．具备良好的数据分析能力，语言表达能力、逻辑思维能力；<br>
+                                3．良好的沟通能力和协调能力；有团队合作精神和极强的执行力；<br>
+                                4．热爱互联网，并愿意积极尝试新媒体传播，对微博、SNS、博客等产品有浓厚兴趣和深刻认识；<br>
+                                5．有较强的文字功底，对热点新闻事件能及时获取，会使用Photoshop简单处理图片。<br>
+                            </p>
+                        </div>
+                        <div class="job">
+                            <p class="jobTitle">新媒体运营-SEO</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．负责运用各种网络推广方法开展公司及产品服务的推广工作；提升公司网站在各大搜索引擎以及平台收录、排名和提高浏览量、转换率；<br>
+                                2．对SEO各方面知识有系统的掌握，熟练使用SEO优化各种工具和技术，有较丰富的操作经验，了解搜索引擎排名机制和优化规则。熟悉各大搜索引擎蜘蛛爬行的规律规则及原理；<br>
+                                3．监控各渠道的推广效果，对推广效果进行量化分析和及时调整下步行动策略，并不断优化提升推广能力；<br>
+                                4．制定流量运营目标与策略，并有效分解与下达；<br>
+                                5．跟踪行业相关网站信息、情报，了解竞争对手的推广策略；负责采集、汇编本企业所需信息、情报；善于发现同类产品信息，反馈到团队中进行分析和策略应对；<br>
+                                6．熟悉网络文体的编辑和书写；<br>
+                                7．负责企业品牌推广日常管理和优化工作，能够根据网站阶段性投放策略及时调整投放计划，提供建设性优化意见；<br>
+                                8．能总结竞价排名和网盟效果规律，对竞价关键词进行整理和数据分析，能有效的对其进行评估并作出优化方案，监控广告排名，不断优化广告效果；<br>
+                                9．负责企业官网文案的审核和更新，对站内优化有一定的了解；<br>
+                                10．对关键词挖掘、创意撰写以及点击转化率有个人独到的见解，能对SEO效果做出相应的调整。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．有互联网行业相关经验，尤其SEO经验优先；<br>
+                                2．熟悉推广规则，有实际操作经验及效果突出者优先；<br>
+                                3．有较好的文字功底、良好的沟通能力及关系维护能力；可撰写推广软文，便于在相应网站发布者优先；<br>
+                                4．掌握关键词研究和搜索行为分析的方法和工具者优先；<br>
+                                5．拥有丰富的外链获取经验，能够快速高效的获得优质外链资源者优先；<br>
+                                6．开过淘宝直通车的同学也优先。<br>
+                            </p>
+                        </div>
+                        <div class="job">
+                            <p class="jobTitle">新媒体运营-编辑</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．负责APP内容的信息采编、编辑编排、整理、写作等，对采集信息进行审核、编辑及发布；<br>
+                                2．了解html代码相关知识，了解关键词布局；配合推广人员进行推广工作；<br>
+                                3．有较强的责任心和耐心，热爱编辑工作；<br>
+                                4．有网站编辑、网站推广等相关经验者优先录取；<br>
+                                5．协助完成频道管理与栏目的发展规划，促进品牌知名度的提高。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．编辑、中文、电子商务、网络营销或对编辑推广工作相关有强烈兴趣的，大专或以上学历;，优秀应届毕业生也可；<br>
+                                2．可操作基本的网页制作及制图软件,如Photoshop;能对网站进行简单的更新及维护；<br>
+                                3．良好的文字功底,较强的网站专题策划和信息采编能力；<br>
+                                4．较高的职业素养、敬业精神；<br>
+                                5．具有良好的英文读、说能力者优先；<br>
+                                6．有旅游类从业经验者优先。<br>
+                            </p>
+                        </div>
+                        <div class="job">
+                            <p class="jobTitle">APP推广</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．负责SNS社交媒体的日常运营和推广；<br>
+                                2．负责各类网络社区推广，如知乎、百度百科、百度知道、互动百科、wikipedia等；<br>
+                                3．负责配合内容运营团队进行大型线上活动的策划及实施，通过活动拉动新用户下载；<br>
+                                4．能够不限制于以上工作范围，不断创新出新招，超越预期。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．1年以上互联网社交产品或媒体运营经验；<br>
+                                2．有较强的文案策划及撰写能力；<br>
+                                3．对数据敏感，善于分析总结，并提出可行性的运营策略和方案；<br>
+                                4．思念敏捷，敏锐的洞察力；<br>
+                                5．喜欢泡各大论坛的优先。<br>
+                            </p>
+                        </div>
+                        <div class="job">
+                            <p class="jobTitle">编辑总监</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．负责新媒体产品（网站、APP应用、微博等）的整体规划、建设和发展；<br>
+                                2．负责制定内容标准和规范，并对内容品质进行整体把控；<br>
+                                3．负责编辑团队的建设和培养，带领团队保质保量地完成工作任务；<br>
+                                4．协调编辑部与各部门之间的工作。
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．熟悉互联网行业，有相关工作经验者优先；<br>
+                                2．具有较强的文字功底，较强的网站专题策划和信息采编能力，善于捕捉当前热点；<br>
+                                3．具备较强的创造力，敢于在内容上突破创新；<br>
+                                4．有团队管理经验。<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="function" ng-switch-when="4">
+                        <div class="job">
+                            <p class="jobTitle">出纳</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．办理费用报销、银行收付款业务，与银行的对账工作；<br>
+                                2．负责固定资产的盘查工作；<br>
+                                3．负责开具发票，填写发票登记簿；<br>
+                                4．办理税务及涉税事项的处理，包括各类税务申报等事项；<br>
+                                5．随时掌握现金、银行存款余额；妥善保管好现金、空白支票及有关印章。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．本科以上学历并持有会计证书；<br>
+                                2．熟练使用计算机及各种办公软件；<br>
+                                3．有团队意识及一定的沟通能力；<br>
+                                4．了解国家财经政策和会计、税务法规，熟悉银行结算业务。<br>
+                            </p>
+                        </div>
+                        <div class="job">
+                            <p class="jobTitle">人事/HR</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．建立绩效管理体系及员工关系管理、企业文化管理；<br>
+                                2．负责制定绩效管理制度及实施流程，组织实施并持续优化；<br>
+                                3．制定并完善招聘流程，为公司寻找合适人才。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．1年互联网公司HR工作经验，熟悉HR六大模块运作，并有自己的认识与见解；<br>
+                                熟悉国家相关的政策、法律法规；<br>
+                                2．熟悉绩效考核指标制定、绩效面谈实践积累。<br>
+                                3．了解KPI、BSC等绩效考核工具，能独立操作绩效管理制度制定、推行、优化；<br>
+                                5．严谨地工作态度和良好地学习能力；<br>
+                                6．良好的组织、协调、执行能力。<br>
+                                有猎头经验或广泛的技术人员人脉优先。<br>
+                            </p>
+                        </div>
+                        <div class="job">
+                            <p class="jobTitle">财务</p>
+                            <p class="obligationTitle">职位职责</p>
+                            <p class="obligationDescript">
+                                1．与出纳进行现金盘点，审查原始单据，编制凭证，正确进行会计核算；<br>
+                                2．执行财务管理制度，负责计提和摊销各种费用，编制相关转账凭证；<br>
+                                3．月末结转公司各项费用，成本以及收入与损益的确认，结转；<br>
+                                4．出纳凭证的审核；<br>
+                                5．正确及时进行债权、债务核算，清理，催收；<br>
+                                6．各项税收申报工作；<br>
+                                7．财务报表、统计报表的编制；<br>
+                                8．完成领导交办的各项其他工作；<br>
+                                9．有互联网、金融行业经验者优先。<br>
+                            </p>
+                            <p class="requirementsTitle">职位要求</p>
+                            <p class="requirementsDescript">
+                                1．会计、财务管理等相关专业本科以上学历；3年以上工作经验；头脑清楚，逻辑性交强<br>；
+                                2．熟悉企业会计制度，财务管理制度和会计核算流程的基本内容；熟悉资产负债表、利润表和现金流量表的编制和分析；了解相关法律法规，对财务工作有深刻的理解； 掌握增值税、营业税、所得税等各项税种处理业务、申报系统；<br>
+                                3．熟练掌握财务管理软件（用友或金蝶）和办公室软件；<br>
+                                4．具备中级以上职称优先考虑。<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

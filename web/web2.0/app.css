@@ -1,0 +1,256 @@
+/* app css stylesheet */
+
+*{
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+html{
+  -webkit-text-size-adjust: none;
+}
+body{
+  font-size: 62.5%;
+  font-family: "Microsoft YaHei";
+}
+img{
+  outline: none;
+  border: none;
+}
+.m-Header-Home{
+  width: 100%;
+  position: absolute;
+  background-color: rgba(255,255,255,0);
+  z-index: 100;
+}
+.h-Content-Home{
+  width: 829px;
+  height: 58px;
+  margin: auto;
+}
+.meetYouLogo-Home{
+  height: 29px;
+  float: left;
+  margin-top: 14px;
+}
+.nav-Home{
+  float: left;
+  line-height: 57px;
+}
+.nav-Home a:link,.nav-Home a:visited{
+  font-size: 1.4em;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 26px;
+}
+.loginBar-Home{
+  float: right;
+  line-height: 57px;
+}
+.loginBar-Home a:link,.loginBar-Home a:visited{
+  font-size: 1.4em;
+  color: #fff;
+  text-decoration: none;
+}
+.loginBar-Home span{
+  margin: 0px 6px;
+  color: #fff;
+  font-size: 1.4em;
+}
+.search-Home{
+  width: 126px;
+  height: 18px;
+  border: 1px solid #a5c1c5;
+  border-radius: 10px;
+  outline: none;
+  float: left;
+  margin-right: 19px;
+  margin-top: 18px;
+  background-color: rgba(255,255,255,0.1);
+}
+.search-Home input{
+  font-size: 1em;
+  width: 100px;
+  height: 16px;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  background-color: rgba(255,255,255,0);
+}
+.search-Home input::-moz-placeholder{
+  color: #fff;
+  opacity: 1;
+}
+.search-Home input:-ms-input-placeholder{
+  color: #fff;
+}
+.search-Home input::-webkit-input-placeholder{
+  color: #fff;
+}
+.search-Home input:-moz-placeholder{
+  color: #fff;
+}
+.search input::-moz-placeholder{
+  color: #fff;
+  opacity: 1;
+}
+.search input:-ms-input-placeholder{
+  color: #fff;
+}
+.search input::-webkit-input-placeholder{
+  color: #fff;
+}
+.search input:-moz-placeholder{
+  color: #fff;
+}
+.m-Header{
+  width: 100%;
+  position: relative;
+  background-color: #9bcf6b;
+}
+.m-Header .h-Content{
+  width: 829px;
+  height: 58px;
+  margin: auto;
+}
+.m-Header .meetYouLogo{
+  height: 29px;
+  float: left;
+  margin-top: 14px;
+}
+.m-Header .nav{
+  line-height: 57px;
+  float: left;
+}
+.m-Header .nav a:link,.m-Header .nav a:visited{
+  font-size: 1.4em;
+  color: #fff;
+  margin-left: 27px;
+  text-decoration: none;
+}
+.loginBar{
+  float: right;
+  line-height: 57px;
+}
+.loginBar a:link,.loginBar a:visited{
+  font-size: 1.4em;
+  color: #fff;
+  text-decoration: none;
+}
+.loginBar span{
+  margin: 0px 7px;
+  color: #fff;
+  font-size: 1.4em;
+}
+.search{
+  width: 126px;
+  height: 18px;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  float: left;
+  margin-right: 19px;
+  margin-top: 18px;
+  background-color: rgba(255,255,255,0.1);
+}
+.search input{
+  font-size: 1em;
+  width: 100px;
+  height: 16px;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  background-color: rgba(0,0,0,0);
+}
+.m-Footer{
+  width: 100%;
+  background-color: #6fba2c;
+  float: left;
+}
+.footer-Service{
+  height: 83px;
+  width: 829px;
+  margin: auto;
+}
+.service{
+  width: 100%;
+}
+.service ul{
+  position: relative;
+  top: 19px;
+  float: left;
+}
+.service li{
+  display: inline;
+  margin-right: 20px;
+}
+.service li a{
+  font-size: 1.2em;
+  color: #fff;
+  text-decoration: none;
+}
+.footer-MeetYouLogo{
+  height: 29px;
+  float: right;
+  margin-top: 20px;
+}
+.touch{
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.touch img{
+  height: 28px;
+  float: left;
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+.touch .weixin{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -20px;
+  left: -120px;
+}
+.touch p{
+  font-size: 1em;
+  color: #fff;
+  float: right;
+  margin-top: 12px;
+}
+.footer-Partner{
+  width: 100%;
+  border-top: 1px solid #a4d379;
+  background-color: #6fba2c;
+  float: left;
+}
+.partnerContent{
+  width: 829px;
+  margin: auto;
+}
+.partnerTitle{
+  font-size: 1.2em;
+  color: #a4d379;
+  margin-top:14px;
+  margin-bottom: 8px;
+}
+.partnerList{
+  width: 100%;
+  float: left;
+}
+.partnerList p{
+  height: 22px;
+  background-color: #a4d379;
+  font-size: 1em;
+  color: #fff;
+  line-height: 22px;
+  text-align: center;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 17px;
+}
+.partnerList p a{
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}

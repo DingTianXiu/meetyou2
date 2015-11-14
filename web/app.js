@@ -271,16 +271,14 @@ angular
         user.set("username",$scope.registerUserName);
         user.set("password",$scope.registerPassword);
         user.set("phone",$scope.registerPhoneNumber);
+
         //获取验证码
         $scope.getCode = function(){
-            user.setMobilePhoneNumber($scope.registerPhoneNumber);
-        }
-        //重新获取验证码
-        $scope.reGetCode = function(){
+            console.log($scope.registerPhoneNumber);
             AV.User.requestMobilePhoneVerify($scope.registerPhoneNumber).then(function(){
-                //发送成功
+                alert('成功');
             }, function(err){
-                //发送失败
+                alert('失败');
             });
         }
 
@@ -297,7 +295,7 @@ angular
                             mobilePhoneNumber: $scope.registerPhoneNumber
                     },{
                             success:function(userInfomation){
-                                
+
                             },
                             error:function(userInfomation,error){
 

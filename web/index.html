@@ -124,10 +124,11 @@
             <form class="registerForm">
                 <input class="phoneNumber" ng-model="registerPhoneNumber" type="text" name="phoneNumber" placeholder="输入手机号">
                 <input class="authCode" ng-model="authCode" type="text" name="authCode" placeholder="输入手机验证码">
-                <p class="GetAuthCode">获取验证码</p>
+                <p class="GetAuthCode" ng-click="getCode()">获取验证码</p>
+
                 <input class="userName" ng-model="registerUserName" type="text" name="userName" placeholder="输入用户名">
                 <input class="password" ng-model="registerPassword" type="password" name="password" placeholder="输入密码">
-                <input class="submit" type="submit" name="submit" value="注册">
+                <input class="submit" ng-click="GoRegister()" type="submit" name="submit" value="注册">
             </form>
             <p class="hasAccount">已有觅游账号<a href="javascript:void(0)" class="login">登录</a></p>
         </div>

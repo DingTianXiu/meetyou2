@@ -1,0 +1,244 @@
+
+.m-Home .baner{
+	position: relative;
+	overflow: hidden;
+}
+.m-Home .banerDiv{
+	width: 100%;
+	height: 329px;
+	position: relative;
+}
+.m-Home .banerDiv img{
+	max-width: 100%;
+	height: 329px;
+}
+.m-Home .app,.m-Home .android{
+	width: 111px;
+	height: 32px;
+	background-color: rgba(255,255,255,0.3);
+	position: absolute;
+	left: 405px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.m-Home .app{
+	bottom: 80px;
+}
+.m-Home .android{
+	bottom: 40px;
+}
+.m-Home .banerDiv .app .downLoadLogo,
+.m-Home .banerDiv .android .downLoadLogo{
+	height: 17px;
+	margin-top: 8px;
+	margin-left: 8px;
+	float: left;
+}
+.m-Home .banerDiv .app .downLoadText,
+.m-Home .banerDiv .android .downLoadText{
+	height: 9px;
+	margin-top: 12px;
+	margin-left: 8px;
+}
+.m-Home .banerDiv .app p,.m-Home .banerDiv .android p{
+	font-size: 7px;
+	line-height: 34px;
+	color: #ffffff;
+}
+.m-Home .pointDiv{
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+}
+.m-Home .point{
+	width: 80px;
+	margin: auto;
+	text-align: center;
+}
+.m-Home .point p{
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background-color: #c7c7c7;
+	float: left;
+	margin-right: 10px;
+}
+.m-Home .m-Body{
+	width: 100%;
+}
+.m-Home .b-Content{
+	width: 829px;
+	margin: auto;
+}
+.m-Home .menu{
+	margin-top: 79px;
+}
+.m-Home .menu ul{
+	float: left;
+}
+.m-Home .menu li{
+	display: inline;
+	margin-right: 17px;
+}
+.m-Home .nav-Link:link,
+.m-Home .nav-Link:visited{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: none;
+}
+.m-Home .nav-Link:hover,
+.m-Home .nav-Link:active{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: underline;
+}
+.m-Home .nav-Link-Choose:link,
+.m-Home .nav-Link-Choose:visited{
+	font-size: 1.4em;
+	color: #9bcf6b;
+	text-decoration: none;
+	font-weight: bold;
+}
+.m-Home .nav-Link-Choose:hover,
+.m-Home .nav-Link-Choose:active{
+	font-size: 1.4em;
+	color: #9bcf6b;
+	text-decoration: underline;
+}
+.m-Home .linkMore:link,
+.m-Home .linkMore:visited{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: none;
+	float: right;
+}
+.m-Home .main{
+	width: 100%;
+	border-top: 1px solid #e6e6e6;
+	float: left;
+	margin-top: 14px;
+}
+.m-Home .notes-List1,
+.m-Home .notes-List2{
+	width: 267px;
+	float: left;
+	margin-right: 14px;
+	margin-bottom: 69px;
+}
+.m-Home .notes-List3{
+	width: 267px;
+	float: left;
+	margin-bottom: 69px;
+}
+.m-Home .notes{
+	max-width: 267px;
+	border: 1px solid #ededed;
+	position: relative;
+	margin-top: 14px;
+	padding-bottom: 3px;
+}
+.m-Home .relation{
+	width: 40px;
+	height: 19px;
+	background-color: #6fba2c;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	font-size: 1em;
+	color: #ffffff;
+	line-height: 19px;
+	text-align: center;
+}
+.m-Home .notes-Title{
+	width: 100%;
+	margin-top: 9px;
+	margin-bottom: 7px;
+	margin-left: 8px;
+}
+.m-Home .notes-Title a{
+	font-size: 1.1em;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+.m-Home .notes-Intro li{
+	font-size: 0.8em;
+	color: #a1a1a1;
+	display: inline;
+	margin-left: 9px;
+}
+.m-Home .notes-Intro .notes-Intro-Name{
+	color: #9bcf6b;
+	font-weight: bold;
+}
+.m-Home .notes-Intro .notes-Intro-Count{
+	color: #9bcf6b;
+	margin-left: 0px;
+	display: none;
+}
+.m-Home .notes-Intro .notes-Intro-CountImg{
+	height: 10px;
+	position: relative;
+	top: -1px;
+	display: none;
+}
+.m-Home .headPortrait{
+	width: 30px;
+	height: 30px;
+	border:none;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	position: absolute;
+	right: 5px;
+	bottom: 6px;
+}
+.m-Home .contentPicture{
+	width: 265px;
+	height: 132.5px;
+
+}
+.m-Home .contentPicture img{
+	width: 265px;
+	height: 132.5px;
+}
+.m-Home .active{
+	width: 100%;
+	float: left;
+	margin-top: 70px;
+	display:none;
+}
+.m-Home .active-Title{
+	width: 100%;
+}
+.m-Home .active-Title p{
+	font-size: 1.2em;
+	font-weight: bold;
+	float: left;
+}
+.m-Home .active-Title a{
+	font-size: 1.4em;
+	color: #5e5e5e;
+	text-decoration: none;
+	float: right;
+}
+.m-Home .active-List{
+	margin-top: 20px;
+	border-top: 1px solid #e6e6e6;
+	float: left;
+}
+.m-Home .active-List div{
+	width: 198px;
+	height: 134px;
+	float: left;
+	margin-top: 13px;
+}
+.m-Home .active-List div img{
+	max-width: 100%;
+}
+.m-Home .active1,
+.m-Home .active2,
+.m-Home .active3{
+	margin-right: 11px;
+}

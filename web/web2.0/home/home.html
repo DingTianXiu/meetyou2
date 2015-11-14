@@ -1,0 +1,96 @@
+﻿
+
+
+
+<div ng-controller="HomeCtrl" id="bodysectionid" ng-init="initIndex()" class="m-Home">
+    <div class="baner" ng-switch="" on="slide">
+        <div class="banerDiv" ng-switch-when="1"><img src="img/设计图/baner1.jpg"></div>
+        <div class="banerDiv" ng-switch-when="2"><img src="img/设计图/baner2.jpg"></div>
+        <div class="banerDiv" ng-switch-when="3">
+            <img src="img/设计图/baner3.jpg">
+            <div class="app"><a href="https://appsto.re/cn/aKTX7.i"><img class="downLoadLogo" src="../img/设计图/觅游_10.png"><img class="downLoadText" src="../img/设计图/APP-STORE-下载.png"></a></div>
+            <div class="android"><a href="http://android.myapp.com/myapp/detail.htm?apkName=cn.miyou"><img class="downLoadLogo" src="../img/设计图/觅游_14.png"><img class="downLoadText" src="../img/设计图/ANDROID-版下载.png"></a></div>
+        </div>
+        <div class="pointDiv">
+            <div class="point" ng-repeat="point in points track by $index">
+                <p ng-click="ChangeSlide($index)">{{point}}</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="m-Body">
+        <div class="b-Content">
+            <div class="menu">
+                <ul>
+                    <li ng-repeat="category in categories"><a class="nav-Link" ng-class="{'nav-Link-Choose':$index == selectedIndex}" ng-click="changeCategory(category,$index)" href="">{{category}}</a></li>
+                </ul>
+                <a class="linkMore" ng-click="loadingMore()" href="">更多 +</a>
+            </div>
+            <div class="main">
+                <div class="notes-List1">
+                    <div class="notes" ng-repeat="rarticle in currentArticles.oneCol">
+                        <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
+                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
+                        <div class="notes-Intro">
+                            <ul>
+                                <li class="notes-Intro-Name">{{rarticle.get('destination')}}</li>
+                                <li>{{rarticle.startDate}}</li>
+                                <li>{{rarticle.get('duration')}}Days</li>
+                                <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
+                                <li class="notes-Intro-Count">888</li>
+                            </ul>
+                        </div>
+                        <img class="headPortrait" ng-click="mekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                    </div>
+                </div>
+                <div class="notes-List2">
+                    <div class="notes" ng-repeat="rarticle in currentArticles.twoCol">
+                        <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
+                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
+                        <div class="notes-Intro">
+                            <ul>
+                                <li class="notes-Intro-Name">{{rarticle.get('destination')}}</li>
+                                <li>{{rarticle.startDate}}</li>
+                                <li>{{rarticle.get('duration')}}Days</li>
+                                <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
+                                <li class="notes-Intro-Count">888</li>
+                            </ul>
+                        </div>
+                        <img class="headPortrait" ng-click="mekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                    </div>
+                </div>
+                <div class="notes-List3">
+                    <div class="notes" ng-repeat="rarticle in currentArticles.threeCol">
+                        <div class="relation">{{rarticle.get('relationship').get('name')}}</div>
+                        <div class="contentPicture"><img ng-click="ArticleClicked(rarticle)" src="{{rarticle.get('background').url()}}"></div>
+                        <p class="notes-Title"><a ng-href=" articles/{{rarticle.getObjectId()}}">{{rarticle.get('title')}}</a></p>
+                        <div class="notes-Intro">
+                            <ul>
+                                <li class="notes-Intro-Name">{{rarticle.get('destination')}}</li>
+                                <li>{{rarticle.startDate}}</li>
+                                <li>{{rarticle.get('duration')}}Days</li>
+                                <li><img class="notes-Intro-CountImg" src="../img/设计图/eyes.png"></li>
+                                <li class="notes-Intro-Count">888</li>
+                            </ul>
+                        </div>
+                        <img class="headPortrait" ng-click="mekeClicked(rarticle)" ng-show="rarticle.hasAvatar" src="{{rarticle.get('authorinformation').get('headImage').url()}}">
+                    </div>
+                </div>
+            </div>
+            <div class="active">
+                <div class="active-Title">
+                    <p>活动推荐</p>
+                    <a href="javascript:void(0)">更多 +</a>
+                </div>
+                <div class="active-List">
+                    <div class="active1"><img src="img/设计图/view2.jpg"></div>
+                    <div class="active2"><img src="img/设计图/view2.jpg"></div>
+                    <div class="active3"><img src="img/设计图/view2.jpg"></div>
+                    <div class="active4"><img src="img/设计图/view2.jpg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+
+.m-aboutUs .main{
+    width: 100%;
+}
+.m-aboutUs .aboutMeetYouTrip{
+    width: 100%;
+    height: 479px;
+    padding-top: 68px;
+}
+.m-aboutUs .mainTitle{
+    font-size: 4.5em;
+    color: #95c66a;
+    text-align: center;
+}
+.m-aboutUs .subTitle{
+    font-size: 1.9em;
+    line-height: 78px;
+    text-align: center;
+}
+.m-aboutUs hr{
+    color: #cccccc;
+    width: 829px;
+    margin: auto;
+}
+.m-aboutUs .underLine{
+    height: 4px;
+    width: 133px;
+    background-color: #858484;
+    margin: -2px auto 24px;
+}
+.m-aboutUs .descript{
+    font-size: 1.2em;
+    color: #858484;
+    text-align: center;
+    line-height: 25px;
+    width: 513px;
+    margin:40px auto 0px;
+}
+.m-aboutUs .imgDiv{
+    width: 515px;
+    margin: 33.5px auto 0px;
+}
+.m-aboutUs img{
+    width: 515px;
+    height: 97px;
+}
+.m-aboutUs .MeetYouTeam{
+    height: 672px;
+    width: 100%;
+    background-color: #ececea;
+    padding-top: 68px;
+    display: none;
+}
+.m-aboutUs .teammateDiv{
+    width: 647px;
+    height: 162px;
+    margin: 40px auto;
+}
+.m-aboutUs .teammate1,.m-aboutUs .teammate2{
+    width: 197px;
+    margin-right: 28px;
+    float: left;
+}
+.m-aboutUs .teammate3{
+    width: 197px;
+    float: left;
+}
+.m-aboutUs .name{
+    width: 191px;
+    height: 28px;
+    border: 1px solid #cccccc;
+    margin: auto;
+    font-size: 1.3em;
+    text-align: center;
+    line-height: 28px;
+    font-weight: bold;
+}
+.m-aboutUs .teammateInformation{
+    font-size: 1.2em;
+    line-height: 27px;
+    color: #7e7e7e;
+    margin-top: 11.5px;
+}
