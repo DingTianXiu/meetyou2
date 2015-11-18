@@ -3,21 +3,24 @@
     padding: 0;
 }
 .m-edit{
+    margin-top: 58px;
     width: 100%;
     margin-bottom: 101px;
 }
 .m-edit .nav{
     width: 100%;
     background-size: 100%;
+    margin-bottom: 35px;
 }
 .m-edit .nav .navBackgroundImage{
+    width: 100%;
     height: 71px;
     position: relative;
 }
 .m-edit .navPosition{
     width: 100%;
     position: absolute;
-    top: 0;
+    top: 58px;
 }
 .m-edit .navContent{
     margin: auto;
@@ -61,13 +64,13 @@
 .m-edit .makesure{
     margin-right: 13px;
 }
+.m-edit .creat{
+    /*display: none;*/
+}
 .m-edit .title,
 .m-edit .subTitle{
     margin: auto;
     width: 400px;
-}
-.m-edit .title{
-    margin-top: 35px;
 }
 .m-edit .subTitle{
     margin-top: 27px;
@@ -88,10 +91,20 @@
     margin: auto;
     border: 1px solid #c8c8c8;
 }
+.m-edit .cropArea{
+    /*display: none;*/
+}
+.m-edit .outputArea {
+    display: none;
+}
+.m-edit .picBtn{
+    text-align: center;
+}
 .m-edit .file{
     width: 121px;
     height: 40px;
-    margin: 33px auto 13px;
+    margin: 33px 5px 13px;
+    display: inline-block;
 }
 .m-edit .file p{
     width: 121px;
@@ -112,7 +125,7 @@
     filter: Alpha(opacity=0);
     opacity:0;
 }
-.m-edit .next{
+.m-edit .creat .next{
     width: 121px;
     height: 40px;
     text-align: center;
@@ -121,4 +134,56 @@
     background-color: #6eb82d;
     border-radius: 5px;
     margin: auto;
+}
+.m-edit .articleInformation{
+    text-align: center;
+}
+.m-edit .articleInformation .relationChoose{
+    width: 130px;
+    height: 26px;
+    border-radius: 0px;
+    outline: none;
+    padding-left: 8px;
+    background-color: #f9f9f9;
+    -moz-appearance: none;
+    -webkit-appearance:none;
+    appearance:none;
+
+}
+.m-edit .date input{
+    width: 120px;
+    height: 24px;
+    outline: none;
+    border: 1px solid rgb(166, 166, 166);
+    padding-left: 8px;
+    background-color: #f9f9f9;
+}
+::-webkit-inner-spin-button { visibility: hidden; }
+.m-edit .time input,
+.m-edit .destination input{
+    width: 120px;
+    height: 24px;
+    outline: none;
+    border: 1px solid rgb(166, 166, 166);
+    padding-left: 8px;
+    background-color: #f9f9f9;
+}
+.m-edit .articleInformation div{
+    margin-bottom: 26px;
+}
+.m-edit .articleInformation label{
+    margin-right: 60px;
+}
+.m-edit .articleInformation .destination label{
+    margin-right: 73px;
+}
+.m-edit .articleInformation .next{
+    width: 121px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    background-color: #6eb82d;
+    border-radius: 5px;
+    margin: 80px auto;
 }

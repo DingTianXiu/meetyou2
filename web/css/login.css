@@ -14,8 +14,9 @@
 }
 .m-Login .main{
     width: 375px;
-    height: 406px;
+    /*height: 406px;*/
     margin: auto;
+    padding-bottom: 50px;
     padding-top: 12px;
     background-color: #ffffff;
 }
@@ -46,11 +47,12 @@
     border: 1px solid #b4b4b4;
     outline: none;
     padding-left: 13px;
+    font-size: 1.6em;
 }
 .m-Login .userName{
     border-bottom: none;
 }
-.m-Login button{
+.m-Login .btn{
     width: 281px;
     height: 39px;
     background-color: #6bd82a;
@@ -62,6 +64,11 @@
     font-size: 1.6em;
     font-weight: bold;
     letter-spacing: 8px;
+    text-align: center;
+    line-height: 39px;
+}
+.m-Login .btn:active{
+    background-color: #66ad27;
 }
 .m-Login .rememberpassword{
     width: 14px;
@@ -76,7 +83,8 @@
     color: #bebebe;
 }
 .m-Login .forgetPassword{
-    margin-left: 165px;
+    float: right;
+    margin-right: 47px;
     position: relative;
     text-decoration: none;
     color: #bebebe;
@@ -91,7 +99,7 @@
     margin: auto;
     text-align: center;
     position: relative;
-    top: -10px;
+    top: -19px;
     font-size: 1.2em;
     color: #bebebe;
     background-color: #ffffff;

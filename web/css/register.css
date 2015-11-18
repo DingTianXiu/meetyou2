@@ -97,7 +97,30 @@ body{
     line-height: 38px;
     color: #ffffff;
     text-align: center;
+    background-color: #5fb113;
+}
+.m-Register .GetAuthCodeHide{
+    display: none;
+}
+.m-Register .GetAuthCodeUnvisitable{
     background-color: #dadadb;
+    width: 133px;
+    height: 40px;
+    margin-left: 13px;
+    float: right;
+    line-height: 38px;
+    color: #ffffff;
+    text-align: center;
+}
+.m-Register .reGetAuthCode{
+    background-color: #dadadb;
+    width: 133px;
+    height: 40px;
+    margin-left: 13px;
+    float: right;
+    line-height: 38px;
+    color: #ffffff;
+    text-align: center;
 }
 .m-Register .userName{
     width: 265px;

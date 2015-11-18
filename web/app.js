@@ -7,7 +7,8 @@ var Article = AV.Object.extend('Article'),
     RecommendArticle = AV.Object.extend('RecommendArticle'),
     RecommendCollection = AV.Object.extend('RecommendCollection'),
     Collection = AV.Object.extend('Collection'),
-    UserInfomation = AV.Object.extend('userInfomation');
+    UserInfomation = AV.Object.extend('userInfomation'),
+    User = AV.Object.extend('_User');
 // Declare app level module which depends on views, and components
 angular
     .module('myApp', [
@@ -25,7 +26,8 @@ angular
         'myApp.JoinUs',
         'myApp.Exceptions',
         'myApp.ContactUs',
-        'myApp.AboutUs'
+        'myApp.AboutUs',
+        'myApp.Edit'
 ])
     .config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider,$location,prerender) {
 //  $routeProvider.otherwise({redirectTo: '/view1'});
@@ -86,6 +88,10 @@ angular
             .when('/personalPage/:id',{
                 controller: 'PersonalPageCtrl',
                 templateUrl: 'personalPage/personalPage.html'
+            })
+            .when('/edit',{
+                controller:'EditCtrl',
+                templateUrl: 'edit/edit.html'
             })
             .when('/about', {
                 templateUrl: 'about/aboutUs.html',
@@ -158,14 +164,9 @@ angular
             }
         }
     })
-    .controller('headCtrl',function($scope,$location,$rootScope,$filter){
+    .controller('headCtrl',function($scope,$location,$rootScope,$filter,$interval){
 
-        //加载条
-        var intObj = {
-            template: 3,
-            parent: '#headIndexId' // this option will insert bar HTML into this parent Element
-        };
-        var indeterminateProgress = new Mprogress(intObj);
+
 
         $scope.$on("$routeChangeSuccess", function(){
             $scope.url = $filter('limitTo')($location.url(),'12');
@@ -221,6 +222,13 @@ angular
             $scope.hasLogin = false;
         }
 
+        //加载条
+        var intObj = {
+            template: 3,
+            parent: '#loginId' // this option will insert bar HTML into this parent Element
+        };
+        var indeterminateProgress = new Mprogress(intObj);
+
         //登录
         $scope.goLogin = function(){
 
@@ -254,6 +262,8 @@ angular
             $location.path('/');
             $scope.noLogin = false;
             $scope.isLogin = false;
+            $scope.userName = null;
+            $scope.password = null;
         }
 
         //打开注册页面
@@ -267,52 +277,92 @@ angular
             $scope.hasRegister = false;
         }
 
-        var user = new AV.User();
-        user.set("username",$scope.registerUserName);
-        user.set("password",$scope.registerPassword);
-        user.set("phone",$scope.registerPhoneNumber);
+
 
         //获取验证码
+        $scope.GetAuthCodeHide = false;
+        $scope.reGetAuthCodeShow = false;
         $scope.getCode = function(){
+            $scope.GetAuthCodeHide = true;
             console.log($scope.registerPhoneNumber);
-            AV.User.requestMobilePhoneVerify($scope.registerPhoneNumber).then(function(){
-                alert('成功');
-            }, function(err){
-                alert('失败');
-            });
+                AV.Cloud.requestSmsCode({
+                    mobilePhoneNumber: $scope.registerPhoneNumber,
+                    name: '觅游',
+                    op: '注册',
+                    ttl: 10
+                }).then(function(){
+                    $scope.reGetAuthCodeShow = true;
+                    $scope.GetAuthCodeUnvisitableShow = false;
+                    $scope.GetAuthCodeShow = false;
+                    $scope.second = 60;
+                    $scope.changeSecond = function(){
+                        $scope.second --;
+                        if($scope.second<0){
+                            $scope.reGetAuthCodeShow = false;
+                            $scope.GetAuthCodeHide = false;
+                        }
+                    }
+                    $interval($scope.changeSecond,1000);
+                }, function(err){
+                    console.log(err);
+                    alert(err.message);
+                });
         }
 
         //手机注册
         $scope.GoRegister = function(){
-            AV.User.verifyMobilePhone($scope.authCode).then(function(){
+            console.log($scope.authCode,$scope.registerPhoneNumber);
+            AV.Cloud.verifySmsCode($scope.authCode,$scope.registerPhoneNumber).then(function() {
                 //验证成功,注册账号
-                user.signUp(null,{
-                    success:function(user){
+                console.log("verified.");
+                var user = new AV.User();
+                user.set("username",$scope.registerPhoneNumber);
+                user.set("password",$scope.registerPassword);
+                user.signUp(null, {
+                    success: function (user) {
+                        console.log("registered.");
+
                         //创建userInfomation数据
-                        var userInfomation = new userInfomation();
-                        post.save({
-                            nickname: $scope.registerUserName,
-                            mobilePhoneNumber: $scope.registerPhoneNumber
-                    },{
-                            success:function(userInfomation){
-
+                        var UserInfomation = new UserInfomation();
+                        userInfomation.set("userObject", user);
+                        userInfomation.set("nickname", $scope.registerUserName);
+                        userInfomation.set("mobilePhoneNumber", $scope.registerPhoneNumber);
+                        userInfomation.save(null, {
+                            success: function (userInfomation) {
+                                AV.User.logIn($scope.registerPhoneNumber, $scope.registerPassword, {
+                                    success: function(user) {
+                                        $scope.hasRegister = false;
+                                        var query = new AV.Query(UserInfomation);
+                                        query.equalTo("userObject",user);
+                                        query.find(function(result){
+                                            $scope.userInformation = result;
+                                        })
+                                    },
+                                    error: function(user, error) {
+                                        alert(error.message);
+                                    }
+                                });
                             },
-                            error:function(userInfomation,error){
-
+                            error: function (userInfomation, error) {
+                                alert(err.message);
                             }
                         })
-
-                        //即将跳转到登录界面
-
                     },
-                    error:function(user,error){
+                    error: function (user, error) {
+                        console.log("failure.");
+                        alert(error.message);
 
                     }
-                }, function(err){
-                    //验证失败
-                    alert("请输入正确验证码");
-                    });
-            })
+                });
+            }, function (err) {
+                //验证失败
+                console.log(err);
+                alert(err.message);
+            });
+        }
+        $scope.GoToLoginPage = function(){
+            $scope.hasRegister = false;
+            $scope.hasLogin = true;
         }
 })
     .controller('footCtrl',function($scope,$location,$anchorScroll) {
@@ -322,6 +372,9 @@ angular
         }
         $scope.weixinHid = function () {
             $scope.hasWeixin = false;
+        }
+        $scope.edit = function(){
+            $location.path('/edit');
         }
 
     })

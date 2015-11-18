@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/edit.css">
-</head>
-<body>
-    <div class="m-edit">
+
+    <div class="m-edit" ng-app="myApp.Edit" ng-controller="EditCtrl">
         <div class="nav">
             <img class="navBackgroundImage" src="../img/编辑后台标注切图/顶部切图/top1.png">
             <div class="navPosition">
                 <div class="navContent">
                     <div class="createNote">
-                        <img src="../img/编辑后台标注切图/顶部切图/plus.png">
-                        <a href="javascript:void(0)">创建游记</a>
+                        <img src="../img/编辑后台标注切图/顶部切图/plus.png" ng-click="goCreateNoteBtn()">
+                        <a href="javascript:void(0)" ng-click="goCreateNoteBtn()">创建游记</a>
                     </div>
                     <div class="basicInformation">
-                        <img src="../img/编辑后台标注切图/顶部切图/基本信息.png">
-                        <a href="javascript:void(0)">创建游记</a>
+                        <img ng-show="editBasicInformaton" ng-click="goArticleInformationBtn()" src="../img/编辑后台标注切图/顶部切图/基本信息.png">
+                        <img ng-hide="editBasicInformaton" ng-click="goArticleInformationBtn()" src="../img/编辑后台标注切图/顶部切图/图层-191.png">
+                        <a href="javascript:void(0)" ng-click="goArticleInformationBtn()">基本信息</a>
                     </div>
                     <div class="editNote">
-                        <img src="../img/编辑后台标注切图/顶部切图/编辑游记.png">
-                        <a href="javascript:void(0)">创建游记</a>
+                        <img ng-show="editEditNote" ng-click="goEditNoteBtn()" src="../img/编辑后台标注切图/顶部切图/编辑游记.png">
+                        <img ng-hide="editEditNote" ng-click="goEditNoteBtn()" src="../img/编辑后台标注切图/顶部切图/Shape-21.png">
+                        <a href="javascript:void(0)" ng-click="goEditNoteBtn()">编辑游记</a>
                     </div>
                     <div class="saveAndCancel">
                         <img class="makesure" src="../img/编辑后台标注切图/顶部切图/保-存.png">
@@ -30,14 +25,47 @@
                 </div>
             </div>
         </div>
-        <div class="main">
-            <div class="title"><input type="text" name="title" placeholder="游记标题" maxlength="18"></div>
-            <div class="subTitle"><input type="text" name="subTitle" placeholder="游记副标题"></div>
+        <div class="creat" ng-show="editBasicInformaton">
+            <div class="title"><input ng-model="title" type="text" name="title" placeholder="游记标题" maxlength="18"></div>
+            <div class="subTitle"><input ng-model="subTitle" type="text" name="subTitle" placeholder="游记副标题"></div>
             <div class="cropArea"></div>
             <div class="outputArea"></div>
-            <div class="file"><p>上传封面</p><input type="file" value=""></div>
-            <div class="next">下一步</div>
+            <div class="picBtn">
+                <div class="file"><p>上传封面</p><input type="file" value=""></div>
+                <div class="file"><p>保存封面</p></div>
+            </div>
+            <div class="next" ng-click="goArticleInformation()">下一步</div>
         </div>
+        <div class="articleInformation" ng-show="articleInformationHide">
+            <div class="relation">
+                <label>出行关系</label>
+                <select class="relationChoose">
+                    <option value="家庭">家庭</option>
+                    <option value="亲子">亲子</option>
+                    <option value="闺蜜">闺蜜</option>
+                    <option value="基友">基友</option>
+                    <option value="蜜月">蜜月</option>
+                    <option value="独行">独行</option>
+                    <option value="偶遇">偶遇</option>
+                    <option value="情侣">情侣</option>
+                </select>
+            </div>
+            <div class="date">
+                <label>出行时间</label>
+                <input type="date">
+            </div>
+            <div class="time">
+                <label>游玩天数</label>
+                <input type="text">
+            </div>
+            <div class="destination">
+                <label>目的地</label>
+                <input type="text">
+            </div>
+            <div class="next" ng-click="goEditNote()">下一步</div>
+        </div>
+        <div class="editNoteContent" ng-hide="editEditNote">
+
+        </div>
+
     </div>
-</body>
-</html>
