@@ -146,6 +146,7 @@ angular
         }
         $rootScope.searchName ="";
         $rootScope.slide = "";
+        $rootScope.userInformation = "";
     })
 
 
@@ -244,7 +245,8 @@ angular
                     var query = new AV.Query(UserInfomation);
                     query.equalTo("userObject",user);
                     query.find(function(result){
-                      $scope.userInformation = result;
+                        $scope.userInformation = result;
+                        $rootScope.userInformation = result;
                     })
                 },
                 //登录失败，提示输入正确用户名和密码

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 .m-edit{
     margin-top: 58px;
     width: 100%;
@@ -90,12 +91,6 @@
     height: 320px;
     margin: auto;
     border: 1px solid #c8c8c8;
-}
-.m-edit .cropArea{
-    /*display: none;*/
-}
-.m-edit .outputArea {
-    display: none;
 }
 .m-edit .picBtn{
     text-align: center;
@@ -187,3 +182,133 @@
     border-radius: 5px;
     margin: 80px auto;
 }
+.m-edit .editNoteContent .introTitle{
+    text-align: center;
+}
+.m-edit .editNoteContent .hrLeft{
+    margin-right: 65px;
+    width: 130px;
+}
+.m-edit .editNoteContent .hrRight{
+    width: 130px;
+}
+.m-edit .editNoteContent .introTitle p{
+    font-size: 1.4em;
+    position: relative;
+    top: -12px;
+}
+.m-edit .editNoteContent .introInput{
+    text-align: center;
+    width: 365px;
+    margin:auto;
+}
+.m-edit .editNoteContent .introInput textarea{
+    width: 361px;
+    height: 133px;
+    font-size: 1.4em;
+    padding: 5px;
+}
+.m-edit .editNoteContent .introShow{
+    width: 375px;
+    height: 147px;
+    margin: auto;
+    text-align: left;
+}
+.m-edit .editNoteContent .editNoteContentForm{
+    text-align: center;
+    width: 365px;
+    margin: auto;
+}
+.m-edit .editNoteContent .editNoteContentForm .addContentOptian{
+    position: relative;
+}
+.m-edit .editNoteContent .sectionTitle,
+.m-edit .editNoteContent .paragraphTitle{
+    width: 361px;
+    height: 31px;
+}
+.m-edit .editNoteContent .deleteBtn{
+    position: absolute;
+    right: -50px;
+    top: 8px;
+}
+.m-edit .editNoteContent .sectionTitleShow,
+.m-edit .editNoteContent .paragraphTitleShow{
+    width: 375px;
+    height: 45px;
+}
+.m-edit .editNoteContent input{
+    outline: none;
+    padding: 5px;
+}
+.m-edit .editNoteContent .paragraphContent{
+    width: 361px;
+    height: 82px;
+}
+.m-edit .editNoteContent .paragraphContentShow{
+    width: 375px;
+    height: 96px;
+}
+.m-edit .editNoteContent .notePartBtn,
+.m-edit .editNoteContent .addNotePartBtn,
+.m-edit .editNoteContent .sectionTitleBtn,
+.m-edit .editNoteContent .paragraphTitleBtn,
+.m-edit .editNoteContent .paragraphContentBtn,
+.m-edit .editNoteContent .picBtn{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin: 15px auto;
+}
+.m-edit .editNoteContent .notePartBtn{
+    background: url("../img/编辑后台标注切图/编辑游记/－1按下.png") no-repeat center top;
+    background-size: 100%;
+}
+.m-edit .editNoteContent .addNotePartBtn{
+    background: url("../img/编辑后台标注切图/编辑游记/＋1按下.png") no-repeat center top;
+    background-size: 100%;
+}
+.m-edit .editNoteContent .sectionTitleBtn{
+    background: url("../img/编辑后台标注切图/编辑游记/添加章节.png") no-repeat center top;
+    background-size: 100%;
+}
+.m-edit .editNoteContent .sectionTitleBtn:hover{
+    background: url("../img/编辑后台标注切图/编辑游记/添加章节－按下.png") no-repeat center top;
+}
+.m-edit .editNoteContent .paragraphTitleBtn{
+    background: url("../img/编辑后台标注切图/编辑游记/添加段落.png") no-repeat center top;
+    background-size: 100%;
+}
+.m-edit .editNoteContent .paragraphTitleBtn:hover{
+    background: url("../img/编辑后台标注切图/编辑游记/添加段落－按下.png") no-repeat center top;
+}
+.m-edit .editNoteContent .paragraphContentBtn{
+    background: url("../img/编辑后台标注切图/编辑游记/添加文字.png") no-repeat center top;
+    background-size: 100%;
+}
+.m-edit .editNoteContent .paragraphContentBtn:hover{
+    background: url("../img/编辑后台标注切图/编辑游记/添加文字－按下.png") no-repeat center top;
+}
+.m-edit .editNoteContent .picBtn{
+    background: url("../img/编辑后台标注切图/编辑游记/添加照片.png") no-repeat center top;
+    background-size: 100%;
+}
+.m-edit .editNoteContent .picBtn:hover{
+    background: url("../img/编辑后台标注切图/编辑游记/添加照片－按下.png") no-repeat center top;
+}
+.m-edit .editNoteContent .addBtnDiv{
+    width: 365px;
+    margin: auto;
+    text-align: left;
+}
+.m-edit .editNoteContent .addBtnDiv div{
+    display: inline-block;
+    margin-left: 10px;
+}
+.m-edit .editNoteContent .addBtnDiv .sectionTitleBtn,
+.m-edit .editNoteContent .addBtnDiv .notePartBtn,
+.m-edit .editNoteContent .addBtnDiv .addNotePartBtn{
+    margin-left: 0;
+}
+
+

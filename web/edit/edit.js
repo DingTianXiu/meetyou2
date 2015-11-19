@@ -54,4 +54,56 @@ angular.module('myApp.Edit',[])
             $scope.editEditNote = false;
         }
 
+        //展开、合拢添加按键
+        $scope.addNotePart =true;
+        $scope.showAddNotePart =function(){
+            $scope.addNotePart = false;
+            $scope.introDivShow = true;
+        }
+        $scope.hideAddNotePart = function(){
+            $scope.addNotePart =true;
+            $scope.introDivShow = true;
+        }
+
+        //编辑及显示游记引言
+        $scope.introDivShow = false;
+        $scope.selectIntroDiv = function(){
+
+        }
+        $scope.selectIntroInput = function(){
+            $scope.introDivShow =false;
+        }
+
+        $scope.data = ['1','1'];
+        $scope.add = function(){
+            data.push('1');
+        }
+
+
+        //$scope.userInformation = $rootScope.userInformation;
+        //var file = document.getElementById('file').value,
+        //    relation = document.getElementById('relationId').options[document.getElementById('relationId').selectedIndex].text,
+        //    startedAt = document.getElementById('startedAtId').text;
+        //var article = new Article();
+        //article.set("title",$scope.title);
+        //article.set("subtitle",$scope.subTitle);
+        //article.set("background",file);
+        //article.set("authorinformation",$scope.userInformation);
+        //article.set("relationshipstring",relation);
+        //article.set("duration",$scope.duration);
+        //article.set("destination",$scope.destination);
+        //article.set("startedAt",startedAt);
+
     })
+//data=[1]
+//ng-repeat="item in data"
+//show
+//$scope.add=function(){
+//    data.push('1');
+//}
+//$scope.show=function('title'){
+//    Show = 'titie'
+//}
+//ng-show="show==title"
+
+

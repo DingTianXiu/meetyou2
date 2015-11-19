@@ -28,18 +28,22 @@
         <div class="creat" ng-show="editBasicInformaton">
             <div class="title"><input ng-model="title" type="text" name="title" placeholder="游记标题" maxlength="18"></div>
             <div class="subTitle"><input ng-model="subTitle" type="text" name="subTitle" placeholder="游记副标题"></div>
-            <div class="cropArea"></div>
-            <div class="outputArea"></div>
+            <div class="cropArea" ng-hide="cropAreaHide">
+                <img-crop area-type="square" image="myImage" result-image="myCroppedImage"></img-crop>
+            </div>
+            <div class="outputArea" ng-show="cropAreaHide">
+                <img ng-src="{{myCroppedImage}}" />
+            </div>
             <div class="picBtn">
-                <div class="file"><p>上传封面</p><input type="file" value=""></div>
-                <div class="file"><p>保存封面</p></div>
+                <div class="file" ng-click="upDateSurfacePlot()"><p>上传封面</p><input id="file" type="file" value=""></div>
+                <div class="file" ng-click="saveSurfacePlot()"><p>保存封面</p></div>
             </div>
             <div class="next" ng-click="goArticleInformation()">下一步</div>
         </div>
         <div class="articleInformation" ng-show="articleInformationHide">
             <div class="relation">
                 <label>出行关系</label>
-                <select class="relationChoose">
+                <select id="relationId" class="relationChoose">
                     <option value="家庭">家庭</option>
                     <option value="亲子">亲子</option>
                     <option value="闺蜜">闺蜜</option>
@@ -52,20 +56,65 @@
             </div>
             <div class="date">
                 <label>出行时间</label>
-                <input type="date">
+                <input type="date" id="star">
             </div>
             <div class="time">
                 <label>游玩天数</label>
-                <input type="text">
+                <input ng-model="duration" type="text">
             </div>
             <div class="destination">
                 <label>目的地</label>
-                <input type="text">
+                <input ng-model="destination" type="text">
             </div>
             <div class="next" ng-click="goEditNote()">下一步</div>
         </div>
         <div class="editNoteContent" ng-hide="editEditNote">
-
+            <div class="introTitle">
+                <img class="hrLeft" src="../img/编辑后台标注切图/编辑游记/左.png">
+                <img class="hrRight" src="../img/编辑后台标注切图/编辑游记/右.png">
+                <p>游记引言</p>
+            </div>
+            <div class="introInput">
+                <textarea type="textarea" ng-hide="introDivShow"  ng-model="intro" name="intro" placeholder="请用一句话或一段话开始你的游记吧"></textarea>
+                <div class="introShow" ng-show="introDivShow" ng-bind="intro" ng-click="selectIntroInput()"></div>
+            </div>
+            <div class="addBtnDiv">
+                <div class="notePartBtn" ng-hide="addNotePart" ng-click="hideAddNotePart()"></div>
+                <div class="addNotePartBtn" ng-show="addNotePart" ng-click="showAddNotePart()"></div>
+                <div ng-hide="addNotePart">
+                    <div class="sectionTitleBtn" ></div>
+                    <div class="paragraphTitleBtn"></div>
+                    <div class="paragraphContentBtn"></div>
+                    <div class="picBtn"></div>
+                </div>
+            </div>
+            <form class="editNoteContentForm" ng-repeat="item in data track by $index">
+                <div class="addContentOptian">
+                    <input type="text" class="sectionTitle" placeholder="章节标题">
+                    <img class="deleteBtn" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
+                    <div class="sectionTitleShow"></div>
+                </div>
+                <div class="addContentOptian" >
+                    <input type="text" class="paragraphTitle" placeholder="段落标题">
+                    <img class="deleteBtn" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
+                    <div class="paragraphTitleShow"></div>
+                </div>
+                <div class="addContentOptian" >
+                    <input type="text" class="paragraphContent" placeholder="输入文字">
+                    <img class="deleteBtn" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
+                    <div class="paragraphContentShow"></div>
+                </div>
+                <div class="picShow"></div>
+                <div class="addBtnDiv">
+                    <div class="notePartBtn" ng-hide="addNotePart" ng-click="hideAddNotePart()"></div>
+                    <div class="addNotePartBtn" ng-show="addNotePart" ng-click="showAddNotePart()"></div>
+                    <div ng-hide="addNotePart">
+                        <div class="sectionTitleBtn" ></div>
+                        <div class="paragraphTitleBtn"></div>
+                        <div class="paragraphContentBtn"></div>
+                        <div class="picBtn"></div>
+                    </div>
+                </div>
+            </form>
         </div>
-
     </div>
