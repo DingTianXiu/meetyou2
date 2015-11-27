@@ -325,19 +325,24 @@ angular
                         console.log("registered.");
 
                         //创建userInfomation数据
-                        var UserInfomation = new UserInfomation();
+                        var userInfomation = new UserInfomation();
                         userInfomation.set("userObject", user);
                         userInfomation.set("nickname", $scope.registerUserName);
                         userInfomation.set("mobilePhoneNumber", $scope.registerPhoneNumber);
                         userInfomation.save(null, {
                             success: function (userInfomation) {
+                                console.log(userInfomation);
                                 AV.User.logIn($scope.registerPhoneNumber, $scope.registerPassword, {
-                                    success: function(user) {
+                                    success: function(result) {
+                                        $scope.noLogin = true;
+                                        $scope.isLogin = true;
                                         $scope.hasRegister = false;
                                         var query = new AV.Query(UserInfomation);
-                                        query.equalTo("userObject",user);
-                                        query.find(function(result){
-                                            $scope.userInformation = result;
+                                        query.equalTo("userObject",result);
+                                        query.find(function(userResult){
+                                            console.log(userResult);
+                                            $scope.userInformation = userResult;
+                                            $rootScope.userInformation = userResult;
                                         })
                                     },
                                     error: function(user, error) {
@@ -346,7 +351,7 @@ angular
                                 });
                             },
                             error: function (userInfomation, error) {
-                                alert(err.message);
+                                alert(error.message);
                             }
                         })
                     },

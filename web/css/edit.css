@@ -207,11 +207,14 @@
     height: 133px;
     font-size: 1.4em;
     padding: 5px;
+    border: 2px solid #e6e6e6;
+    outline: none;
 }
 .m-edit .editNoteContent .introShow{
     width: 375px;
-    height: 147px;
+    /*height: 147px;*/
     margin: auto;
+    padding-bottom: 40px;
     text-align: left;
 }
 .m-edit .editNoteContent .editNoteContentForm{
@@ -226,6 +229,8 @@
 .m-edit .editNoteContent .paragraphTitle{
     width: 361px;
     height: 31px;
+    margin-bottom: 40px;
+    border: 2px solid #e6e6e6;
 }
 .m-edit .editNoteContent .deleteBtn{
     position: absolute;
@@ -235,7 +240,19 @@
 .m-edit .editNoteContent .sectionTitleShow,
 .m-edit .editNoteContent .paragraphTitleShow{
     width: 375px;
-    height: 45px;
+    /*height: 45px;*/
+}
+.m-edit .editNoteContent .sectionTitleShow{
+    font-size: 2rem;
+    color: #6fb638;
+    text-align: left;
+    margin-bottom: 40px;
+}
+.m-edit .editNoteContent .paragraphTitleShow{
+    font-size: 1.6rem;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 40px;
 }
 .m-edit .editNoteContent input{
     outline: none;
@@ -244,10 +261,13 @@
 .m-edit .editNoteContent .paragraphContent{
     width: 361px;
     height: 82px;
+    padding: 5px;
+    border: 2px solid #e6e6e6;
+    outline: none;
 }
 .m-edit .editNoteContent .paragraphContentShow{
     width: 375px;
-    height: 96px;
+    /*height: 96px;*/
 }
 .m-edit .editNoteContent .notePartBtn,
 .m-edit .editNoteContent .addNotePartBtn,

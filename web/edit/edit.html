@@ -78,43 +78,33 @@
                 <textarea type="textarea" ng-hide="introDivShow"  ng-model="intro" name="intro" placeholder="请用一句话或一段话开始你的游记吧"></textarea>
                 <div class="introShow" ng-show="introDivShow" ng-bind="intro" ng-click="selectIntroInput()"></div>
             </div>
-            <div class="addBtnDiv">
-                <div class="notePartBtn" ng-hide="addNotePart" ng-click="hideAddNotePart()"></div>
-                <div class="addNotePartBtn" ng-show="addNotePart" ng-click="showAddNotePart()"></div>
-                <div ng-hide="addNotePart">
-                    <div class="sectionTitleBtn" ></div>
-                    <div class="paragraphTitleBtn"></div>
-                    <div class="paragraphContentBtn"></div>
-                    <div class="picBtn"></div>
-                </div>
-            </div>
             <form class="editNoteContentForm" ng-repeat="item in data track by $index">
-                <div class="addContentOptian">
-                    <input type="text" class="sectionTitle" placeholder="章节标题">
-                    <img class="deleteBtn" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
-                    <div class="sectionTitleShow"></div>
-                </div>
-                <div class="addContentOptian" >
-                    <input type="text" class="paragraphTitle" placeholder="段落标题">
-                    <img class="deleteBtn" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
-                    <div class="paragraphTitleShow"></div>
-                </div>
-                <div class="addContentOptian" >
-                    <input type="text" class="paragraphContent" placeholder="输入文字">
-                    <img class="deleteBtn" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
-                    <div class="paragraphContentShow"></div>
-                </div>
-                <div class="picShow"></div>
                 <div class="addBtnDiv">
-                    <div class="notePartBtn" ng-hide="addNotePart" ng-click="hideAddNotePart()"></div>
-                    <div class="addNotePartBtn" ng-show="addNotePart" ng-click="showAddNotePart()"></div>
-                    <div ng-hide="addNotePart">
-                        <div class="sectionTitleBtn" ></div>
-                        <div class="paragraphTitleBtn"></div>
-                        <div class="paragraphContentBtn"></div>
+                    <div class="notePartBtn" ng-show="addNotePart&&showForm==$index" ng-click="hideAddNotePart($index)"></div>
+                    <div class="addNotePartBtn" ng-hide="addNotePart&&showForm==$index" ng-click="showAddNotePart($index)"></div>
+                    <div ng-show="addNotePart==true&&showForm==$index">
+                        <div class="sectionTitleBtn" ng-click="addInput1($index)"></div>
+                        <div class="paragraphTitleBtn" ng-click="addInput2($index)"></div>
+                        <div class="paragraphContentBtn" ng-click="addInput3($index)"></div>
                         <div class="picBtn"></div>
                     </div>
                 </div>
+                <div class="addContentOptian">
+                    <input type="text" ng-show="input1&&showForm==$index" ng-model="sectionTitle" class="sectionTitle" placeholder="章节标题">
+                    <img class="deleteBtn" ng-show="input1&&showForm==$index" ng-click="deleteInput1($index)" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
+                    <div class="sectionTitleShow" ng-click="inputEdit1($index)" ng-bind="sectionTitle" ng-hide="showPart1&&showForm==$index"></div>
+                </div>
+                <div class="addContentOptian">
+                    <input type="text" ng-show="input2&&showForm==$index" ng-model="paragraphTitle" class="paragraphTitle" placeholder="段落标题">
+                    <img class="deleteBtn" ng-show="input2&&showForm==$index" ng-click="deleteInput2($index)" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
+                    <div class="paragraphTitleShow" ng-click="inputEdit2($index)" ng-bind="paragraphTitle" ng-hide="showPart2&&showForm==$index"></div>
+                </div>
+                <div class="addContentOptian">
+                    <textarea type="text" ng-show="input3&&showForm==$index" ng-model="paragraphContent" class="paragraphContent" placeholder="输入文字"></textarea>
+                    <img class="deleteBtn" ng-show="input3&&showForm==$index" ng-click="deleteInput3($index)" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
+                    <div class="paragraphContentShow" ng-click="inputEdit3($index)" ng-bind="paragraphContent" ng-hide="showPart3&&showForm==$index"></div>
+                </div>
+                <div class="picShow"></div>
             </form>
         </div>
     </div>

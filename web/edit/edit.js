@@ -56,13 +56,15 @@ angular.module('myApp.Edit',[])
 
         //展开、合拢添加按键
         $scope.addNotePart =true;
-        $scope.showAddNotePart =function(){
-            $scope.addNotePart = false;
+        $scope.showAddNotePart =function(key){
+            $scope.addNotePart = true;
             $scope.introDivShow = true;
+            $scope.showForm = key
         }
-        $scope.hideAddNotePart = function(){
-            $scope.addNotePart =true;
+        $scope.hideAddNotePart = function(key){
+            $scope.addNotePart =false;
             $scope.introDivShow = true;
+            $scope.showForm = key
         }
 
         //编辑及显示游记引言
@@ -74,10 +76,61 @@ angular.module('myApp.Edit',[])
             $scope.introDivShow =false;
         }
 
-        $scope.data = ['1','1'];
-        $scope.add = function(){
-            data.push('1');
+        $scope.data = ['1'];
+
+        //点击添加文章模块
+        $scope.addInput1 = function(key){
+            $scope.showForm = key
+            $scope.input1 = true;
+            $scope.data.push('1');
+            console.log(data);
         }
+        $scope.addInput2 = function(key){
+            $scope.showForm = key
+            $scope.input2 = true;
+            $scope.data.push('1');
+        }
+        $scope.addInput3 = function(key){
+            $scope.showForm = key
+            $scope.input3 = true;
+            $scope.data.push('1');
+        }
+
+        //删除文章模块
+        $scope.deleteInput1 = function(key){
+            $scope.showForm = key
+            $scope.input1 = false;
+            $scope.sectionTitle = null;
+        }
+        $scope.deleteInput2 = function(key){
+            $scope.showForm = key
+            $scope.input2 = false;
+            $scope.paragraphTitle = null;
+        }
+        $scope.deleteInput3 = function(key){
+            $scope.showForm = key
+            $scope.input3 = false;
+            $scope.paragraphContent = null;
+        }
+
+        $scope.showPart1 = true;
+        $scope.showPart2 = true;
+        $scope.showPart3 = true;
+
+        $scope.inputEdit1 = function(key){
+            $scope.showForm = key
+
+        }
+        $scope.inputEdit2 = function(key){
+            $scope.showForm = key
+
+        }
+        $scope.inputEdit3 = function(key){
+            $scope.showForm = key
+
+        }
+
+
 
 
         //$scope.userInformation = $rootScope.userInformation;
