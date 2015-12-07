@@ -64,6 +64,7 @@
 }
 .m-edit .makesure{
     margin-right: 13px;
+    width: 60px;
 }
 .m-edit .creat{
     /*display: none;*/
@@ -210,12 +211,24 @@
     border: 2px solid #e6e6e6;
     outline: none;
 }
+.m-edit .introMakeSure{
+    width: 60px;
+    float: right;
+    margin-right: -10px;
+    margin-top: 5px;
+}
 .m-edit .editNoteContent .introShow{
     width: 375px;
     /*height: 147px;*/
     margin: auto;
     padding-bottom: 40px;
     text-align: left;
+}
+.m-edit .editNoteContent .introShow:hover{
+    display: block;
+}
+.m-edit .revamp{
+    display: none;
 }
 .m-edit .editNoteContent .editNoteContentForm{
     text-align: center;

@@ -17,9 +17,196 @@ angular.module('myApp.Edit',[])
         //返回顶部
         $anchorScroll();
 
-        $scope.editBasicInformaton = true;
-        $scope.articleInformationHide = false;
-        $scope.editEditNote = true;
+        //添加文章初始化
+        function reset() {
+            $scope.errorMessage = undefined;
+            $scope.selectedDay =null;
+            $scope.selectedPart = null;
+        }
+//
+        //网页加载初始化
+        $scope.init = function () {
+            $scope.articlechsnames = {
+                "title": "标题",
+                "subtitle": "副标题",
+
+                "destination":"目的地",
+                "intro":"摘要",
+                "preparation":"行前准备",
+                "transportation": "交通工具",
+                "hotels": "宾馆",
+                "type": "文章类型",
+                "duration": "天数",
+                "startedAt": "开始日期",
+
+                "relationshipstring": "关系"
+
+            };
+            var DataSchema = {
+                "Article": {
+                    "title": {"_type": "string"},
+                    "background": {"_type": "object"},
+                    "subtitle": {"_type": "string"},
+                    "destination": {"_type": "string"},
+                    "intro": {"_type": "string"},
+                    "preparation": {"_type": "string"},
+                    "transportation": {"_type": "string"},
+                    "hotels": {"_type": "string"},
+                    "type": {"_type": "number"},
+                    "duration": {"_type": "number"},
+                    "startedAt": {"_type": "date"},
+
+                    "relationship": {"_type": "object"},
+                    "relationshipstring": {"_type": "string"},
+                    "days": {
+                        "_type": "object",
+                        "title": {"_type": "string"},
+                        "subtitle": {"_type": "string"},
+                        "items": {
+                            "_type": "array_of_object",
+                            "title": {"_type": "string"},
+                            "rank": {"_type": "number"},
+                            "brief": {"_type": "string"},
+                            "description": {"_type": "string"},
+                            "pics": {"_type": "array_of_string"}
+                        }
+                    }
+                },
+                "Relationship": {
+                    "name": {"type": "object"}
+                },
+                "Media": {
+                    "file": {"type": "object"}
+                }
+            }
+            //$scope.formSchema = DataSchema;
+            //LeanCloud.setup(DataSchema);
+            //var classRefs = LeanCloud.angularizeAll();
+            //Article = classRefs['Article'];
+            //Relationship = classRefs['Relationship'];
+            //Media = classRefs['Media'];
+            //$scope.refresh();
+
+            //新建文章
+            reset();
+            $scope.selected = new Article({
+                days: [],
+                type: 0
+            });
+        };
+
+         //添加第一个章节
+        $scope.initAddDay = function(){
+            $scope.introDivShow = true;
+            $scope.showForm = 0;
+            if (!$scope.selected.days) {
+                $scope.selected.days = [];
+                var day = {items:[],title:""};
+                $scope.selectedDay = day;
+                $scope.selected.days.push(day);
+            }
+        }
+//
+//        //新建文章
+//        $scope.newArticle = function () {
+//            reset();
+//            $scope.selected = new Article({
+//                days: [],
+//                type: 0
+//            });
+//        };
+//
+        //添加段落
+        $scope.addItemTitle = function (key,input) {
+            console.log("进入addItem");
+            var item ={pics:[]};
+            $scope.selectedPart =item;
+            $scope.selectedDay.items.push(item);
+            console.log("addItem完成");
+            $scope.dayMakeSure = true;
+            $scope.showForm = key;
+            $scope.showInput2 = input;
+
+        }
+        $scope.addItemDescription = function(key,input){
+            if(!$scope.selectedPart){
+                var item ={pics:[]};
+                $scope.selectedPart =item;
+                $scope.selectedDay.items.push(item);
+            }
+            $scope.dayMakeSure = true;
+            $scope.showForm = key;
+            $scope.showInput3 = input;
+        }
+//
+        //添加章节
+        $scope.newDay = function (key,input) {
+            $scope.dayMakeSure = true;
+            var day = {items:[],title:""};
+            $scope.selectedDay = day;
+            if($scope.selected.days.length==key+1){
+                $scope.selected.days.push(day);
+            }else{
+                $scope.selected.days.splice(key,0,day);
+            }
+            $scope.showForm = key;
+            $scope.showInput1 = input;
+        };
+
+        //保存章节
+        $scope.dayMakeSureBtn = function(key){
+            $scope.dayMakeSure = false;
+            $scope.showForm = null;
+            console.log("$scope.selected.days",$scope.selected.days);
+            console.log($scope.selected.days.length);
+            $scope.showInput1 = null;
+            $scope.showInput2 = null;
+            $scope.showInput3 = null;
+            if($scope.selected.days.length==key+1){
+                console.log($scope.selected.days.length);
+                var day = {items:[],title:""};
+                $scope.selectedDay = day;
+                $scope.selected.days.push(day);
+            }
+
+        }
+
+//
+//        //发布
+//        $scope.save = function () {
+//            reset();
+//
+//            $scope.selected.days = angular.copy($scope.selected.days);
+////            $scope.selected.relationshipstring = $scope.selected.relationship.name;
+//            for (var i=0;i<$scope.relationships.length;i++){
+//                if($scope.selected.relationshipstring==$scope.relationships[i].name){
+//                    $scope.selected.relationship = $scope.relationships[i];
+//                }
+//            };
+//
+//            if ($scope.selected) {
+//                $scope.selected.save().then(
+//                    function (selected) {
+//                        $scope.selected = selected;
+//                        console.log('saved');
+//                    }
+//                ).then(
+//                    function () {
+//                        $scope.$apply();
+//                        alert('保存成功');
+//                        angular.element('#my-popup').modal('close');
+//                    },
+//                    function (err) {
+//                        $scope.errorMessage = err.message;
+//                        alert(err.message);
+//                    }
+//                ).then($scope.refresh, $scope.refresh);
+//            }
+//        };
+//
+//        $scope.editBasicInformaton = true;
+//        $scope.articleInformationHide = false;
+//        $scope.editEditNote = true;
 
         //创建游记下一步
         $scope.goArticleInformation = function(){
@@ -54,16 +241,14 @@ angular.module('myApp.Edit',[])
             $scope.editEditNote = false;
         }
 
-        //展开、合拢添加按键
+        //展开、折叠添加按键
         $scope.addNotePart =true;
         $scope.showAddNotePart =function(key){
             $scope.addNotePart = true;
-            $scope.introDivShow = true;
             $scope.showForm = key
         }
         $scope.hideAddNotePart = function(key){
             $scope.addNotePart =false;
-            $scope.introDivShow = true;
             $scope.showForm = key
         }
 
@@ -76,59 +261,38 @@ angular.module('myApp.Edit',[])
             $scope.introDivShow =false;
         }
 
-        $scope.data = ['1'];
 
-        //点击添加文章模块
-        $scope.addInput1 = function(key){
+        //保存
+        $scope.save = function(key){
             $scope.showForm = key
-            $scope.input1 = true;
-            $scope.data.push('1');
-            console.log(data);
+            $scope.showInput = $scope.showInput+5
         }
-        $scope.addInput2 = function(key){
+
+        //编辑
+        $scope.inputEdit = function(key){
             $scope.showForm = key
-            $scope.input2 = true;
-            $scope.data.push('1');
-        }
-        $scope.addInput3 = function(key){
-            $scope.showForm = key
-            $scope.input3 = true;
-            $scope.data.push('1');
+            $scope.showInput = $scope.showInput-5
+            console.log($scope.showInput);
         }
 
         //删除文章模块
         $scope.deleteInput1 = function(key){
-            $scope.showForm = key
-            $scope.input1 = false;
-            $scope.sectionTitle = null;
+            $scope.showForm = key;
+            $scope.input1 = null;
+            $scope.selectedDay.title = null;
         }
         $scope.deleteInput2 = function(key){
-            $scope.showForm = key
+            $scope.showForm = key;
             $scope.input2 = false;
             $scope.paragraphTitle = null;
         }
         $scope.deleteInput3 = function(key){
-            $scope.showForm = key
+            $scope.showForm = key;
             $scope.input3 = false;
             $scope.paragraphContent = null;
         }
 
-        $scope.showPart1 = true;
-        $scope.showPart2 = true;
-        $scope.showPart3 = true;
 
-        $scope.inputEdit1 = function(key){
-            $scope.showForm = key
-
-        }
-        $scope.inputEdit2 = function(key){
-            $scope.showForm = key
-
-        }
-        $scope.inputEdit3 = function(key){
-            $scope.showForm = key
-
-        }
 
 
 
