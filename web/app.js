@@ -192,6 +192,9 @@ angular
         $scope.homePage = function(){
             $location.path('/')
         }
+        $scope.edit = function(){
+            $location.path('/edit');
+        }
 
 
         $scope.homeEnter = function($event){
@@ -383,5 +386,4 @@ angular
         $scope.edit = function(){
             $location.path('/edit');
         }
-
     })

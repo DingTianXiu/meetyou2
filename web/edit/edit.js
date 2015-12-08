@@ -19,7 +19,6 @@ angular.module('myApp.Edit',[])
 
         //添加文章初始化
         function reset() {
-            $scope.errorMessage = undefined;
             $scope.selectedDay =null;
             $scope.selectedPart = null;
         }
@@ -97,6 +96,7 @@ angular.module('myApp.Edit',[])
 
          //添加第一个章节
         $scope.initAddDay = function(){
+            reset();
             $scope.introDivShow = true;
             $scope.showForm = 0;
             if (!$scope.selected.days) {
@@ -117,40 +117,45 @@ angular.module('myApp.Edit',[])
 //        };
 //
         //添加段落
-        $scope.addItemTitle = function (key,input) {
+        $scope.addItemTitle = function (key,input,itemIndex) {
             console.log("进入addItem");
+            $scope.selectedPart = null;
             var item ={pics:[]};
-            $scope.selectedPart =item;
             $scope.selectedDay.items.push(item);
+            $scope.selectedPart =item;
+            $scope.dayMakeSure = true;
+            $scope.showInput = itemIndex;
+            $scope.input = input;
+            $scope.input1 = null;
+            console.log($scope.showInput);
             console.log("addItem完成");
-            $scope.dayMakeSure = true;
-            $scope.showForm = key;
-            $scope.showInput2 = input;
-
         }
-        $scope.addItemDescription = function(key,input){
-            if(!$scope.selectedPart){
+        $scope.addItemDescription = function(key,input,itemIndex){
+            console.log("addDescription开始");
+            if($scope.selectedPart.description){
+                $scope.selectedPart = null;
                 var item ={pics:[]};
-                $scope.selectedPart =item;
                 $scope.selectedDay.items.push(item);
-            }
+                $scope.selectedPart =item;
+            }else
             $scope.dayMakeSure = true;
             $scope.showForm = key;
-            $scope.showInput3 = input;
+            $scope.showInput = itemIndex;
+            $scope.input = input;
+            $scope.input1 = null;
+            console.log("addDescription结束");
         }
 //
         //添加章节
         $scope.newDay = function (key,input) {
+            reset();
             $scope.dayMakeSure = true;
             var day = {items:[],title:""};
             $scope.selectedDay = day;
-            if($scope.selected.days.length==key+1){
-                $scope.selected.days.push(day);
-            }else{
-                $scope.selected.days.splice(key,0,day);
-            }
+            $scope.selected.days.splice(key,0,day);
             $scope.showForm = key;
-            $scope.showInput1 = input;
+            $scope.input1 = input;
+            $scope.input = null;
         };
 
         //保存章节
@@ -159,15 +164,14 @@ angular.module('myApp.Edit',[])
             $scope.showForm = null;
             console.log("$scope.selected.days",$scope.selected.days);
             console.log($scope.selected.days.length);
-            $scope.showInput1 = null;
-            $scope.showInput2 = null;
-            $scope.showInput3 = null;
-            if($scope.selected.days.length==key+1){
-                console.log($scope.selected.days.length);
-                var day = {items:[],title:""};
-                $scope.selectedDay = day;
-                $scope.selected.days.push(day);
-            }
+            $scope.input1 = null;
+            $scope.input = null;
+            //if($scope.selected.days.length==key+1){
+            //    console.log($scope.selected.days.length);
+            //    var day = {items:[],title:""};
+            //    $scope.selectedDay = day;
+            //    $scope.selected.days.push(day);
+            //}
 
         }
 
@@ -204,9 +208,9 @@ angular.module('myApp.Edit',[])
 //            }
 //        };
 //
-//        $scope.editBasicInformaton = true;
-//        $scope.articleInformationHide = false;
-//        $scope.editEditNote = true;
+        $scope.editBasicInformaton = true;
+        $scope.articleInformationHide = false;
+        $scope.editEditNote = true;
 
         //创建游记下一步
         $scope.goArticleInformation = function(){
@@ -245,11 +249,12 @@ angular.module('myApp.Edit',[])
         $scope.addNotePart =true;
         $scope.showAddNotePart =function(key){
             $scope.addNotePart = true;
-            $scope.showForm = key
+            $scope.showForm = key;
+            $scope.input = null;
         }
         $scope.hideAddNotePart = function(key){
             $scope.addNotePart =false;
-            $scope.showForm = key
+            $scope.showForm = key;
         }
 
         //编辑及显示游记引言

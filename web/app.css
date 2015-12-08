@@ -30,6 +30,7 @@ img{
   width: 829px;
   height: 58px;
   margin: auto;
+  position: relative;
 }
 .meetYouLogo-Home{
   height: 29px;
@@ -80,9 +81,10 @@ img{
   border-radius: 10px;
   outline: none;
   float: left;
-  margin-right: 19px;
   margin-top: 18px;
   background-color: rgba(255,255,255,0.1);
+  position: absolute;
+  right: 90px;
 }
 .search-Home input{
   font-size: 1em;
@@ -137,6 +139,7 @@ img{
   width: 829px;
   height: 58px;
   margin: auto;
+  position: relative;
 }
 .m-Header .meetYouLogo{
   height: 29px;
@@ -187,9 +190,10 @@ img{
   border: 1px solid #fff;
   border-radius: 10px;
   float: left;
-  margin-right: 19px;
   margin-top: 18px;
   background-color: rgba(255,255,255,0.1);
+  position: absolute;
+  right: 90px;
 }
 .search input{
   font-size: 1em;
@@ -210,7 +214,7 @@ img{
 }
 .loginNav{
   float: left;
-  margin-top: 20px;
+  margin-top: 22px;
   display: block;
 }
 .loginNavHidden{
@@ -220,9 +224,36 @@ img{
   float: left;
   margin-top: 20px;
   display: none;
+  position: absolute;
+  right: 40px;
+}
+.user{
+  text-align: right;
+  color: #ffffff;
+}
+.personNav:hover .dropDownBox{
+  display: block;
 }
 .personNavShow{
   display: block;
+}
+.dropDownBox{
+  display: none;
+}
+.dropDownBox ul{
+  margin-top: 10px;
+  margin-right: -60px;
+}
+.dropDownBox ul li{
+  list-style-type: none;
+}
+.personerCenter img{
+  width: 147px;
+  margin-left: 3.5px;
+}
+.personerCenterOptian img{
+  width: 150px;
+  margin-top: -8px;
 }
 .m-Footer{
   width: 100%;
