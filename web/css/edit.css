@@ -234,6 +234,22 @@
     text-align: center;
     width: 365px;
     margin: auto;
+    position: relative;
+}
+.m-edit .editNoteContent .sectionEdit{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.2);
+}
+.m-edit .editNoteContent .sectionEdit img{
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    margin-left: -30px;
 }
 .m-edit .editNoteContent .editNoteContentForm .addContentOptian{
     position: relative;

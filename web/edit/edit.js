@@ -20,7 +20,6 @@ angular.module('myApp.Edit',[])
         //添加文章初始化
         function reset() {
             $scope.selectedDay =null;
-            $scope.selectedPart = null;
         }
 //
         //网页加载初始化
@@ -99,6 +98,7 @@ angular.module('myApp.Edit',[])
             reset();
             $scope.introDivShow = true;
             $scope.showForm = 0;
+            $scope.addBtnSave = 0;
             if (!$scope.selected.days) {
                 $scope.selected.days = [];
                 var day = {items:[],title:""};
@@ -117,34 +117,42 @@ angular.module('myApp.Edit',[])
 //        };
 //
         //添加段落
-        $scope.addItemTitle = function (key,input,itemIndex) {
+        $scope.addItemTitle = function (key,input) {
             console.log("进入addItem");
-            $scope.selectedPart = null;
-            var item ={pics:[]};
-            $scope.selectedDay.items.push(item);
-            $scope.selectedPart =item;
-            $scope.dayMakeSure = true;
-            $scope.showInput = itemIndex;
-            $scope.input = input;
-            $scope.input1 = null;
-            console.log($scope.showInput);
-            console.log("addItem完成");
-        }
-        $scope.addItemDescription = function(key,input,itemIndex){
-            console.log("addDescription开始");
-            if($scope.selectedPart.description){
-                $scope.selectedPart = null;
+            if($scope.selected.days.length == key+1&&$scope.input1 == null){
+                reset();
+                $scope.addBtnSave = key;
+                var day = {items:[],title:""};
+                $scope.selected.days.splice(key,0,day);
+                $scope.selectedDay = day;
+                $scope.input1 = 1;
+                $scope.showForm = key;
                 var item ={pics:[]};
                 $scope.selectedDay.items.push(item);
-                $scope.selectedPart =item;
-            }else
-            $scope.dayMakeSure = true;
-            $scope.showForm = key;
-            $scope.showInput = itemIndex;
-            $scope.input = input;
-            $scope.input1 = null;
-            console.log("addDescription结束");
+                $scope.dayMakeSure = true;
+                $scope.input2 = input;
+            }else{
+                var item ={pics:[]};
+                $scope.selectedDay.items.push(item);
+                $scope.dayMakeSure = true;
+                $scope.input2 = input;
+            }
+            console.log("addItem完成");
         }
+        //$scope.addItemDescription = function(key,input){
+        //    console.log("addDescription开始");
+        //    if($scope.selectedPart.description){
+        //        $scope.selectedPart = null;
+        //        var item ={pics:[]};
+        //        $scope.selectedDay.items.push(item);
+        //        $scope.selectedPart =item;
+        //        $scope.input2 = null;
+        //    }else
+        //    $scope.dayMakeSure = true;
+        //    $scope.showForm = key;
+        //    $scope.input3 = input;
+        //    console.log("addDescription结束");
+        //}
 //
         //添加章节
         $scope.newDay = function (key,input) {
@@ -155,23 +163,23 @@ angular.module('myApp.Edit',[])
             $scope.selected.days.splice(key,0,day);
             $scope.showForm = key;
             $scope.input1 = input;
-            $scope.input = null;
+            $scope.addBtnSave = key
         };
 
         //保存章节
-        $scope.dayMakeSureBtn = function(key){
+        $scope.dayMakeSureBtn = function(){
+            console.log("kkk")
             $scope.dayMakeSure = false;
-            $scope.showForm = null;
-            console.log("$scope.selected.days",$scope.selected.days);
-            console.log($scope.selected.days.length);
+            //$scope.showForm = null;
             $scope.input1 = null;
-            $scope.input = null;
+            $scope.input2 = null;
             //if($scope.selected.days.length==key+1){
             //    console.log($scope.selected.days.length);
             //    var day = {items:[],title:""};
             //    $scope.selectedDay = day;
             //    $scope.selected.days.push(day);
             //}
+            console.log("jjj");
 
         }
 
@@ -250,7 +258,33 @@ angular.module('myApp.Edit',[])
         $scope.showAddNotePart =function(key){
             $scope.addNotePart = true;
             $scope.showForm = key;
-            $scope.input = null;
+            //console.log($scope.showForm);
+            //console.log("title:",$scope.selected.days[key].title);
+            //alert("title:",$scope.selected.days[key].title);
+            //alert("items:",$scope.selected.days[key].items);
+            //console.log("items:",$scope.selected.days[key].items);
+            if($scope.selected.days[key].title.length==0&&$scope.selected.days[key].items.length==0){  //编辑文章（章节标题、段落都为空）
+                $scope.input1 = null;
+                $scope.input2 = null;
+                //console.log("key1",key);
+            }else if($scope.selected.days[key].items.length==0){  //编辑文章（章节标题为空，段落不为空）
+                //console.log("key2",key);
+                $scope.input1 = 1;
+                $scope.dayMakeSure = true;
+            }else{   //编辑文章（章节辩题、段落都不为空）
+                $scope.input1 = 1;
+                $scope.input2 = 2;
+                $scope.dayMakeSure = true;
+                //console.log("key3",key);
+                //console.log("title11:",$scope.selected.days[key].title);
+                //console.log("titlelength:",$scope.selected.days[key].title.length);
+                //
+                //alert("title11:",$scope.selected.days[key].title);
+                //console.log("items11:",$scope.selected.days[key].items);
+                //console.log("items11length:",$scope.selected.days[key].items.length);
+                //alert("items11:",$scope.selected.days[key].items);
+            }
+            console.log($scope.showForm);
         }
         $scope.hideAddNotePart = function(key){
             $scope.addNotePart =false;
@@ -267,34 +301,40 @@ angular.module('myApp.Edit',[])
         }
 
 
-        //保存
-        $scope.save = function(key){
-            $scope.showForm = key
-            $scope.showInput = $scope.showInput+5
-        }
 
-        //编辑
-        $scope.inputEdit = function(key){
-            $scope.showForm = key
-            $scope.showInput = $scope.showInput-5
-            console.log($scope.showInput);
-        }
+        ////编辑
+        //$scope.sectionEditShow = false;
+        //$scope.mouseOnSection = function(key){
+        //    console.log(key);
+        //    console.log($scope.showForm);
+        //    if($scope.showForm!=key){
+        //        $scope.sectionEditShow = true;
+        //        $scope.showForm = key;
+        //    }
+        //}
+        //$scope.mouseLeaveSection = function(){
+        //    $scope.sectionEditShow = false;
+        //}
+        //$scope.editSection = function(key){
+        //    $scope.sectionEditShow = false;
+        //    $scope.input1 = 1;
+        //    $scope.input2 = 2;
+        //    $scope.showForm = key;
+        //}
 
         //删除文章模块
-        $scope.deleteInput1 = function(key){
-            $scope.showForm = key;
-            $scope.input1 = null;
-            $scope.selectedDay.title = null;
-        }
-        $scope.deleteInput2 = function(key){
-            $scope.showForm = key;
-            $scope.input2 = false;
-            $scope.paragraphTitle = null;
-        }
-        $scope.deleteInput3 = function(key){
-            $scope.showForm = key;
-            $scope.input3 = false;
-            $scope.paragraphContent = null;
+        $scope.delSection = function(key){
+            console.log("开始");
+            console.log($scope.selectedDay);
+            //$scope.selected.days = _.without($scope.selected.days, day);
+            $scope.selected.days.splice(key,1);
+            $scope.selectedDay = undefined;
+            console.log("结束");
+        };
+        $scope.delItem = function(key) {
+
+            console.log("delItem");
+            $scope.selectedDay.items.splice(key,1);
         }
 
 
