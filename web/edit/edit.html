@@ -26,8 +26,8 @@
             </div>
         </div>
         <div class="creat" ng-show="editBasicInformaton">
-            <div class="title"><input ng-model="title" type="text" name="title" placeholder="游记标题" maxlength="18"></div>
-            <div class="subTitle"><input ng-model="subTitle" type="text" name="subTitle" placeholder="游记副标题"></div>
+            <div class="title"><input ng-model="selected.title" type="text" name="title" placeholder="游记标题" maxlength="18"></div>
+            <div class="subTitle"><input ng-model="selected.subTitle" ng-model="selected.subtitle" type="text" name="subTitle" placeholder="游记副标题"></div>
             <div class="cropArea" ng-hide="cropAreaHide">
                 <img-crop area-type="square" image="myImage" result-image="myCroppedImage"></img-crop>
             </div>
@@ -43,7 +43,7 @@
         <div class="articleInformation" ng-show="articleInformationHide">
             <div class="relation">
                 <label>出行关系</label>
-                <select id="relationId" class="relationChoose">
+                <select ng-model="selected.relationshipstring" id="relationId" class="relationChoose">
                     <option value="家庭">家庭</option>
                     <option value="亲子">亲子</option>
                     <option value="闺蜜">闺蜜</option>
@@ -56,15 +56,15 @@
             </div>
             <div class="date">
                 <label>出行时间</label>
-                <input type="date" id="star">
+                <input ng-model="selected.startedAt" type="date" id="star">
             </div>
             <div class="time">
                 <label>游玩天数</label>
-                <input ng-model="duration" type="text">
+                <input ng-model="selected.duration" type="text">
             </div>
             <div class="destination">
                 <label>目的地</label>
-                <input ng-model="destination" type="text">
+                <input ng-model="selected.destination" type="text">
             </div>
             <div class="next" ng-click="goEditNote()">下一步</div>
         </div>
@@ -75,7 +75,7 @@
                 <p>游记引言</p>
             </div>
             <div class="introInput">
-                <textarea type="textarea" ng-hide="introDivShow"  ng-model="intro" name="intro" placeholder="请用一句话或一段话开始你的游记吧"></textarea>
+                <textarea type="textarea" ng-hide="introDivShow"  ng-model="selected.intro" name="intro" placeholder="请用一句话或一段话开始你的游记吧"></textarea>
                 <div class="introShow" ng-show="introDivShow" ng-click="selectIntroInput()">{{intro}}<p class="revamp">修改</p></div>
                 <img class="introMakeSure" ng-click="initAddDay()" ng-hide="introDivShow" src="../img/编辑后台标注切图/顶部切图/保-存.png">
             </div>

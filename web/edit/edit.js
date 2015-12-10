@@ -124,16 +124,18 @@ angular.module('myApp.Edit',[])
                 $scope.addBtnSave = key;
                 var day = {items:[],title:""};
                 $scope.selected.days.splice(key,0,day);
-                $scope.selectedDay = day;
                 $scope.input1 = 1;
                 $scope.showForm = key;
                 var item ={pics:[]};
-                $scope.selectedDay.items.push(item);
+                $scope.selected.days[key].items.push(item);
                 $scope.dayMakeSure = true;
                 $scope.input2 = input;
             }else{
+                //if (!$scope.selectedDay.items) {
+                //    $scope.selectedDay.items = [];
+                //}
                 var item ={pics:[]};
-                $scope.selectedDay.items.push(item);
+                $scope.selected.days[key].items.push(item);
                 $scope.dayMakeSure = true;
                 $scope.input2 = input;
             }
@@ -170,6 +172,7 @@ angular.module('myApp.Edit',[])
         $scope.dayMakeSureBtn = function(){
             console.log("kkk")
             $scope.dayMakeSure = false;
+            $scope.addNotePart =false;
             //$scope.showForm = null;
             $scope.input1 = null;
             $scope.input2 = null;
@@ -334,7 +337,7 @@ angular.module('myApp.Edit',[])
         $scope.delItem = function(key) {
 
             console.log("delItem");
-            $scope.selectedDay.items.splice(key,1);
+            $scope.selected.days[key].items.splice(key,1);
         }
 
 
