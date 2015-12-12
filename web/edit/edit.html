@@ -28,14 +28,13 @@
         <div class="creat" ng-show="editBasicInformaton">
             <div class="title"><input ng-model="selected.title" type="text" name="title" placeholder="游记标题" maxlength="18"></div>
             <div class="subTitle"><input ng-model="selected.subTitle" ng-model="selected.subtitle" type="text" name="subTitle" placeholder="游记副标题"></div>
-            <div class="cropArea" ng-hide="cropAreaHide">
-                <img-crop area-type="square" image="myImage" result-image="myCroppedImage"></img-crop>
-            </div>
-            <div class="outputArea" ng-show="cropAreaHide">
-                <img ng-src="{{myCroppedImage}}" />
+            <div class="cropArea" ng-show="cropAreaHide">
+                <canvas width="640" height="320" id="canvas" image-cropper image="cropper.sourceImage" cropped-image="cropper.croppedImage" crop-width="640" crop-height="320" keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>            </div>
+            <div class="outputArea" ng-hide="cropAreaHide">
+                <img ng-src="{{cropper.croppedImage}}"/>
             </div>
             <div class="picBtn">
-                <div class="file" ng-click="upDateSurfacePlot()"><p>上传封面</p><input id="file" type="file" value=""></div>
+                <div class="file" ng-click="upDateSurfacePlot()"><p>上传封面</p><input type="file" img-cropper-fileread image="cropper.sourceImage" /></div>
                 <div class="file" ng-click="saveSurfacePlot()"><p>保存封面</p></div>
             </div>
             <div class="next" ng-click="goArticleInformation()">下一步</div>
@@ -87,7 +86,7 @@
                         <div class="sectionTitleBtn" ng-click="newDay($index,1)"></div>
                         <!--<div class="paragraphTitleBtn" ng-click="addItemTitle($index,2)"></div>{{$index}}-->
                         <div class="paragraphContentBtn" ng-click="addItemTitle($index,2)"></div>
-                        <div class="picBtn"></div>
+                        <div class="picBtn"><input type="file"></div>
                     </div>
                 </div>
                 <!--<div ng-hide="showForm==$index"><a>编辑</a></div>-->

@@ -93,14 +93,13 @@
     margin: auto;
     border: 1px solid #c8c8c8;
 }
-.m-edit .picBtn{
-    text-align: center;
-}
 .m-edit .file{
     width: 121px;
     height: 40px;
     margin: 33px 5px 13px;
     display: inline-block;
+    cursor: pointer;
+    position: relative;
 }
 .m-edit .file p{
     width: 121px;
@@ -112,14 +111,17 @@
     border-radius: 5px;
     position: absolute;
     z-index: 1;
+    cursor: pointer;
 }
 .m-edit .file input{
     width: 121px;
     height: 40px;
     position: absolute;
+    left: 0;
     z-index: 2;
     filter: Alpha(opacity=0);
     opacity:0;
+    cursor: pointer;
 }
 .m-edit .creat .next{
     width: 121px;
@@ -130,6 +132,7 @@
     background-color: #6eb82d;
     border-radius: 5px;
     margin: auto;
+    cursor: pointer;
 }
 .m-edit .articleInformation{
     text-align: center;
@@ -238,12 +241,23 @@
 .m-edit .editNoteContent .editNoteContentForm .addContentOptian{
     position: relative;
 }
+.m-edit .picBtn
 .m-edit .editNoteContent .sectionTitle,
 .m-edit .editNoteContent .paragraphTitle{
     width: 361px;
     height: 31px;
     margin-bottom: 40px;
     border: 2px solid #e6e6e6;
+}
+.m-edit .editNoteContent .picBtn input{
+    opacity: 0;
+    cursor: pointer;
+    filter: inherit;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    padding: 0;
+    position: absolute;
 }
 .m-edit .editNoteContent .deleteBtn{
     position: absolute;

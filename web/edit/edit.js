@@ -12,10 +12,26 @@ var Article = AV.Object.extend('Article'),
     User = AV.Object.extend('_User');
 
 
-angular.module('myApp.Edit',[])
+angular.module('myApp.Edit',['angular-img-cropper'])
     .controller('EditCtrl',function($scope,$anchorScroll){
         //返回顶部
         $anchorScroll();
+
+        $scope.cropper = {};
+        $scope.cropper.sourceImage = null;
+        $scope.cropper.croppedImage   = null;
+        $scope.bounds = {};
+        $scope.bounds.left = 0;
+        $scope.bounds.right = 0;
+        $scope.bounds.top = 0;
+        $scope.bounds.bottom = 0;
+        $scope.cropAreaHide = true;
+        $scope.upDateSurfacePlot =function(){
+            $scope.cropAreaHide = true;
+        }
+        $scope.saveSurfacePlot = function(){
+            $scope.cropAreaHide = false;
+        }
 
         //添加文章初始化
         function reset() {
