@@ -224,8 +224,10 @@
     width: 375px;
     /*height: 147px;*/
     margin: auto;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     text-align: left;
+    font-size: 1.5rem;
+    line-height: 20px;
 }
 .m-edit .editNoteContent .introShow:hover{
     display: block;
@@ -234,20 +236,63 @@
     display: none;
 }
 .m-edit .editNoteContent .editNoteContentForm{
-    text-align: center;
     width: 365px;
     margin: auto;
 }
 .m-edit .editNoteContent .editNoteContentForm .addContentOptian{
     position: relative;
 }
-.m-edit .picBtn
+.m-edit .editNoteContent .editNoteContentForm .picDiv{
+    text-align: left;
+    position: relative;
+}
+.m-edit .editNoteContent .editNoteContentForm .picDiv .editPicsBtn button{
+    width: 60px;
+    height: 27px;
+    margin-right: 5px;
+    background-color: #6db82c;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+}
+/*.m-edit .editNoteContent .editNoteContentForm .picDiv:hover .editPicUrlBtn{*/
+    /*display: block;*/
+/*}*/
+.m-edit .editNoteContentForm .editPicUrlBtn{
+    /*display: none;*/
+    position: absolute;
+    top: 50%;
+    margin: -15px auto 0;
+    width: 100%;
+    text-align: center;
+}
+.m-edit .editNoteContentForm .editPicUrlBtn button{
+    width: 60px;
+    height: 27px;
+    margin-right: 5px;
+    background-color: #6db82c;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+}
+.m-edit .editNoteContent .editNoteContentForm .picDiv #uploadPreview{
+    max-width: 375px;
+    margin: 5px 0;
+}
+.m-edit .picBtn{
+    text-align: center;
+}
 .m-edit .editNoteContent .sectionTitle,
 .m-edit .editNoteContent .paragraphTitle{
     width: 361px;
     height: 31px;
-    margin-bottom: 40px;
     border: 2px solid #e6e6e6;
+}
+.m-edit .editNoteContent .paragraphTitle{
+    margin-top: 40px;
+
 }
 .m-edit .editNoteContent .picBtn input{
     opacity: 0;
@@ -259,10 +304,15 @@
     padding: 0;
     position: absolute;
 }
-.m-edit .editNoteContent .deleteBtn{
+.m-edit .editNoteContent .deleteDayBtn{
     position: absolute;
     right: -50px;
     top: 8px;
+}
+.m-edit .editNoteContent .deleteItemBtn{
+    position: absolute;
+    right: -50px;
+    top: 48px;
 }
 .m-edit .editNoteContent .sectionTitleShow,
 .m-edit .editNoteContent .paragraphTitleShow{
@@ -291,9 +341,12 @@
     padding: 5px;
     border: 2px solid #e6e6e6;
     outline: none;
+    margin-top: 40px;
 }
 .m-edit .editNoteContent .paragraphContentShow{
     width: 375px;
+    line-height: 20px;
+    font-size: 1.5rem;
     /*height: 96px;*/
 }
 .m-edit .editNoteContent .notePartBtn,
@@ -345,7 +398,7 @@
 }
 .m-edit .editNoteContent .addBtnDiv{
     width: 365px;
-    margin: auto;
+    margin: 20px auto 0;
     text-align: left;
 }
 .m-edit .editNoteContent .addBtnDiv div{
@@ -358,4 +411,14 @@
     margin-left: 0;
 }
 
+.m-edit .editNoteContent .save{
+    width: 121px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    background-color: #6eb82d;
+    border-radius: 5px;
+    margin: 80px auto;
+}
 

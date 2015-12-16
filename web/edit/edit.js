@@ -13,10 +13,31 @@ var Article = AV.Object.extend('Article'),
 
 
 angular.module('myApp.Edit',['angular-img-cropper'])
-    .controller('EditCtrl',function($scope,$anchorScroll){
+    .directive("fileread", [function () {
+        return {
+            scope: {
+                fileread: "=",
+                index: "="
+            },
+            link: function (scope, element, attributes) {
+                element.bind("change", function (changeEvent) {
+                    var reader = new FileReader();
+                    reader.onload = function (loadEvent) {
+                        scope.$apply(function () {
+                            scope.url = loadEvent.target.result;
+                            scope.fileread(scope.url,scope.index)
+                        });
+                    }
+                    reader.readAsDataURL(changeEvent.target.files[0]);
+                });
+            }
+        }
+    }])
+    .controller('EditCtrl',function($scope,$anchorScroll,$rootScope){
         //返回顶部
         $anchorScroll();
 
+        //上传文章封面
         $scope.cropper = {};
         $scope.cropper.sourceImage = null;
         $scope.cropper.croppedImage   = null;
@@ -31,11 +52,37 @@ angular.module('myApp.Edit',['angular-img-cropper'])
         }
         $scope.saveSurfacePlot = function(){
             $scope.cropAreaHide = false;
+            console.log($scope.background);
+        }
+        var surfacePlotReader = new FileReader();
+
+        //surfacePlotReader.onload = function (oFREvent) {
+        //    //console.log("ffff");
+        //    $scope.background = oFREvent.target.result;
+        //    //console.log($scope.selected.background);
+        //    //console.log("ofofof");
+        //};
+
+        loadSurfacePlot = function() {
+            //console.log("调用文件上传函数");
+            //console.log(document.getElementById("surfacePlot").files);
+            if (document.getElementById("surfacePlot").files.length === 0) {
+                console.log("什么都没有");
+                return; }
+            var oFile = document.getElementById("surfacePlot").files;
+            $scope.background = oFile;
+            //console.log("ofile:",document.getElementById("surfacePlot").files);
+            surfacePlotReader.readAsDataURL(oFile);
+            //console.log("调用结束");
         }
 
-        //添加文章初始化
+
+
+
+        //文章初始化
         function reset() {
             $scope.selectedDay =null;
+            $scope.selectedPart = null;
         }
 //
         //网页加载初始化
@@ -105,8 +152,22 @@ angular.module('myApp.Edit',['angular-img-cropper'])
             reset();
             $scope.selected = new Article({
                 days: [],
-                type: 0
+                type: 1
             });
+            $scope.days = [];
+
+            // 预先取出出行关系
+            var Relationship = AV.Object.extend('Relationship');
+            new AV.Query(Relationship).find().then(
+                function (relationships) {
+                    $scope.relationships = relationships;
+                    $scope.$apply();
+                    //console.log($scope.relationships);
+                    //console.log($scope.relationships[0].name);
+                    //console.log($scope.relationships[0].attributes.name)
+                    //console.log($scope.relationships[0].get("name"));
+                }
+            );
         };
 
          //添加第一个章节
@@ -115,11 +176,13 @@ angular.module('myApp.Edit',['angular-img-cropper'])
             $scope.introDivShow = true;
             $scope.showForm = 0;
             $scope.addBtnSave = 0;
-            if (!$scope.selected.days) {
-                $scope.selected.days = [];
+            if (!$scope.days||$scope.days.length==0) {
+                $scope.days = [];
                 var day = {items:[],title:""};
                 $scope.selectedDay = day;
-                $scope.selected.days.push(day);
+                $scope.days.push(day);
+                console.log($scope.days.length);
+                $scope.input1 = 1;
             }
         }
 //
@@ -135,23 +198,27 @@ angular.module('myApp.Edit',['angular-img-cropper'])
         //添加段落
         $scope.addItemTitle = function (key,input) {
             console.log("进入addItem");
-            if($scope.selected.days.length == key+1&&$scope.input1 == null){
-                reset();
+            if($scope.days.length == key+1&&$scope.input1 == null){
+                $scope.selectedPart = null;
                 $scope.addBtnSave = key;
                 var day = {items:[],title:""};
-                $scope.selected.days.splice(key,0,day);
+                $scope.selectedDay = day;
+                $scope.days.splice(key,0,day);
                 $scope.input1 = 1;
                 $scope.showForm = key;
                 var item ={pics:[]};
-                $scope.selected.days[key].items.push(item);
+                $scope.selectedPart =item;
+                $scope.days[key].items.push(item);
                 $scope.dayMakeSure = true;
                 $scope.input2 = input;
             }else{
                 //if (!$scope.selectedDay.items) {
                 //    $scope.selectedDay.items = [];
                 //}
+                $scope.selectedPart = null;
                 var item ={pics:[]};
-                $scope.selected.days[key].items.push(item);
+                $scope.selectedPart =item;
+                $scope.days[key].items.push(item);
                 $scope.dayMakeSure = true;
                 $scope.input2 = input;
             }
@@ -163,7 +230,6 @@ angular.module('myApp.Edit',['angular-img-cropper'])
         //        $scope.selectedPart = null;
         //        var item ={pics:[]};
         //        $scope.selectedDay.items.push(item);
-        //        $scope.selectedPart =item;
         //        $scope.input2 = null;
         //    }else
         //    $scope.dayMakeSure = true;
@@ -172,16 +238,56 @@ angular.module('myApp.Edit',['angular-img-cropper'])
         //    console.log("addDescription结束");
         //}
 //
+
+
+        //添加图片
+        $scope.addPic = function(url,key){
+            if(!$scope.selectedDay){
+                console.log("1");
+                var day = {items:[],title:""};
+                $scope.selectedDay = day;
+                $scope.days.splice(key,0,day);
+                $scope.showForm = key;
+                $scope.input1 = 1;
+                $scope.addBtnSave = key
+                var item ={pics:[]};
+                $scope.selectedPart =item;
+                $scope.days[key].items.push(item);
+                $scope.dayMakeSure = true;
+                $scope.input2 = 2;
+            }else if(!$scope.selectedPart){
+                console.log("2");
+                var item ={pics:[]};
+                $scope.selectedPart =item;
+                $scope.days[key].items.push(item);
+                $scope.dayMakeSure = true;
+                $scope.input2 = 2;
+                $scope.input1 = 1;
+            }
+            $scope.selectedPart.pics.push(url);
+            console.log("我要经来了")
+        }
+
         //添加章节
         $scope.newDay = function (key,input) {
             reset();
             $scope.dayMakeSure = true;
-            var day = {items:[],title:""};
-            $scope.selectedDay = day;
-            $scope.selected.days.splice(key,0,day);
-            $scope.showForm = key;
-            $scope.input1 = input;
-            $scope.addBtnSave = key
+            if($scope.days.length == key+1){
+                var day = {items:[],title:""};
+                $scope.selectedDay = day;
+                $scope.days.push(day);
+                $scope.showForm = key+1;
+                $scope.input1 = input;
+                $scope.addBtnSave = key+1
+            }else{
+                var day = {items:[],title:""};
+                $scope.selectedDay = day;
+                $scope.days.splice(key,0,day);
+                $scope.showForm = key;
+                $scope.input1 = input;
+                $scope.addBtnSave = key
+            }
+
         };
 
         //保存章节
@@ -192,48 +298,65 @@ angular.module('myApp.Edit',['angular-img-cropper'])
             //$scope.showForm = null;
             $scope.input1 = null;
             $scope.input2 = null;
-            //if($scope.selected.days.length==key+1){
-            //    console.log($scope.selected.days.length);
+            $scope.editPicsBtnShow = false;
+            reset();
+            //if($scope.days.length==key+1){
+            //    console.log($scope.days.length);
             //    var day = {items:[],title:""};
             //    $scope.selectedDay = day;
-            //    $scope.selected.days.push(day);
+            //    $scope.days.push(day);
             //}
             console.log("jjj");
 
         }
 
 //
-//        //发布
-//        $scope.save = function () {
-//            reset();
-//
-//            $scope.selected.days = angular.copy($scope.selected.days);
-////            $scope.selected.relationshipstring = $scope.selected.relationship.name;
-//            for (var i=0;i<$scope.relationships.length;i++){
-//                if($scope.selected.relationshipstring==$scope.relationships[i].name){
-//                    $scope.selected.relationship = $scope.relationships[i];
-//                }
-//            };
-//
-//            if ($scope.selected) {
-//                $scope.selected.save().then(
-//                    function (selected) {
-//                        $scope.selected = selected;
-//                        console.log('saved');
-//                    }
-//                ).then(
-//                    function () {
-//                        $scope.$apply();
-//                        alert('保存成功');
-//                        angular.element('#my-popup').modal('close');
-//                    },
-//                    function (err) {
-//                        $scope.errorMessage = err.message;
-//                        alert(err.message);
-//                    }
-//                ).then($scope.refresh, $scope.refresh);
-//            }
-//        };
+        //发布
+        $scope.save = function () {
+            reset();
+
+            console.log("1");
+            $scope.days = angular.copy($scope.days);
+            console.log("2");
+            console.log($scope.relationshipstring);
+
+//            $scope.selected.relationshipstring = $scope.selected.relationship.name;
+            for (var i = 0; i < $scope.relationships.length; i++) {
+                console.log($scope.relationships[i].name);
+                if ($scope.relationshipstring == $scope.relationships[i].get("name")) {
+                    $scope.relationship = $scope.relationships[i];
+                    console.log($scope.relationship);
+                }
+            }
+            ;
+            console.log("3");
+            $scope.selected.authorinformation = $rootScope.userInformation;
+            console.log($scope.selected);
+            console.log("4");
+            if ($scope.selected) {
+                console.log("5");
+                $scope.selected.set("title",$scope.title);
+                $scope.selected.set("subTitle",$scope.subTitle);
+                $scope.selected.set("background",$scope.background);
+                $scope.selected.set("relationshipstring",$scope.relationshipstring);
+                $scope.selected.set("startedAt",$scope.startedAt);
+                $scope.selected.set("duration",$scope.duration);
+                $scope.selected.set("relationship",$scope.relationship);
+                $scope.selected.set("destination",$scope.destination);
+                $scope.selected.set("intro",$scope.intro);
+                $scope.selected.set("days",$scope.days);
+                $scope.selected.save(null,{
+                    success:function(selected){
+                        alert(selected.id);
+                    },
+                    error:function(selected,error){
+                        console.log("6");
+                        console.log(selected);
+                        console.log(error);
+                    }
+                })
+            };
+        }
 //
         $scope.editBasicInformaton = true;
         $scope.articleInformationHide = false;
@@ -278,36 +401,45 @@ angular.module('myApp.Edit',['angular-img-cropper'])
             $scope.addNotePart = true;
             $scope.showForm = key;
             //console.log($scope.showForm);
-            //console.log("title:",$scope.selected.days[key].title);
-            //alert("title:",$scope.selected.days[key].title);
-            //alert("items:",$scope.selected.days[key].items);
-            //console.log("items:",$scope.selected.days[key].items);
-            if($scope.selected.days[key].title.length==0&&$scope.selected.days[key].items.length==0){  //编辑文章（章节标题、段落都为空）
+            //console.log("title:",$scope.days[key].title);
+            //alert("title:",$scope.days[key].title);
+            //alert("items:",$scope.days[key].items);
+            //console.log("items:",$scope.days[key].items);
+            if($scope.days[key].title.length==0&&$scope.days[key].items.length==0){  //编辑文章（章节标题、段落都为空）
                 $scope.input1 = null;
                 $scope.input2 = null;
+                $scope.editPicsBtnShow = true;
                 //console.log("key1",key);
-            }else if($scope.selected.days[key].items.length==0){  //编辑文章（章节标题为空，段落不为空）
+            }else if($scope.days[key].items.length==0){  //编辑文章（章节标题为空，段落不为空）
                 //console.log("key2",key);
                 $scope.input1 = 1;
                 $scope.dayMakeSure = true;
+                $scope.selectedDay = $scope.days[key];
+                $scope.editPicsBtnShow = true;
+                console.log("selectItem");
+                console.log($scope.selectedPart);
             }else{   //编辑文章（章节辩题、段落都不为空）
                 $scope.input1 = 1;
                 $scope.input2 = 2;
                 $scope.dayMakeSure = true;
-                //console.log("key3",key);
-                //console.log("title11:",$scope.selected.days[key].title);
-                //console.log("titlelength:",$scope.selected.days[key].title.length);
+                $scope.selectedDay = $scope.days[key];
+                $scope.editPicsBtnShow = true;
+                console.log("key3",key);
+                console.log($scope.selectedDay);
+                //console.log("title11:",$scope.days[key].title);
+                //console.log("titlelength:",$scope.days[key].title.length);
                 //
-                //alert("title11:",$scope.selected.days[key].title);
-                //console.log("items11:",$scope.selected.days[key].items);
-                //console.log("items11length:",$scope.selected.days[key].items.length);
-                //alert("items11:",$scope.selected.days[key].items);
+                //alert("title11:",$scope.days[key].title);
+                //console.log("items11:",$scope.days[key].items);
+                //console.log("items11length:",$scope.days[key].items.length);
+                //alert("items11:",$scope.days[key].items);
             }
             console.log($scope.showForm);
         }
         $scope.hideAddNotePart = function(key){
             $scope.addNotePart =false;
             $scope.showForm = key;
+            $scope.editPicsBtnShow = false;
         }
 
         //编辑及显示游记引言
@@ -321,70 +453,44 @@ angular.module('myApp.Edit',['angular-img-cropper'])
 
 
 
-        ////编辑
-        //$scope.sectionEditShow = false;
-        //$scope.mouseOnSection = function(key){
-        //    console.log(key);
-        //    console.log($scope.showForm);
-        //    if($scope.showForm!=key){
-        //        $scope.sectionEditShow = true;
-        //        $scope.showForm = key;
-        //    }
-        //}
-        //$scope.mouseLeaveSection = function(){
-        //    $scope.sectionEditShow = false;
-        //}
-        //$scope.editSection = function(key){
-        //    $scope.sectionEditShow = false;
-        //    $scope.input1 = 1;
-        //    $scope.input2 = 2;
-        //    $scope.showForm = key;
-        //}
+        //编辑图片
+        $scope.editPicsBtnShow = true;
+        $scope.editPicUrlBtnShow = false;
+        $scope.editPics = function(key,parentKey){
+            $scope.editPicUrlBtnShow = true;
+            $scope.PicIndex = key;
+            $scope.itemIndex = parentKey;
+            $scope.selectedPart = $scope.selectedDay.items[key];
+        }
+            //保存
+        $scope.savePics = function(key){
+            $scope.editPicUrlBtnShow = false;
+            $scope.PicIndex = key;
+        }
+            //删除
+        $scope.delPic = function(key){
+            $scope.selectedPart.pics.splice(key,1);
+            console.log($scope.selectedPart);
+        }
+
+
 
         //删除文章模块
         $scope.delSection = function(key){
             console.log("开始");
             console.log($scope.selectedDay);
-            //$scope.selected.days = _.without($scope.selected.days, day);
-            $scope.selected.days.splice(key,1);
+            //$scope.days = _.without($scope.days, day);
+            $scope.days.splice(key,1);
             $scope.selectedDay = undefined;
+            $scope.input1 = null;
+            $scope.dayMakeSure = false;
             console.log("结束");
         };
         $scope.delItem = function(key) {
-
             console.log("delItem");
-            $scope.selected.days[key].items.splice(key,1);
+            $scope.selectedDay.items.splice(key,1);
+            console.log("delItem完成")
         }
 
 
-
-
-
-
-        //$scope.userInformation = $rootScope.userInformation;
-        //var file = document.getElementById('file').value,
-        //    relation = document.getElementById('relationId').options[document.getElementById('relationId').selectedIndex].text,
-        //    startedAt = document.getElementById('startedAtId').text;
-        //var article = new Article();
-        //article.set("title",$scope.title);
-        //article.set("subtitle",$scope.subTitle);
-        //article.set("background",file);
-        //article.set("authorinformation",$scope.userInformation);
-        //article.set("relationshipstring",relation);
-        //article.set("duration",$scope.duration);
-        //article.set("destination",$scope.destination);
-        //article.set("startedAt",startedAt);
-
     })
-//data=[1]
-//ng-repeat="item in data"
-//show
-//$scope.add=function(){
-//    data.push('1');
-//}
-//$scope.show=function('title'){
-//    Show = 'titie'
-//}
-//ng-show="show==title"
-
-

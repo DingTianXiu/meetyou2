@@ -26,15 +26,15 @@
             </div>
         </div>
         <div class="creat" ng-show="editBasicInformaton">
-            <div class="title"><input ng-model="selected.title" type="text" name="title" placeholder="游记标题" maxlength="18"></div>
-            <div class="subTitle"><input ng-model="selected.subTitle" ng-model="selected.subtitle" type="text" name="subTitle" placeholder="游记副标题"></div>
+            <div class="title"><input ng-model="title" type="text" name="title" placeholder="游记标题" maxlength="18"></div>
+            <div class="subTitle"><input ng-model="subTitle" ng-model="selected.subtitle" type="text" name="subTitle" placeholder="游记副标题"></div>
             <div class="cropArea" ng-show="cropAreaHide">
                 <canvas width="640" height="320" id="canvas" image-cropper image="cropper.sourceImage" cropped-image="cropper.croppedImage" crop-width="640" crop-height="320" keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>            </div>
             <div class="outputArea" ng-hide="cropAreaHide">
                 <img ng-src="{{cropper.croppedImage}}"/>
             </div>
             <div class="picBtn">
-                <div class="file" ng-click="upDateSurfacePlot()"><p>上传封面</p><input type="file" img-cropper-fileread image="cropper.sourceImage" /></div>
+                <div class="file" ng-click="upDateSurfacePlot()"><p>上传封面</p><input id="surfacePlot" onchange="loadSurfacePlot()" type="file" img-cropper-fileread image="cropper.sourceImage"/></div>
                 <div class="file" ng-click="saveSurfacePlot()"><p>保存封面</p></div>
             </div>
             <div class="next" ng-click="goArticleInformation()">下一步</div>
@@ -42,7 +42,7 @@
         <div class="articleInformation" ng-show="articleInformationHide">
             <div class="relation">
                 <label>出行关系</label>
-                <select ng-model="selected.relationshipstring" id="relationId" class="relationChoose">
+                <select ng-model="relationshipstring" id="relationId" class="relationChoose">
                     <option value="家庭">家庭</option>
                     <option value="亲子">亲子</option>
                     <option value="闺蜜">闺蜜</option>
@@ -55,15 +55,15 @@
             </div>
             <div class="date">
                 <label>出行时间</label>
-                <input ng-model="selected.startedAt" type="date" id="star">
+                <input ng-model="startedAt" type="date" id="star">
             </div>
             <div class="time">
                 <label>游玩天数</label>
-                <input ng-model="selected.duration" type="text">
+                <input ng-model="duration" type="text">
             </div>
             <div class="destination">
                 <label>目的地</label>
-                <input ng-model="selected.destination" type="text">
+                <input ng-model="destination" type="text">
             </div>
             <div class="next" ng-click="goEditNote()">下一步</div>
         </div>
@@ -74,11 +74,11 @@
                 <p>游记引言</p>
             </div>
             <div class="introInput">
-                <textarea type="textarea" ng-hide="introDivShow"  ng-model="selected.intro" name="intro" placeholder="请用一句话或一段话开始你的游记吧"></textarea>
-                <div class="introShow" ng-show="introDivShow" ng-click="selectIntroInput()">{{intro}}<p class="revamp">修改</p></div>
+                <textarea type="textarea" ng-hide="introDivShow"  ng-model="intro" name="intro" placeholder="请用一句话或一段话开始你的游记吧"></textarea>
+                <div class="introShow" ng-show="introDivShow" ng-click="selectIntroInput()">{{selected.intro}}<p class="revamp">修改</p></div>
                 <img class="introMakeSure" ng-click="initAddDay()" ng-hide="introDivShow" src="../img/编辑后台标注切图/顶部切图/保-存.png">
             </div>
-            <form class="editNoteContentForm" ng-repeat="day in selected.days">
+            <form class="editNoteContentForm" ng-repeat="day in days">
                 <div class="addBtnDiv">
                     <div class="notePartBtn" ng-show="addNotePart&&showForm==$index" ng-click="hideAddNotePart($index)"></div>
                     <div class="addNotePartBtn" ng-hide="addNotePart&&showForm==$index" ng-click="showAddNotePart($index)"></div>
@@ -86,30 +86,42 @@
                         <div class="sectionTitleBtn" ng-click="newDay($index,1)"></div>
                         <!--<div class="paragraphTitleBtn" ng-click="addItemTitle($index,2)"></div>{{$index}}-->
                         <div class="paragraphContentBtn" ng-click="addItemTitle($index,2)"></div>
-                        <div class="picBtn"><input type="file"></div>
+                        <div class="picBtn"><input type="file" fileread="addPic" index="$index"></div>
                     </div>
                 </div>
                 <!--<div ng-hide="showForm==$index"><a>编辑</a></div>-->
-                <div class="addContentOptian">selected.days{{selected.days}}
-                    <input type="text" ng-show="input1==1&&showForm==$index" ng-model="selected.days[$index].title" class="sectionTitle" placeholder="章节标题">
-                    <img class="deleteBtn" ng-show="input1==1&&showForm==$index" ng-click="delSection($index)" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
-                    <div class="sectionTitleShow" ng-bind="selected.days[$index].title"  ng-hide="input1==1&&showForm==$index"></div>
+                <div class="addContentOptian">
+                    <input type="text" ng-show="input1==1&&showForm==$index" ng-model="days[$index].title" class="sectionTitle" placeholder="章节标题">
+                    <img class="deleteDayBtn" ng-show="input1==1&&showForm==$index" ng-click="delSection($index)" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
+                    <div class="sectionTitleShow" ng-bind="days[$index].title"  ng-hide="input1==1&&showForm==$index"></div>
                 </div>
-                <div class="items" ng-repeat="item in selected.days[$index].items">
+                <div class="items" ng-repeat="item in days[$index].items">
                     <div class="addContentOptian">
-                        <input type="text" ng-show="input2==2&&showForm==$parent.$index"  ng-model="selected.days[$parent.$index].items[$index].title" class="paragraphTitle" placeholder="段落标题">
-                        <img class="deleteBtn" ng-show="input2==2&&showForm==$parent.$index" ng-click="delItem($index)" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
-                        <div class="paragraphTitleShow" ng-bind="selected.days[$parent.$index].items[$index].title" ng-hide="input2==2&&showForm==$parent.$index"></div>
+                        <input type="text" ng-show="input2==2&&showForm==$parent.$index"  ng-model="days[$parent.$index].items[$index].title" class="paragraphTitle" placeholder="段落标题">
+                        <img class="deleteItemBtn" ng-show="input2==2&&showForm==$parent.$index" ng-click="delItem($index)" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">
+                        <div class="paragraphTitleShow" ng-bind="days[$parent.$index].items[$index].title" ng-hide="input2==2&&showForm==$parent.$index"></div>
                     </div>
                     <div class="addContentOptian">
-                        <textarea type="text" ng-show="input2==2&&showForm==$parent.$index"  ng-model="selected.days[$parent.$index].items[$index].description" class="paragraphContent" placeholder="输入文字"></textarea>
+                        <textarea type="text" ng-show="input2==2&&showForm==$parent.$index"  ng-model="days[$parent.$index].items[$index].description" class="paragraphContent" placeholder="输入文字"></textarea>
                         <!--<img class="deleteBtn" ng-show="input2==2&&showForm==$parent.$index" ng-click="deleteInput3($index)" src="../img/编辑后台标注切图/编辑游记/删除－按下.png">-->
-                        <div class="paragraphContentShow" ng-bind="selected.days[$parent.$index].items[$index].description" ng-hide="input1==1&&showForm==$parent.$index"></div>
+                        <div class="paragraphContentShow" ng-bind="days[$parent.$index].items[$index].description" ng-hide="input1==1&&showForm==$parent.$index"></div>
+                    </div>
+                    <div class="picDiv" ng-repeat="pic in days[$parent.$index].items[$index].pics track by $index">
+                        <div class="editPicsBtn" ng-show="editPicsBtnShow&&showForm==$parent.$parent.$index">
+                            <button ng-click="editPics($index,$parent.$index)">编辑图片</button>
+                            <button ng-click="savePics($index)">保存图片</button>
+                        </div>
+                        <img id="uploadPreview" ng-src="{{pic}}">
+                        <div class="editPicUrlBtn" ng-show="editPicUrlBtnShow&&PicIndex==$index&&itemIndex==$parent.$index&&showForm==$parent.$parent.$index">
+                            <!--<button>插入</button>-->
+                            <!--<button>编辑</button>-->
+                            <button ng-click="delPic($index)">删除</button>
+                        </div>
                     </div>
                 </div>
                 <img class="introMakeSure" ng-click="dayMakeSureBtn($index)" ng-show="dayMakeSure&&showForm==$index" src="../img/编辑后台标注切图/顶部切图/保-存.png">
-                <div class="picShow"></div>
                 <!--<div class="sectionEdit" ng-show="sectionEditShow&&showForm==$index"><img ng-click="editSection(key)" src="img/编辑后台标注切图/图像/源文件_33.png"></div>-->
             </form>
+            <div class="save" ng-click="save()">发布</div>
         </div>
     </div>

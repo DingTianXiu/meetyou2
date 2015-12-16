@@ -49,6 +49,7 @@ angular.module('myApp.ArticleDetail', [])
             var id = $routeParams.id;
             query.get(id, {
                 success: function (result) {
+                    console.log(result);
                     if( result.get("startedAt")){
                         result.startDate = result.get("startedAt").toLocaleDateString().replace(/\//gm, ".");
                     }
