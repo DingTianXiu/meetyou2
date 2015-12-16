@@ -364,7 +364,11 @@ angular
                     },
                     error: function (user, error) {
                         console.log("failure.");
-                        alert(error.message);
+                        if(error.message=="Username has already been taken"){
+                            alert("该账号已经注册，点击确认跳转到登录页面")
+                            $scope.hasRegister = false;
+                            $scope.hasLogin = true;
+                        }
 
                     }
                 });
@@ -386,8 +390,5 @@ angular
         }
         $scope.weixinHid = function () {
             $scope.hasWeixin = false;
-        }
-        $scope.edit = function(){
-            $location.path('/edit');
         }
     })

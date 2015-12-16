@@ -33,7 +33,7 @@ angular.module('myApp.Edit',['angular-img-cropper'])
             }
         }
     }])
-    .controller('EditCtrl',function($scope,$anchorScroll,$rootScope){
+    .controller('EditCtrl',function($scope,$anchorScroll,$rootScope,$location){
         //返回顶部
         $anchorScroll();
 
@@ -69,10 +69,21 @@ angular.module('myApp.Edit',['angular-img-cropper'])
             if (document.getElementById("surfacePlot").files.length === 0) {
                 console.log("什么都没有");
                 return; }
-            var oFile = document.getElementById("surfacePlot").files;
-            $scope.background = oFile;
+            var file = document.getElementById("surfacePlot").files[0];
+            var name = "photo.jpg";
+            var avFile = new AV.File(name, file);
+            avFile.save().then(function(file) {
+                // The file has been saved to AV.
+                $scope.background = file;
+                $scope.$apply();
+            }, function(error) {
+                // The file either could not be read, or could not be saved to AV.
+                alert(err);
+            });
+            console.log($scope.background);
+            //$scope.background = oFile;
             //console.log("ofile:",document.getElementById("surfacePlot").files);
-            surfacePlotReader.readAsDataURL(oFile);
+            //surfacePlotReader.readAsDataURL(oFile);
             //console.log("调用结束");
         }
 
@@ -333,6 +344,7 @@ angular.module('myApp.Edit',['angular-img-cropper'])
             $scope.selected.authorinformation = $rootScope.userInformation;
             console.log($scope.selected);
             console.log("4");
+            console.log($scope.duration);
             if ($scope.selected) {
                 console.log("5");
                 $scope.selected.set("title",$scope.title);
@@ -347,7 +359,8 @@ angular.module('myApp.Edit',['angular-img-cropper'])
                 $scope.selected.set("days",$scope.days);
                 $scope.selected.save(null,{
                     success:function(selected){
-                        alert(selected.id);
+                        alert("发布成功，点击确认查看文章");
+                        $location.path('/articles/'+selected.id);
                     },
                     error:function(selected,error){
                         console.log("6");
