@@ -391,4 +391,7 @@ angular
         $scope.weixinHid = function () {
             $scope.hasWeixin = false;
         }
+        //$scope.edit = function(){
+        //    $location.path('/edit');
+        //}
     })
