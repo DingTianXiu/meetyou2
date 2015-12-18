@@ -38,10 +38,10 @@
     margin-left: 13px;
     text-decoration: none;
     color: black;
+    font-size: 1.2em;
 }
 .m-edit .createNote{
     line-height: 43px;
-
 }
 .m-edit .createNote img{
     width: 40px;
@@ -85,6 +85,7 @@
     outline: none;
     border: 1px solid #c8c8c8;
     padding-left: 10px;
+    font-size: 1.2em;
 }
 .m-edit .cropArea,
 .m-edit .outputArea{
@@ -112,6 +113,7 @@
     position: absolute;
     z-index: 1;
     cursor: pointer;
+    font-size: 1.2em;
 }
 .m-edit .file input{
     width: 121px;
@@ -133,6 +135,7 @@
     border-radius: 5px;
     margin: auto;
     cursor: pointer;
+    font-size: 1.2em;
 }
 .m-edit .articleInformation{
     text-align: center;
@@ -172,9 +175,11 @@
 }
 .m-edit .articleInformation label{
     margin-right: 60px;
+    font-size: 1.2em;
 }
 .m-edit .articleInformation .destination label{
     margin-right: 73px;
+    font-size: 1.2em;
 }
 .m-edit .articleInformation .next{
     width: 121px;
@@ -209,7 +214,7 @@
 .m-edit .editNoteContent .introInput textarea{
     width: 361px;
     height: 133px;
-    font-size: 1.4em;
+    font-size: 1.2em;
     padding: 5px;
     border: 2px solid #e6e6e6;
     outline: none;
@@ -226,7 +231,7 @@
     margin: auto;
     padding-bottom: 20px;
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     line-height: 20px;
 }
 .m-edit .editNoteContent .introShow:hover{
@@ -289,9 +294,11 @@
     width: 361px;
     height: 31px;
     border: 2px solid #e6e6e6;
+    font-size: 1.2em;
 }
 .m-edit .editNoteContent .paragraphTitle{
     margin-top: 40px;
+    font-size: 1.2em;
 
 }
 .m-edit .editNoteContent .picBtn input{
@@ -320,13 +327,13 @@
     /*height: 45px;*/
 }
 .m-edit .editNoteContent .sectionTitleShow{
-    font-size: 2rem;
+    font-size: 2em;
     color: #6fb638;
     text-align: left;
     margin-bottom: 40px;
 }
 .m-edit .editNoteContent .paragraphTitleShow{
-    font-size: 1.6rem;
+    font-size: 1.6em;
     color: black;
     font-weight: bold;
     margin-bottom: 40px;
@@ -346,7 +353,7 @@
 .m-edit .editNoteContent .paragraphContentShow{
     width: 375px;
     line-height: 20px;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     /*height: 96px;*/
 }
 .m-edit .editNoteContent .notePartBtn,
@@ -420,5 +427,6 @@
     background-color: #6eb82d;
     border-radius: 5px;
     margin: 80px auto;
+    font-size: 1.5em;
 }
 

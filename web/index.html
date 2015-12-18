@@ -87,9 +87,9 @@
                 <img ng-click="goSearch()" src="img/设计图/搜索.png">
             </div>
             <div class="loginNav" ng-class="{'loginNavHidden':noLogin==true}">
-                <a href="javascript:void(0)" ng-click="RegisterOpen()">注册</a>
+                <a ng-click="RegisterOpen()">注册</a>
                 <span>|</span>
-                <a href="javascript:void(0)" ng-click="LoginOpen()">登录</a>
+                <a ng-click="LoginOpen()">登录</a>
             </div>
         </div>
         <div class="personNav" ng-class="{'personNavShow':isLogin==true}">
@@ -97,10 +97,10 @@
                 {{userInformation[0].get('nickname')}}
                 <div class="dropDownBox">
                     <ul>
-                        <li class="personerCenter"><a href="javacript:void(0)"><img src="img/编辑后台标注切图/图像/源文件_03.png"></a></li>
-                        <li class="personerCenterOptian"><a href="javacript:void(0)"><img src="img/编辑后台标注切图/图像/源文件_07.png"></a></li>
-                        <li class="personerCenterOptian"><a href="javacript:void(0)"><img src="img/编辑后台标注切图/图像/源文件_09.png" ng-click="edit()"></a></li>
-                        <li class="personerCenterOptian"><a href="javacript:void(0)"><img  src="img/编辑后台标注切图/图像/源文件_11.png" ng-click="logOut()"></a></li>
+                        <li class="personerCenter"><a><img src="img/编辑后台标注切图/图像/源文件_03.png"></a></li>
+                        <li class="personerCenterOptian"><a><img src="img/编辑后台标注切图/图像/源文件_07.png"></a></li>
+                        <li class="personerCenterOptian"><a><img src="img/编辑后台标注切图/图像/源文件_09.png" ng-click="edit()"></a></li>
+                        <li class="personerCenterOptian"><a><img  src="img/编辑后台标注切图/图像/源文件_11.png" ng-click="logOut()"></a></li>
                     </ul>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                 <input class="password" ng-model="registerPassword" type="password" name="password" placeholder="输入密码">
                 <input class="submit" ng-click="GoRegister()" type="submit" name="submit" value="注册">
             </form>
-            <p class="hasAccount">已有觅游账号<a href="javascript:void(0)" class="login" ng-click="GoToLoginPage()">登录</a></p>
+            <p class="hasAccount">已有觅游账号<a class="login" ng-click="GoToLoginPage()">登录</a></p>
         </div>
     </div>
 </div>

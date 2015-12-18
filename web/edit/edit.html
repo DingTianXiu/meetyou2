@@ -75,7 +75,7 @@
             </div>
             <div class="introInput">
                 <textarea type="textarea" ng-hide="introDivShow"  ng-model="intro" name="intro" placeholder="请用一句话或一段话开始你的游记吧"></textarea>
-                <div class="introShow" ng-show="introDivShow" ng-click="selectIntroInput()">{{selected.intro}}<p class="revamp">修改</p></div>
+                <div class="introShow" ng-show="introDivShow" ng-click="selectIntroInput()">{{intro}}</div>
                 <img class="introMakeSure" ng-click="initAddDay()" ng-hide="introDivShow" src="../img/编辑后台标注切图/顶部切图/保-存.png">
             </div>
             <form class="editNoteContentForm" ng-repeat="day in days">

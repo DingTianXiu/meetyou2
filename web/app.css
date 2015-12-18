@@ -94,7 +94,6 @@ img{
   border: none;
   outline: none;
   margin-left: 10px;
-  margin-top: 1px;
   background-color: rgba(255,255,255,0);
 }
 .search-Home img{
@@ -203,7 +202,6 @@ img{
   border: none;
   outline: none;
   margin-left: 10px;
-  margin-top: 1px;
   background-color: rgba(0,0,0,0);
 }
 .search img{
@@ -216,6 +214,10 @@ img{
   float: left;
   margin-top: 22px;
   display: block;
+}
+.loginNav a{
+  font-size: 1.4em;
+  color: #ffffff;
 }
 .loginNavHidden{
   display: none;
@@ -230,6 +232,7 @@ img{
 .user{
   text-align: right;
   color: #ffffff;
+  font-size: 1.4em;
 }
 .personNav:hover .dropDownBox{
   display: block;
