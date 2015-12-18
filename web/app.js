@@ -193,7 +193,7 @@ angular
             $location.path('/')
         }
         $scope.edit = function(){
-            if($scope.userInformation.vip==true){
+            if($scope.userInformation[0].get("vip")==true){
                 $location.path('/edit');
             }else{
                 alert("您还不是觅客，无法编写文章");
