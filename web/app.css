@@ -218,6 +218,7 @@ img{
 .loginNav a{
   font-size: 1.4em;
   color: #ffffff;
+  cursor: pointer;
 }
 .loginNavHidden{
   display: none;
